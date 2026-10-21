@@ -116,12 +116,19 @@ const partners: Partner[] = [
   },
   {
     icon: Sparkles,
-    name: 'Co-Founder', // TODO: replace with partner's real name
-    role: 'Media & Growth Lead',
+    name: 'Sahaj Ochani',
+    role: 'Co-Founder · Media & Growth Lead',
     description:
-      'Leads seven specialist media and growth studios — spanning brand strategy, content production, social, PR, performance marketing, and community. The engine behind the noise we make.',
-    chips: ['Brand & Strategy', 'Media & Content', 'Growth Marketing'],
+      'Founder of The Brainy Branding — a LinkedIn authority and outreach system that has served 50+ founders, coaches, and businesses across the globe. Runs both engines at once: personal branding that builds reputation, and human-led outreach that brings qualified leads.',
+    chips: ['The Brainy Branding', '50+ Global Clients', 'LinkedIn Authority & Lead Gen'],
   },
+]
+
+const mergedStats = [
+  { value: '50+', label: 'Global Clients Served' },
+  { value: '600+', label: 'Personalized Outreach / Month' },
+  { value: '71/75', label: 'Google Home Tests Passed' },
+  { value: '7', label: 'Specialist Studios' },
 ]
 
 const heroChips: { label: string; icon: LucideIcon }[] = [
@@ -313,6 +320,19 @@ function Hero() {
             </li>
           ))}
         </motion.ul>
+
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          custom={5}
+          className="mt-8 text-xs tracking-wide text-white/35"
+        >
+          From the founders of{' '}
+          <span className="font-medium text-white/60">Codtrex AI</span>
+          <span className="mx-1.5 text-white/25">×</span>
+          <span className="font-medium text-white/60">The Brainy Branding</span>
+        </motion.p>
       </div>
     </section>
   )
@@ -496,6 +516,30 @@ function PartnersSection() {
             )
           })}
         </div>
+
+        {/* Merged credibility stats */}
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: '-60px' }}
+          custom={2}
+          className="mt-4 grid grid-cols-2 gap-4 lg:grid-cols-4"
+        >
+          {mergedStats.map((stat) => (
+            <div
+              key={stat.label}
+              className="rounded-2xl border border-white/[0.07] bg-white/[0.03] p-5 text-center"
+            >
+              <p className="bg-gradient-to-r from-violet-300 to-fuchsia-300 bg-clip-text text-3xl font-semibold tracking-tight text-transparent">
+                {stat.value}
+              </p>
+              <p className="mt-1.5 text-xs leading-snug text-white/45">
+                {stat.label}
+              </p>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   )
