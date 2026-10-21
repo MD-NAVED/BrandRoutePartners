@@ -21,3 +21,20 @@ Stage Summary:
 - Key decision: scroll-reveal via framer-motion whileInView (once: true); friend's partner card uses generic "Co-Founder" name with TODO comment at src/app/page.tsx partners array for easy name swap
 - Contact: hello@brandroutepartners.com (mailto links in header/hero/CTA card/contact/footer + clipboard copy)
 - Deployable directly to brandroutepartners.com via Vercel
+
+---
+Task ID: 2
+Agent: Main Agent (Z.ai)
+Task: Full redesign per user's reference design (dark green theme, 5 core services, Book a Strategy Call CTA)
+
+Work Log:
+- User shared reference design images: dark green tech style, headline "Build Your Brand. Generate More Leads.", 5 services (Personal Branding, Lead Generation, Cold Email Marketing, Sales Support, Marketing Automation), orbit graphic with service chips, footer with giant wordmark + Company/Services columns, "Book a Strategy Call" CTA
+- Removed all personal names (user: "naam nahi chaiye, bas kaam") — engines are now work-based: "Media & Growth / The Attention Engine" + "Engineering / The Build Engine"
+- Rewrote src/app/page.tsx: green theme (#050a08 bg, emerald→teal gradients), new hero with orbit graphic (center Route hub, spinning dashed ring, orbiting dot, SVG connector lines, 5 service chips at 72° spacing), 5 core services grid + CTA card, 7 studios grid (kept per "baki tere servies daaldena"), Two engines + stats (71/75, 5, 7, 14–20), 4-step process, 3 case studies (4Layers, MediStock, Analyst.AI — real projects), contact "Book your strategy call", footer with giant BRANDROUTE wordmark + Company/Services/CTA columns + © 2026
+- Updated globals.css (emerald selection/scrollbar), favicon.svg (emerald→teal gradient), layout.tsx metadata (lead-gen focused title/description)
+- Verification: lint clean, 200 OK, no page errors, no mobile overflow (375px), copy button works, nav anchor scroll works, VLM verified hero/orbit/services/footer all pass
+
+Stage Summary:
+- Site now matches user's reference design: dark green tech aesthetic, 5 core growth services + 7 studios, "Book a Strategy Call" mailto CTAs throughout, giant footer wordmark
+- Zero personal names anywhere — pure work/capability focus
+- Live at port 3000, deploy-ready for brandroutepartners.com

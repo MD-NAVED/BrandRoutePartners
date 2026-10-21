@@ -14,16 +14,17 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BrandRoute Partners — Technology & Media Growth House",
+  title: "BrandRoute Partners — Build Your Brand. Generate More Leads.",
   description:
-    "A two-partner powerhouse: AI-powered product engineering meets seven specialist media & growth studios. Build, launch, and grow your brand — one route.",
+    "Personal branding, lead generation, cold email marketing, sales support, and marketing automation — backed by Google-certified product engineering. One system builds your reputation while the other fills your calendar.",
   keywords: [
     "BrandRoute Partners",
+    "personal branding",
+    "lead generation",
+    "cold email marketing",
+    "sales support",
+    "marketing automation",
     "brand growth",
-    "media agency",
-    "AI development",
-    "digital marketing",
-    "tech partnership",
   ],
   authors: [{ name: "BrandRoute Partners" }],
   icons: {
