@@ -116,19 +116,19 @@ const partners: Partner[] = [
   },
   {
     icon: Sparkles,
-    name: 'Sahaj Ochani',
+    name: 'Co-Founder', // TODO: dost ka asli naam yaha daalna hai
     role: 'Co-Founder · Media & Growth Lead',
     description:
-      'Founder of The Brainy Branding — a LinkedIn authority and outreach system that has served 50+ founders, coaches, and businesses across the globe. Runs both engines at once: personal branding that builds reputation, and human-led outreach that brings qualified leads.',
-    chips: ['The Brainy Branding', '50+ Global Clients', 'LinkedIn Authority & Lead Gen'],
+      'Runs the media side of the house — LinkedIn authority building, content creation, personalized outreach, and lead qualification. The system that turns founders into recognized voices while their calendars fill with qualified calls.',
+    chips: ['Personal Branding', 'Content & Outreach', 'Lead Generation'],
   },
 ]
 
 const mergedStats = [
-  { value: '50+', label: 'Global Clients Served' },
-  { value: '600+', label: 'Personalized Outreach / Month' },
   { value: '71/75', label: 'Google Home Tests Passed' },
   { value: '7', label: 'Specialist Studios' },
+  { value: '14–20', label: 'Day Project Turnaround' },
+  { value: '5+', label: 'LLM Providers Integrated' },
 ]
 
 const heroChips: { label: string; icon: LucideIcon }[] = [
@@ -328,10 +328,12 @@ function Hero() {
           custom={5}
           className="mt-8 text-xs tracking-wide text-white/35"
         >
-          From the founders of{' '}
+          From the founder of{' '}
           <span className="font-medium text-white/60">Codtrex AI</span>
           <span className="mx-1.5 text-white/25">×</span>
-          <span className="font-medium text-white/60">The Brainy Branding</span>
+          <span className="font-medium text-white/60">
+            7 specialist growth studios
+          </span>
         </motion.p>
       </div>
     </section>
