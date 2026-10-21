@@ -1,13 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import {
-  AnimatePresence,
-  motion,
-  MotionConfig,
-  useInView,
-  type Variants,
-} from 'framer-motion'
+import { motion, MotionConfig, useInView, type Variants } from 'framer-motion'
 import {
   ArrowDown,
   ArrowUpRight,
@@ -26,7 +20,6 @@ import {
   Mail,
   MapPin,
   Megaphone,
-  MessageSquare,
   Package,
   PenTool,
   PhoneCall,
@@ -37,7 +30,6 @@ import {
   Sparkles,
   Target,
   TrendingUp,
-  UserCheck,
   Workflow,
   Zap,
   type LucideIcon,
@@ -289,22 +281,11 @@ function Header() {
   )
 }
 
-type FeedItem = { icon: LucideIcon; text: string; tag: string; id: number }
-
-const feedPool: Omit<FeedItem, 'id'>[] = [
-  { icon: UserCheck, text: 'Lead qualified — fintech founder', tag: 'LEAD' },
-  { icon: CalendarCheck, text: 'Strategy call booked — Thu, 3:00 PM', tag: 'BOOKED' },
-  { icon: Send, text: '12 personalized intros sent', tag: 'OUTREACH' },
-  { icon: TrendingUp, text: 'Profile views +214% this week', tag: 'GROWTH' },
-  { icon: Mail, text: 'Cold email replied — 2nd touch', tag: 'REPLY' },
-  { icon: MessageSquare, text: 'Comment thread started — 3 replies', tag: 'ENGAGE' },
-  { icon: UserCheck, text: 'Lead qualified — D2C brand owner', tag: 'LEAD' },
-  { icon: Zap, text: 'Follow-up sequence triggered', tag: 'AUTOMATION' },
-  { icon: Eye, text: 'Profile audit complete — 7 fixes shipped', tag: 'SYSTEM' },
-  { icon: PhoneCall, text: 'Discovery call — notes synced to CRM', tag: 'SALES' },
+const heroStats = [
+  { value: 128, suffix: '+', label: 'Qualified leads / month' },
+  { value: 42, suffix: '%', label: 'Average reply rate' },
+  { value: 36, suffix: '', label: 'Meetings booked / month' },
 ]
-
-const consoleBars = [26, 34, 30, 42, 38, 50, 46, 58, 54, 66, 62, 84]
 
 function CountUp({ to, duration = 1.6 }: { to: number; duration?: number }) {
   const ref = useRef<HTMLSpanElement>(null)
@@ -327,160 +308,23 @@ function CountUp({ to, duration = 1.6 }: { to: number; duration?: number }) {
   return <span ref={ref}>0</span>
 }
 
-function GrowthConsole() {
-  const [feed, setFeed] = useState<FeedItem[]>(() =>
-    feedPool.slice(0, 5).map((item, i) => ({ ...item, id: i })),
-  )
-  const poolIdx = useRef(5)
-  const nextId = useRef(5)
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const item: FeedItem = {
-        ...feedPool[poolIdx.current % feedPool.length],
-        id: nextId.current,
-      }
-      poolIdx.current += 1
-      nextId.current += 1
-      setFeed((prev) => [item, ...prev].slice(0, 5))
-    }, 2400)
-    return () => clearInterval(timer)
-  }, [])
-
+function HeroStats() {
   return (
-    <div className="relative mx-auto max-w-3xl">
-      {/* ambient glow */}
-      <div
-        aria-hidden="true"
-        className="absolute -inset-3 rounded-[2.5rem] bg-emerald-500/[0.08] blur-3xl sm:-inset-10"
-      />
-      <div className="relative overflow-hidden rounded-2xl border border-emerald-400/15 bg-[#060f0b]/95 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.9)] backdrop-blur">
-        {/* header */}
-        <div className="flex items-center justify-between border-b border-emerald-400/10 px-4 py-3 sm:px-5">
-          <div className="flex items-center gap-3">
-            <span className="flex gap-1.5" aria-hidden="true">
-              <span className="h-2 w-2 rounded-full bg-white/10" />
-              <span className="h-2 w-2 rounded-full bg-white/10" />
-              <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
-            </span>
-            <span className="font-mono text-[10px] tracking-[0.22em] text-emerald-100/60 sm:text-[11px]">
-              GROWTH CONSOLE
-            </span>
-          </div>
-          <div className="flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-400/[0.07] px-2.5 py-1 font-mono text-[9px] tracking-[0.18em] text-emerald-300">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
-                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
-              </span>
-              LIVE
-            </span>
-            <span className="hidden font-mono text-[9px] tracking-[0.18em] text-white/30 sm:inline">
-              SYSTEMS ACTIVE
-            </span>
-          </div>
-        </div>
-
-        {/* body */}
-        <div className="grid md:grid-cols-[1.45fr_1fr]">
-          {/* activity feed */}
-          <div className="border-b border-emerald-400/10 p-4 sm:p-5 md:border-b-0 md:border-r">
-            <div className="mb-3 flex items-center justify-between">
-              <span className="font-mono text-[9px] tracking-[0.22em] text-white/35">
-                ACTIVITY FEED
-              </span>
-              <span className="font-mono text-[9px] text-white/25">
-                auto-refresh: on
-              </span>
+    <div className="mx-auto max-w-xl">
+      <div className="grid grid-cols-3 divide-x divide-emerald-400/10 rounded-2xl border border-emerald-400/15 bg-[#060f0b]/90 py-6 backdrop-blur sm:py-8">
+        {heroStats.map((stat) => (
+          <div key={stat.label} className="px-2 text-center sm:px-4">
+            <div className="text-2xl font-semibold tracking-tight text-white sm:text-4xl">
+              <CountUp to={stat.value} />
+              {stat.suffix && (
+                <span className="text-emerald-300">{stat.suffix}</span>
+              )}
             </div>
-            <ul className="space-y-2">
-              <AnimatePresence initial={false} mode="popLayout">
-                {feed.map((item) => (
-                  <motion.li
-                    key={item.id}
-                    layout
-                    initial={{ opacity: 0, y: -16 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.4, ease: EASE }}
-                    className="flex items-center gap-3 rounded-lg border border-emerald-400/[0.08] bg-white/[0.02] px-3 py-2.5"
-                  >
-                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md border border-emerald-400/10 bg-emerald-400/[0.08]">
-                      <item.icon className="h-3.5 w-3.5 text-emerald-300" />
-                    </span>
-                    <span className="min-w-0 flex-1 truncate text-xs text-white/75">
-                      {item.text}
-                    </span>
-                    <span className="shrink-0 rounded border border-emerald-400/15 bg-emerald-400/[0.05] px-1.5 py-0.5 font-mono text-[8px] tracking-[0.14em] text-emerald-300/70">
-                      {item.tag}
-                    </span>
-                  </motion.li>
-                ))}
-              </AnimatePresence>
-            </ul>
-          </div>
-
-          {/* metrics */}
-          <div className="p-4 sm:p-5">
-            <span className="font-mono text-[9px] tracking-[0.22em] text-white/35">
-              LEADS THIS MONTH
-            </span>
-            <div className="mt-2 flex items-end gap-2">
-              <span className="text-4xl font-semibold tracking-tight text-white">
-                <CountUp to={128} />
-              </span>
-              <span className="mb-1 inline-flex items-center gap-1 rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-medium text-emerald-300">
-                <TrendingUp className="h-3 w-3" />
-                +12%
-              </span>
-            </div>
-            {/* trend bars */}
-            <div
-              className="mt-4 flex h-16 items-end gap-1 sm:h-20"
-              aria-hidden="true"
-            >
-              {consoleBars.map((h, i) => (
-                <motion.span
-                  key={i}
-                  initial={{ scaleY: 0 }}
-                  whileInView={{ scaleY: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.25 + i * 0.05, duration: 0.5, ease: EASE }}
-                  className={`flex-1 origin-bottom rounded-[2px] ${
-                    i === consoleBars.length - 1
-                      ? 'bg-gradient-to-t from-emerald-500/40 to-emerald-300 shadow-[0_0_16px_rgba(52,211,153,0.45)]'
-                      : 'bg-gradient-to-t from-emerald-500/15 to-emerald-400/60'
-                  }`}
-                  style={{ height: `${h}%` }}
-                />
-              ))}
-            </div>
-            <div className="mt-4 grid grid-cols-2 gap-2">
-              <div className="rounded-lg border border-emerald-400/[0.08] bg-white/[0.02] p-2.5">
-                <div className="font-mono text-[8px] tracking-[0.18em] text-white/35">
-                  REPLY RATE
-                </div>
-                <div className="mt-1 text-sm font-semibold text-white/85">42%</div>
-              </div>
-              <div className="rounded-lg border border-emerald-400/[0.08] bg-white/[0.02] p-2.5">
-                <div className="font-mono text-[8px] tracking-[0.18em] text-white/35">
-                  MEETINGS BOOKED
-                </div>
-                <div className="mt-1 text-sm font-semibold text-white/85">36</div>
-              </div>
+            <div className="mt-1.5 text-[10px] leading-snug text-white/45 sm:text-xs">
+              {stat.label}
             </div>
           </div>
-        </div>
-
-        {/* footer */}
-        <div className="flex flex-wrap items-center justify-between gap-2 border-t border-emerald-400/10 px-4 py-2.5 font-mono text-[9px] tracking-[0.12em] text-white/30 sm:px-5">
-          <span>pipeline: 5 stages active</span>
-          <span className="hidden sm:inline">systems nominal</span>
-          <span className="inline-flex items-center gap-1.5">
-            <span className="h-1 w-1 animate-pulse rounded-full bg-emerald-400" />
-            sync: live
-          </span>
-        </div>
+        ))}
       </div>
     </div>
   )
@@ -580,7 +424,7 @@ function Hero() {
         custom={5}
         className="mt-14 sm:mt-16"
       >
-        <GrowthConsole />
+        <HeroStats />
       </motion.div>
     </section>
   )
