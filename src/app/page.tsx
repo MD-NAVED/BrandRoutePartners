@@ -6,22 +6,17 @@ import {
   ArrowDown,
   ArrowUpRight,
   BadgeCheck,
-  Brain,
   CalendarCheck,
   Check,
   Copy,
   Cpu,
-  Eye,
   Fingerprint,
   Headset,
   Layers,
-  Lightbulb,
   Mail,
   MapPin,
-  Megaphone,
   PenTool,
   PhoneCall,
-  Radio,
   Rocket,
   Route,
   Send,
@@ -79,18 +74,6 @@ const services: Service[] = [
       'Funnels, follow-ups, and weekly reporting on autopilot. The system keeps running while you run the business.',
     icon: Workflow,
   },
-]
-
-type Studio = { name: string; tag: string; icon: LucideIcon }
-
-const studios: Studio[] = [
-  { name: 'Brainwave Media', tag: 'Content & Production', icon: Brain },
-  { name: 'Brainstorm Labs', tag: 'Brand Strategy', icon: Lightbulb },
-  { name: 'The Attention Dept', tag: 'Social Media', icon: Eye },
-  { name: 'Makewaves Media', tag: 'PR & Campaigns', icon: Radio },
-  { name: 'Marketwise Growth', tag: 'Performance & SEO', icon: TrendingUp },
-  { name: 'ScaleTheory Agency', tag: 'Growth Systems', icon: Rocket },
-  { name: 'Crowdora Labs', tag: 'Community & Buzz', icon: Megaphone },
 ]
 
 const processSteps = [
@@ -225,9 +208,6 @@ function Header() {
         >
           <a href="#services" className="transition hover:text-white">
             Services
-          </a>
-          <a href="#studios" className="transition hover:text-white">
-            Studios
           </a>
           <a href="#about" className="transition hover:text-white">
             About
@@ -509,69 +489,6 @@ function ServicesSection() {
                 Book a Strategy Call
                 <ArrowUpRight className="h-4 w-4" />
               </a>
-            </div>
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  )
-}
-
-function StudiosSection() {
-  return (
-    <section
-      id="studios"
-      aria-labelledby="studios-title"
-      className="relative scroll-mt-20 py-20 sm:py-28"
-    >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading
-          id="studios-title"
-          eyebrow="Our network"
-          title="Seven specialist studios."
-          subtitle="Beyond the core services, seven specialist studios cover everything a growing brand needs — from strategy and content to community."
-        />
-
-        <div className="mt-12 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-          {studios.map((studio, i) => {
-            const Icon = studio.icon
-            return (
-              <motion.div
-                key={studio.name}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: '-60px' }}
-                custom={i % 4}
-              >
-                <div className="group flex h-full items-center gap-3.5 rounded-2xl border border-emerald-400/[0.08] bg-white/[0.03] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/25 hover:bg-white/[0.05]">
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-emerald-400/[0.12] bg-gradient-to-br from-emerald-500/15 to-teal-500/15 text-emerald-300">
-                    <Icon className="h-5 w-5" strokeWidth={1.75} />
-                  </span>
-                  <div>
-                    <h3 className="text-[15px] font-semibold leading-tight tracking-tight">
-                      {studio.name}
-                    </h3>
-                    <p className="mt-0.5 text-xs text-white/45">{studio.tag}</p>
-                  </div>
-                </div>
-              </motion.div>
-            )
-          })}
-
-          {/* filler card */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-60px' }}
-            custom={3}
-          >
-            <div className="flex h-full items-center justify-center rounded-2xl border border-dashed border-emerald-400/20 bg-transparent p-4 text-center">
-              <p className="text-xs leading-relaxed text-white/40">
-                <span className="font-semibold text-emerald-300/80">+2</span>{' '}
-                engines under one roof
-              </p>
             </div>
           </motion.div>
         </div>
@@ -907,7 +824,6 @@ export default function Home() {
         <main className="relative z-10 flex-1">
           <Hero />
           <ServicesSection />
-          <StudiosSection />
           <AboutSection />
           <ProcessSection />
           <ContactSection />
