@@ -108,18 +108,18 @@ type Partner = {
 const partners: Partner[] = [
   {
     icon: Cpu,
-    name: 'Mohammad Naved',
-    role: 'Co-Founder · Technology Lead',
+    name: 'Engineering',
+    role: 'The Build Engine',
     description:
-      'AI-assisted developer and prompt engineer. Designs and ships Google-certified IoT ecosystems, multi-tenant SaaS platforms, and LLM-powered applications — owned end to end, from architecture to deployment.',
+      'AI-assisted product engineering that designs, ships, and tests Google-certified IoT ecosystems, multi-tenant SaaS platforms, and LLM-powered applications — owned end to end, from architecture to deployment.',
     chips: ['Google-Certified IoT', 'AI & LLM Engineering', 'Full-Stack Platforms'],
   },
   {
     icon: Sparkles,
-    name: 'Co-Founder',
-    role: 'Media & Growth Lead',
+    name: 'Media & Growth',
+    role: 'The Attention Engine',
     description:
-      'Runs the media side of the house — LinkedIn authority building, content creation, personalized outreach, and lead qualification. The system that turns founders into recognized voices while their calendars fill with qualified calls.',
+      'LinkedIn authority building, content creation, personalized outreach, and lead qualification — the system that turns brands into recognized voices while calendars fill with qualified calls.',
     chips: ['Personal Branding', 'Content & Outreach', 'Lead Generation'],
   },
 ]
@@ -328,7 +328,7 @@ function Hero() {
           custom={5}
           className="mt-8 text-xs tracking-wide text-white/35"
         >
-          From the founder of{' '}
+          Powered by{' '}
           <span className="font-medium text-white/60">Codtrex AI</span>
           <span className="mx-1.5 text-white/25">×</span>
           <span className="font-medium text-white/60">
@@ -470,8 +470,8 @@ function PartnersSection() {
         <SectionHeading
           id="partners-title"
           eyebrow="Who we are"
-          title="Two partners. One route."
-          subtitle="A technology and media partnership built to take brands from idea to attention — deep engineering on one side, relentless growth on the other."
+          title="Two engines. One route."
+          subtitle="A technology and media house built to take brands from idea to attention — deep engineering on one side, relentless growth on the other."
         />
 
         <div className="mt-12 grid gap-4 md:grid-cols-2">
