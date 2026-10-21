@@ -116,8 +116,8 @@ const partners: Partner[] = [
   },
   {
     icon: Sparkles,
-    name: 'Co-Founder', // TODO: dost ka asli naam yaha daalna hai
-    role: 'Co-Founder · Media & Growth Lead',
+    name: 'Co-Founder',
+    role: 'Media & Growth Lead',
     description:
       'Runs the media side of the house — LinkedIn authority building, content creation, personalized outreach, and lead qualification. The system that turns founders into recognized voices while their calendars fill with qualified calls.',
     chips: ['Personal Branding', 'Content & Outreach', 'Lead Generation'],
