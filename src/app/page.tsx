@@ -282,47 +282,101 @@ function Header() {
 }
 
 function OrbitGraphic() {
-  const points = services.map((service, i) => {
-    const angle = ((i * 72 - 90) * Math.PI) / 180
+  // Chip positions mirroring the reference mockup: 10, 2, 4, ~6:40 and 9 o'clock
+  const layout = [
+    { service: services[0], angle: -150 }, // Personal Branding — top-left
+    { service: services[2], angle: -30 }, // Cold Email Marketing — top-right
+    { service: services[3], angle: 60 }, // Sales Support — bottom-right
+    { service: services[4], angle: 100 }, // Marketing Automation — bottom
+    { service: services[1], angle: 180 }, // Lead Generation — far left
+  ]
+
+  const points = layout.map(({ service, angle }) => {
+    const a = (angle * Math.PI) / 180
     return {
       service,
-      x: 50 + 46 * Math.cos(angle),
-      y: 50 + 46 * Math.sin(angle),
+      x: 50 + 40 * Math.cos(a),
+      y: 50 + 40 * Math.sin(a),
     }
   })
 
   return (
     <div className="relative mx-auto aspect-square w-64 sm:w-80 lg:w-[440px]">
-      {/* rings */}
-      <div className="absolute inset-0 rounded-full border border-emerald-400/[0.08]" />
-      <div className="absolute inset-[15%] rounded-full border border-emerald-400/[0.12]" />
-      <div className="absolute inset-[30%] rounded-full border border-dashed border-emerald-400/20 [animation:spin_40s_linear_infinite]" />
+      {/* outer ticked ring — HUD dial, slow spin */}
+      <svg
+        aria-hidden="true"
+        viewBox="0 0 100 100"
+        className="absolute inset-0 h-full w-full [animation:spin_60s_linear_infinite]"
+      >
+        <circle
+          cx="50"
+          cy="50"
+          r="49"
+          fill="none"
+          stroke="rgba(52,211,153,0.3)"
+          strokeWidth="0.45"
+          strokeDasharray="0.3 3.1"
+          strokeLinecap="round"
+        />
+      </svg>
+      {/* inner solid ring */}
+      <div className="absolute inset-[24%] rounded-full border border-emerald-400/20" />
       {/* orbiting dot */}
-      <div className="absolute inset-[15%] rounded-full [animation:spin_12s_linear_infinite]">
+      <div className="absolute inset-[16%] rounded-full [animation:spin_12s_linear_infinite]">
         <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
       </div>
-      {/* connector lines */}
+      {/* circuit-board traces */}
       <svg
         aria-hidden="true"
         viewBox="0 0 100 100"
         className="absolute inset-0 h-full w-full"
       >
-        {points.map((p) => (
-          <line
-            key={p.service.name}
-            x1="50%"
-            y1="50%"
-            x2={`${p.x}%`}
-            y2={`${p.y}%`}
-            stroke="rgba(52, 211, 153, 0.14)"
-            strokeWidth="0.35"
-            strokeDasharray="1.5 2"
-          />
-        ))}
+        <g fill="none" stroke="rgba(52,211,153,0.35)" strokeWidth="0.4">
+          <path d="M42.5 39.5 L42.5 30 L36.5 30" />
+          <path d="M57.5 39.5 L57.5 30 L63.5 30" />
+          <path d="M63 50 L70 50 L70 79" />
+          <path d="M50 63 L50 74 L43 74 L43 83.5" />
+          <path d="M37 50 L29.5 50" />
+        </g>
+        {/* solder pads at hubs and bends */}
+        <g fill="rgba(52,211,153,0.55)">
+          <circle cx="42.5" cy="39.5" r="0.7" />
+          <circle cx="57.5" cy="39.5" r="0.7" />
+          <circle cx="63" cy="50" r="0.7" />
+          <circle cx="50" cy="63" r="0.7" />
+          <circle cx="37" cy="50" r="0.7" />
+          <circle cx="42.5" cy="30" r="0.7" />
+          <circle cx="57.5" cy="30" r="0.7" />
+          <circle cx="70" cy="50" r="0.7" />
+          <circle cx="50" cy="74" r="0.7" />
+          <circle cx="43" cy="74" r="0.7" />
+        </g>
+        {/* endpoint pads with glow halos */}
+        <g fill="rgba(52,211,153,0.16)">
+          <circle cx="36.5" cy="30" r="1.8" />
+          <circle cx="63.5" cy="30" r="1.8" />
+          <circle cx="70" cy="79" r="1.8" />
+          <circle cx="43" cy="83.5" r="1.8" />
+          <circle cx="29.5" cy="50" r="1.8" />
+        </g>
+        <g fill="rgba(110,231,183,0.9)">
+          <circle cx="36.5" cy="30" r="1" />
+          <circle cx="63.5" cy="30" r="1" />
+          <circle cx="70" cy="79" r="1" />
+          <circle cx="43" cy="83.5" r="1" />
+          <circle cx="29.5" cy="50" r="1" />
+        </g>
       </svg>
-      {/* center hub */}
-      <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-emerald-400/25 bg-gradient-to-br from-emerald-500/15 to-teal-500/10 shadow-[0_0_60px_-10px_rgba(16,185,129,0.45)] backdrop-blur sm:h-28 sm:w-28">
-        <Route className="h-9 w-9 text-emerald-300 sm:h-11 sm:w-11" strokeWidth={2} />
+      {/* center hub — glowing brand orb */}
+      <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-emerald-400/30 bg-[radial-gradient(circle_at_50%_38%,rgba(52,211,153,0.28),rgba(16,185,129,0.1)_55%,rgba(5,10,8,0.4)_100%)] shadow-[0_0_70px_-10px_rgba(16,185,129,0.55)] backdrop-blur sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+        <span className="absolute inset-[6%] rounded-full border border-emerald-300/15" />
+        <span className="absolute inset-[13%] rounded-full border border-emerald-300/[0.08]" />
+        <span className="relative font-mono text-[8px] font-bold tracking-[0.2em] text-emerald-50 sm:text-[9px] lg:text-[10.5px]">
+          BRANDROUTE
+        </span>
+        <span className="relative mt-1 font-mono text-[6.5px] font-medium tracking-[0.38em] text-emerald-200/80 sm:text-[7.5px] lg:text-[8.5px]">
+          PARTNERS
+        </span>
       </div>
       {/* orbiting service chips */}
       {points.map((p) => {
@@ -333,8 +387,8 @@ function OrbitGraphic() {
             className="absolute hidden -translate-x-1/2 -translate-y-1/2 md:block"
             style={{ left: `${p.x}%`, top: `${p.y}%` }}
           >
-            <span className="flex items-center gap-2 whitespace-nowrap rounded-full border border-emerald-400/20 bg-[#07120e]/95 px-3.5 py-2 text-xs text-emerald-50/85 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.8)] backdrop-blur">
-              <Icon className="h-3.5 w-3.5 text-emerald-300" />
+            <span className="flex items-center gap-2 whitespace-nowrap rounded-full border border-emerald-400/20 bg-[#07120e]/95 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-emerald-50/85 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.8)] backdrop-blur">
+              <Icon className="h-3 w-3 text-emerald-300" />
               {p.service.name}
             </span>
           </div>
@@ -384,9 +438,9 @@ function Hero() {
           custom={2}
           className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-white/55 sm:text-lg"
         >
-          Personal branding, lead generation, and marketing automation — backed
-          by Google-certified product engineering. One system builds your
-          reputation while the other fills your calendar.
+          Strategy, lead gen, and marketing systems for ambitious
+          businesses. One system builds your reputation while the other
+          fills your calendar — backed by Google-certified engineering.
         </motion.p>
 
         <motion.div
