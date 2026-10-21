@@ -1,7 +1,13 @@
 'use client'
 
-import { useCallback, useState } from 'react'
-import { motion, MotionConfig, type Variants } from 'framer-motion'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import {
+  AnimatePresence,
+  motion,
+  MotionConfig,
+  useInView,
+  type Variants,
+} from 'framer-motion'
 import {
   ArrowDown,
   ArrowUpRight,
@@ -20,6 +26,7 @@ import {
   Mail,
   MapPin,
   Megaphone,
+  MessageSquare,
   Package,
   PenTool,
   PhoneCall,
@@ -30,6 +37,7 @@ import {
   Sparkles,
   Target,
   TrendingUp,
+  UserCheck,
   Workflow,
   Zap,
   type LucideIcon,
@@ -281,119 +289,199 @@ function Header() {
   )
 }
 
-function OrbitGraphic() {
-  // Chip positions mirroring the reference mockup: 10, 2, 4, ~6:40 and 9 o'clock
-  const layout = [
-    { service: services[0], angle: -150 }, // Personal Branding — top-left
-    { service: services[2], angle: -30 }, // Cold Email Marketing — top-right
-    { service: services[3], angle: 60 }, // Sales Support — bottom-right
-    { service: services[4], angle: 100 }, // Marketing Automation — bottom
-    { service: services[1], angle: 180 }, // Lead Generation — far left
-  ]
+type FeedItem = { icon: LucideIcon; text: string; tag: string; id: number }
 
-  const points = layout.map(({ service, angle }) => {
-    const a = (angle * Math.PI) / 180
-    return {
-      service,
-      x: 50 + 40 * Math.cos(a),
-      y: 50 + 40 * Math.sin(a),
+const feedPool: Omit<FeedItem, 'id'>[] = [
+  { icon: UserCheck, text: 'Lead qualified — fintech founder', tag: 'LEAD' },
+  { icon: CalendarCheck, text: 'Strategy call booked — Thu, 3:00 PM', tag: 'BOOKED' },
+  { icon: Send, text: '12 personalized intros sent', tag: 'OUTREACH' },
+  { icon: TrendingUp, text: 'Profile views +214% this week', tag: 'GROWTH' },
+  { icon: Mail, text: 'Cold email replied — 2nd touch', tag: 'REPLY' },
+  { icon: MessageSquare, text: 'Comment thread started — 3 replies', tag: 'ENGAGE' },
+  { icon: UserCheck, text: 'Lead qualified — D2C brand owner', tag: 'LEAD' },
+  { icon: Zap, text: 'Follow-up sequence triggered', tag: 'AUTOMATION' },
+  { icon: Eye, text: 'Profile audit complete — 7 fixes shipped', tag: 'SYSTEM' },
+  { icon: PhoneCall, text: 'Discovery call — notes synced to CRM', tag: 'SALES' },
+]
+
+const consoleBars = [26, 34, 30, 42, 38, 50, 46, 58, 54, 66, 62, 84]
+
+function CountUp({ to, duration = 1.6 }: { to: number; duration?: number }) {
+  const ref = useRef<HTMLSpanElement>(null)
+  const inView = useInView(ref, { once: true, margin: '-40px' })
+
+  useEffect(() => {
+    if (!inView || !ref.current) return
+    const start = performance.now()
+    let raf = 0
+    const step = (now: number) => {
+      const p = Math.min(1, (now - start) / (duration * 1000))
+      const eased = 1 - Math.pow(1 - p, 3)
+      if (ref.current) ref.current.textContent = String(Math.round(to * eased))
+      if (p < 1) raf = requestAnimationFrame(step)
     }
-  })
+    raf = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(raf)
+  }, [inView, to, duration])
+
+  return <span ref={ref}>0</span>
+}
+
+function GrowthConsole() {
+  const [feed, setFeed] = useState<FeedItem[]>(() =>
+    feedPool.slice(0, 5).map((item, i) => ({ ...item, id: i })),
+  )
+  const poolIdx = useRef(5)
+  const nextId = useRef(5)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      const item: FeedItem = {
+        ...feedPool[poolIdx.current % feedPool.length],
+        id: nextId.current,
+      }
+      poolIdx.current += 1
+      nextId.current += 1
+      setFeed((prev) => [item, ...prev].slice(0, 5))
+    }, 2400)
+    return () => clearInterval(timer)
+  }, [])
 
   return (
-    <div className="relative mx-auto aspect-square w-64 sm:w-80 lg:w-[440px]">
-      {/* outer ticked ring — HUD dial, slow spin */}
-      <svg
+    <div className="relative mx-auto max-w-3xl">
+      {/* ambient glow */}
+      <div
         aria-hidden="true"
-        viewBox="0 0 100 100"
-        className="absolute inset-0 h-full w-full [animation:spin_60s_linear_infinite]"
-      >
-        <circle
-          cx="50"
-          cy="50"
-          r="49"
-          fill="none"
-          stroke="rgba(52,211,153,0.3)"
-          strokeWidth="0.45"
-          strokeDasharray="0.3 3.1"
-          strokeLinecap="round"
-        />
-      </svg>
-      {/* inner solid ring */}
-      <div className="absolute inset-[24%] rounded-full border border-emerald-400/20" />
-      {/* orbiting dot */}
-      <div className="absolute inset-[16%] rounded-full [animation:spin_12s_linear_infinite]">
-        <span className="absolute left-1/2 top-0 h-1.5 w-1.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400 shadow-[0_0_12px_rgba(52,211,153,0.9)]" />
-      </div>
-      {/* circuit-board traces */}
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 100 100"
-        className="absolute inset-0 h-full w-full"
-      >
-        <g fill="none" stroke="rgba(52,211,153,0.35)" strokeWidth="0.4">
-          <path d="M42.5 39.5 L42.5 30 L36.5 30" />
-          <path d="M57.5 39.5 L57.5 30 L63.5 30" />
-          <path d="M63 50 L70 50 L70 79" />
-          <path d="M50 63 L50 74 L43 74 L43 83.5" />
-          <path d="M37 50 L29.5 50" />
-        </g>
-        {/* solder pads at hubs and bends */}
-        <g fill="rgba(52,211,153,0.55)">
-          <circle cx="42.5" cy="39.5" r="0.7" />
-          <circle cx="57.5" cy="39.5" r="0.7" />
-          <circle cx="63" cy="50" r="0.7" />
-          <circle cx="50" cy="63" r="0.7" />
-          <circle cx="37" cy="50" r="0.7" />
-          <circle cx="42.5" cy="30" r="0.7" />
-          <circle cx="57.5" cy="30" r="0.7" />
-          <circle cx="70" cy="50" r="0.7" />
-          <circle cx="50" cy="74" r="0.7" />
-          <circle cx="43" cy="74" r="0.7" />
-        </g>
-        {/* endpoint pads with glow halos */}
-        <g fill="rgba(52,211,153,0.16)">
-          <circle cx="36.5" cy="30" r="1.8" />
-          <circle cx="63.5" cy="30" r="1.8" />
-          <circle cx="70" cy="79" r="1.8" />
-          <circle cx="43" cy="83.5" r="1.8" />
-          <circle cx="29.5" cy="50" r="1.8" />
-        </g>
-        <g fill="rgba(110,231,183,0.9)">
-          <circle cx="36.5" cy="30" r="1" />
-          <circle cx="63.5" cy="30" r="1" />
-          <circle cx="70" cy="79" r="1" />
-          <circle cx="43" cy="83.5" r="1" />
-          <circle cx="29.5" cy="50" r="1" />
-        </g>
-      </svg>
-      {/* center hub — glowing brand orb */}
-      <div className="absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full border border-emerald-400/30 bg-[radial-gradient(circle_at_50%_38%,rgba(52,211,153,0.28),rgba(16,185,129,0.1)_55%,rgba(5,10,8,0.4)_100%)] shadow-[0_0_70px_-10px_rgba(16,185,129,0.55)] backdrop-blur sm:h-28 sm:w-28 lg:h-32 lg:w-32">
-        <span className="absolute inset-[6%] rounded-full border border-emerald-300/15" />
-        <span className="absolute inset-[13%] rounded-full border border-emerald-300/[0.08]" />
-        <span className="relative font-mono text-[8px] font-bold tracking-[0.2em] text-emerald-50 sm:text-[9px] lg:text-[10.5px]">
-          BRANDROUTE
-        </span>
-        <span className="relative mt-1 font-mono text-[6.5px] font-medium tracking-[0.38em] text-emerald-200/80 sm:text-[7.5px] lg:text-[8.5px]">
-          PARTNERS
-        </span>
-      </div>
-      {/* orbiting service chips */}
-      {points.map((p) => {
-        const Icon = p.service.icon
-        return (
-          <div
-            key={p.service.name}
-            className="absolute hidden -translate-x-1/2 -translate-y-1/2 md:block"
-            style={{ left: `${p.x}%`, top: `${p.y}%` }}
-          >
-            <span className="flex items-center gap-2 whitespace-nowrap rounded-full border border-emerald-400/20 bg-[#07120e]/95 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.08em] text-emerald-50/85 shadow-[0_8px_30px_-12px_rgba(0,0,0,0.8)] backdrop-blur">
-              <Icon className="h-3 w-3 text-emerald-300" />
-              {p.service.name}
+        className="absolute -inset-3 rounded-[2.5rem] bg-emerald-500/[0.08] blur-3xl sm:-inset-10"
+      />
+      <div className="relative overflow-hidden rounded-2xl border border-emerald-400/15 bg-[#060f0b]/95 shadow-[0_40px_100px_-30px_rgba(0,0,0,0.9)] backdrop-blur">
+        {/* header */}
+        <div className="flex items-center justify-between border-b border-emerald-400/10 px-4 py-3 sm:px-5">
+          <div className="flex items-center gap-3">
+            <span className="flex gap-1.5" aria-hidden="true">
+              <span className="h-2 w-2 rounded-full bg-white/10" />
+              <span className="h-2 w-2 rounded-full bg-white/10" />
+              <span className="h-2 w-2 rounded-full bg-emerald-400/70" />
+            </span>
+            <span className="font-mono text-[10px] tracking-[0.22em] text-emerald-100/60 sm:text-[11px]">
+              GROWTH CONSOLE
             </span>
           </div>
-        )
-      })}
+          <div className="flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-emerald-400/25 bg-emerald-400/[0.07] px-2.5 py-1 font-mono text-[9px] tracking-[0.18em] text-emerald-300">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-emerald-400" />
+              </span>
+              LIVE
+            </span>
+            <span className="hidden font-mono text-[9px] tracking-[0.18em] text-white/30 sm:inline">
+              SYSTEMS ACTIVE
+            </span>
+          </div>
+        </div>
+
+        {/* body */}
+        <div className="grid md:grid-cols-[1.45fr_1fr]">
+          {/* activity feed */}
+          <div className="border-b border-emerald-400/10 p-4 sm:p-5 md:border-b-0 md:border-r">
+            <div className="mb-3 flex items-center justify-between">
+              <span className="font-mono text-[9px] tracking-[0.22em] text-white/35">
+                ACTIVITY FEED
+              </span>
+              <span className="font-mono text-[9px] text-white/25">
+                auto-refresh: on
+              </span>
+            </div>
+            <ul className="space-y-2">
+              <AnimatePresence initial={false} mode="popLayout">
+                {feed.map((item) => (
+                  <motion.li
+                    key={item.id}
+                    layout
+                    initial={{ opacity: 0, y: -16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.4, ease: EASE }}
+                    className="flex items-center gap-3 rounded-lg border border-emerald-400/[0.08] bg-white/[0.02] px-3 py-2.5"
+                  >
+                    <span className="grid h-7 w-7 shrink-0 place-items-center rounded-md border border-emerald-400/10 bg-emerald-400/[0.08]">
+                      <item.icon className="h-3.5 w-3.5 text-emerald-300" />
+                    </span>
+                    <span className="min-w-0 flex-1 truncate text-xs text-white/75">
+                      {item.text}
+                    </span>
+                    <span className="shrink-0 rounded border border-emerald-400/15 bg-emerald-400/[0.05] px-1.5 py-0.5 font-mono text-[8px] tracking-[0.14em] text-emerald-300/70">
+                      {item.tag}
+                    </span>
+                  </motion.li>
+                ))}
+              </AnimatePresence>
+            </ul>
+          </div>
+
+          {/* metrics */}
+          <div className="p-4 sm:p-5">
+            <span className="font-mono text-[9px] tracking-[0.22em] text-white/35">
+              LEADS THIS MONTH
+            </span>
+            <div className="mt-2 flex items-end gap-2">
+              <span className="text-4xl font-semibold tracking-tight text-white">
+                <CountUp to={128} />
+              </span>
+              <span className="mb-1 inline-flex items-center gap-1 rounded-full bg-emerald-400/10 px-2 py-0.5 text-[10px] font-medium text-emerald-300">
+                <TrendingUp className="h-3 w-3" />
+                +12%
+              </span>
+            </div>
+            {/* trend bars */}
+            <div
+              className="mt-4 flex h-16 items-end gap-1 sm:h-20"
+              aria-hidden="true"
+            >
+              {consoleBars.map((h, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ scaleY: 0 }}
+                  whileInView={{ scaleY: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.25 + i * 0.05, duration: 0.5, ease: EASE }}
+                  className={`flex-1 origin-bottom rounded-[2px] ${
+                    i === consoleBars.length - 1
+                      ? 'bg-gradient-to-t from-emerald-500/40 to-emerald-300 shadow-[0_0_16px_rgba(52,211,153,0.45)]'
+                      : 'bg-gradient-to-t from-emerald-500/15 to-emerald-400/60'
+                  }`}
+                  style={{ height: `${h}%` }}
+                />
+              ))}
+            </div>
+            <div className="mt-4 grid grid-cols-2 gap-2">
+              <div className="rounded-lg border border-emerald-400/[0.08] bg-white/[0.02] p-2.5">
+                <div className="font-mono text-[8px] tracking-[0.18em] text-white/35">
+                  REPLY RATE
+                </div>
+                <div className="mt-1 text-sm font-semibold text-white/85">42%</div>
+              </div>
+              <div className="rounded-lg border border-emerald-400/[0.08] bg-white/[0.02] p-2.5">
+                <div className="font-mono text-[8px] tracking-[0.18em] text-white/35">
+                  MEETINGS BOOKED
+                </div>
+                <div className="mt-1 text-sm font-semibold text-white/85">36</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* footer */}
+        <div className="flex flex-wrap items-center justify-between gap-2 border-t border-emerald-400/10 px-4 py-2.5 font-mono text-[9px] tracking-[0.12em] text-white/30 sm:px-5">
+          <span>pipeline: 5 stages active</span>
+          <span className="hidden sm:inline">systems nominal</span>
+          <span className="inline-flex items-center gap-1.5">
+            <span className="h-1 w-1 animate-pulse rounded-full bg-emerald-400" />
+            sync: live
+          </span>
+        </div>
+      </div>
     </div>
   )
 }
@@ -492,7 +580,7 @@ function Hero() {
         custom={5}
         className="mt-14 sm:mt-16"
       >
-        <OrbitGraphic />
+        <GrowthConsole />
       </motion.div>
     </section>
   )
