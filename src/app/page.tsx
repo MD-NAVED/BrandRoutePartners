@@ -6,7 +6,6 @@ import {
   ArrowDown,
   ArrowUpRight,
   BadgeCheck,
-  BarChart3,
   Brain,
   CalendarCheck,
   Check,
@@ -20,7 +19,6 @@ import {
   Mail,
   MapPin,
   Megaphone,
-  Package,
   PenTool,
   PhoneCall,
   Radio,
@@ -119,33 +117,6 @@ const processSteps = [
     title: 'Scale & Report',
     description:
       'Weekly reports — no hiding, no black box. We double down on what works and cut what does not.',
-  },
-]
-
-const caseStudies = [
-  {
-    icon: Cpu,
-    tag: 'IoT · Google Certified',
-    title: '4Layers Smart Home',
-    description:
-      'A complete smart-home ecosystem — custom ESP32 hardware, AWS IoT Core, and the official Google Home test suite: 71 of 75 automated tests passed, devices verified and live.',
-    chips: ['ESP32', 'AWS IoT Core', 'Google Home API'],
-  },
-  {
-    icon: Package,
-    tag: 'SaaS · POS',
-    title: 'MediStock Pharmacy Cloud',
-    description:
-      'A multi-tenant pharmacy platform covering inventory, FEFO batch allocation, expiry tracking, billing, and supplier accounting — with strict store-level data isolation.',
-    chips: ['React', 'Supabase', 'PostgreSQL'],
-  },
-  {
-    icon: BarChart3,
-    tag: 'AI · Analytics',
-    title: 'Analyst.AI Data Suite',
-    description:
-      'An AI analytics suite that turns natural-language questions into deterministic SQL — executed in-memory with read-only safeguards and executive PDF reports.',
-    chips: ['TypeScript', 'Gemini API', 'DuckDB'],
   },
 ]
 
@@ -263,9 +234,6 @@ function Header() {
           </a>
           <a href="#process" className="transition hover:text-white">
             Process
-          </a>
-          <a href="#work" className="transition hover:text-white">
-            Work
           </a>
         </nav>
 
@@ -753,68 +721,6 @@ function ProcessSection() {
   )
 }
 
-function WorkSection() {
-  return (
-    <section
-      id="work"
-      aria-labelledby="work-title"
-      className="relative scroll-mt-20 py-20 sm:py-28"
-    >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading
-          id="work-title"
-          eyebrow="Case studies"
-          title="Work that speaks for itself."
-          subtitle="A few things we have designed, shipped, and certified — from Google-certified IoT ecosystems to AI analytics platforms."
-        />
-
-        <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {caseStudies.map((study, i) => {
-            const Icon = study.icon
-            return (
-              <motion.article
-                key={study.title}
-                variants={fadeUp}
-                initial="hidden"
-                whileInView="show"
-                viewport={{ once: true, margin: '-60px' }}
-                custom={i}
-              >
-                <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-emerald-400/[0.08] bg-white/[0.03] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-400/25 hover:bg-white/[0.05]">
-                  <div className="flex items-start justify-between">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-emerald-400/[0.12] bg-gradient-to-br from-emerald-500/15 to-teal-500/15 text-emerald-300">
-                      <Icon className="h-5 w-5" strokeWidth={1.75} />
-                    </span>
-                    <span className="rounded-full border border-emerald-400/20 bg-emerald-400/[0.06] px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.12em] text-emerald-300/80">
-                      {study.tag}
-                    </span>
-                  </div>
-                  <h3 className="mt-5 text-lg font-semibold tracking-tight">
-                    {study.title}
-                  </h3>
-                  <p className="mt-2 flex-1 text-sm leading-relaxed text-white/50">
-                    {study.description}
-                  </p>
-                  <ul className="mt-5 flex flex-wrap gap-2">
-                    {study.chips.map((chip) => (
-                      <li
-                        key={chip}
-                        className="rounded-full border border-emerald-400/[0.1] bg-white/[0.03] px-3 py-1 text-xs text-white/60"
-                      >
-                        {chip}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.article>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
-}
-
 function ContactSection() {
   const { copied, copy } = useCopyEmail()
 
@@ -940,11 +846,6 @@ function Footer() {
                   Our Process
                 </a>
               </li>
-              <li>
-                <a href="#work" className="text-white/55 transition hover:text-white">
-                  Case Studies
-                </a>
-              </li>
             </ul>
           </nav>
 
@@ -1009,7 +910,6 @@ export default function Home() {
           <StudiosSection />
           <AboutSection />
           <ProcessSection />
-          <WorkSection />
           <ContactSection />
         </main>
         <Footer />

@@ -128,3 +128,17 @@ Stage Summary:
 - Same marketing numbers as console (128+/42%/36) but presented as one clean static strip with subtle count-up
 - Screenshots: scripts/stats_desktop2.png, scripts/stats_mobile2.png; VLM: scripts/vlm_stats.json
 - Site remains name-free, deploy-ready for brandroutepartners.com
+
+---
+Task ID: 8
+Agent: Main Agent (Z.ai)
+Task: Remove Case Studies section entirely (user: "yai section remove kardo yaha sai")
+
+Work Log:
+- User pointed at the CASE STUDIES / "Work that speaks for itself." section in a screenshot — wants it gone
+- Removed 6 pieces: caseStudies array (4Layers/MediStock/Analyst.AI), WorkSection component, <WorkSection /> render, nav "Work" link, footer "Case Studies" link; cleaned now-unused Package + BarChart3 imports (Cpu kept — still used by engines)
+- Verified programmatically: #work count 0, "Work that speaks"/"Analyst.AI"/"MediStock" text absent, 0 #work links, remaining sections = top/services/studios/about/process/contact, lint clean, HTTP 200, no page errors, no overflow
+
+Stage Summary:
+- Page flow now: Hero → Services → Studios → About → Process → Contact (6 sections, case studies fully removed)
+- Site remains name-free, deploy-ready for brandroutepartners.com
