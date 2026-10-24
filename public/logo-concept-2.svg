@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+  <defs>
+    <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF6D2"/>
+      <stop offset="40%" stop-color="#F7D784"/>
+      <stop offset="100%" stop-color="#C9882B"/>
+    </linearGradient>
+    <linearGradient id="plateDark2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1A1107"/>
+      <stop offset="100%" stop-color="#0A0603"/>
+    </linearGradient>
+    <linearGradient id="rimGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFEB97" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#583714" stop-opacity="0.3"/>
+    </linearGradient>
+    <filter id="glow2" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3.5" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Luxury Obsidian Squircle Base -->
+  <rect x="4" y="4" width="92" height="92" rx="26" fill="url(#plateDark2)" stroke="url(#rimGrad2)" stroke-width="1.5"/>
+  <rect x="7" y="7" width="86" height="86" rx="23" fill="none" stroke="url(#goldGrad2)" stroke-width="0.75" opacity="0.25"/>
+
+  <!-- Two Interlocking Synergistic Routes (Media × Tech) -->
+  <g transform="translate(20, 20)">
+    <!-- Route Track 1 (Forward upper loop) -->
+    <path d="M 10 14 C 10 7, 18 7, 26 7 L 44 7 C 54 7, 60 14, 60 24 C 60 34, 52 38, 40 38 L 22 38" 
+          fill="none" stroke="url(#goldGrad2)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          
+    <!-- Route Track 2 (Forward lower loop interlocking) -->
+    <path d="M 50 46 C 50 53, 42 53, 34 53 L 16 53 C 6 53, 0 46, 0 36 C 0 26, 8 22, 20 22 L 38 22" 
+          fill="none" stroke="url(#goldGrad2)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          
+    <!-- Luminous Waypoints at Start & Finish -->
+    <circle cx="10" cy="14" r="4.5" fill="#FFF8DE" filter="url(#glow2)"/>
+    <circle cx="50" cy="46" r="4.5" fill="#FFF8DE" filter="url(#glow2)"/>
+  </g>
+</svg>

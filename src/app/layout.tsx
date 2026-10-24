@@ -1,22 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   title: "BrandRoute Partners — Build Your Brand. Generate More Leads.",
   description:
-    "Personal branding, lead generation, cold email marketing, sales support, and marketing automation — backed by Google-certified product engineering. One system builds your reputation while the other fills your calendar.",
+    "Personal branding, lead generation, cold email marketing, sales support, and marketing automation — backed by high-performance engineering. One system builds your reputation while the other fills your calendar.",
   keywords: [
     "BrandRoute Partners",
     "personal branding",
@@ -45,9 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
-      >
+      <body className="antialiased bg-[#070504] text-[#FAF6EE] font-sans selection:bg-[#FFEB97]/30 selection:text-white">
         {children}
         <Toaster />
       </body>
