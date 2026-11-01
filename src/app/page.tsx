@@ -31,7 +31,7 @@ import {
 } from 'lucide-react'
 import { useIsMobile } from '@/hooks/use-mobile'
 
-const EMAIL = 'hello@brandroutepartners.com'
+const EMAIL = 'fuzail@brandroutepartner.com'
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
@@ -50,60 +50,54 @@ type Service = {
   description: string
   icon: LucideIcon
   badge: string
-  gradient: string
   ambientGlow: string
 }
 
 const services: Service[] = [
   {
     name: 'Personal Branding',
-    tagline: 'Turn authority into inbound pipeline',
+    tagline: 'Build authority, trust and long-term recognition',
     description:
       'Your profile becomes a 24/7 revenue engine that positions you as the leading voice in your industry — building authority before you ever speak.',
     icon: Fingerprint,
     badge: '01 / Authority',
-    gradient: 'from-[#1e1006] via-[#140b05] to-[#45220a]',
-    ambientGlow: 'from-[#e68324]/35 via-[#c05c12]/20 to-transparent',
+    ambientGlow: 'from-[#78E6C3]/35 via-[#1A604D]/25 to-transparent',
   },
   {
     name: 'Lead Generation',
-    tagline: 'High-ticket buyers, warmed and verified',
+    tagline: 'Find, qualify and convert high-intent leads',
     description:
       'Qualified decision-makers, not bloated scrape lists. Every account is researched, validated, and warmed before it ever reaches your calendar.',
     icon: Target,
     badge: '02 / Pipeline',
-    gradient: 'from-[#221307] via-[#140a04] to-[#4c290c]',
-    ambientGlow: 'from-[#f7d984]/30 via-[#d4973b]/20 to-transparent',
+    ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
   },
   {
     name: 'Cold Email Marketing',
-    tagline: 'Bespoke outreach written like a human',
+    tagline: 'Reach the right people with high-converting outreach',
     description:
       'Zero-spam infrastructure with isolated custom domains, calibrated warmup routines, and messages that read like an executive wrote them.',
     icon: Send,
     badge: '03 / Outbound',
-    gradient: 'from-[#1a0e05] via-[#120803] to-[#3f1f08]',
-    ambientGlow: 'from-[#f5a742]/30 via-[#b85b14]/15 to-transparent',
+    ambientGlow: 'from-[#78E6C3]/35 via-[#0D382B]/25 to-transparent',
   },
   {
     name: 'Sales Support',
-    tagline: 'From first reply to booked call',
+    tagline: 'Turn conversations into revenue with dedicated support',
     description:
-      'We manage the inbox friction, qualify incoming replies in real time, and route eager prospects straight to your calendar without deal drop-off.',
+      'We manage inbox friction, qualify incoming replies in real time, and route eager prospects straight to your calendar without deal drop-off.',
     icon: Headset,
     badge: '04 / Velocity',
-    gradient: 'from-[#241408] via-[#160b05] to-[#46230b]',
-    ambientGlow: 'from-[#FFEB97]/25 via-[#9e5210]/15 to-transparent',
+    ambientGlow: 'from-[#DFFF9A]/30 via-[#1A604D]/20 to-transparent',
   },
   {
     name: 'Marketing Automation',
-    tagline: 'Hands-off engines that scale automatically',
+    tagline: 'Automate your growth workflows, CRM and more',
     description:
       'Automated nurture funnels, CRM synchronization, and weekly transparent reporting. The machine keeps running while you run the business.',
     icon: Workflow,
     badge: '05 / Scale',
-    gradient: 'from-[#190f07] via-[#110904] to-[#3a1d08]',
-    ambientGlow: 'from-[#d4973b]/30 via-[#7a3709]/15 to-transparent',
+    ambientGlow: 'from-[#78E6C3]/30 via-[#144838]/20 to-transparent',
   },
 ]
 
@@ -128,7 +122,7 @@ const processSteps: ProcessStep[] = [
     highlight: 'Zero-pressure alignment & positioning',
     description:
       'We unpack your positioning, ideal decision-makers, and market bottlenecks to architect an exact route to qualified pipeline.',
-    ambientGlow: 'from-[#e68324]/45 via-[#c05c12]/30 to-transparent',
+    ambientGlow: 'from-[#78E6C3]/40 via-[#1A604D]/25 to-transparent',
   },
   {
     step: '02',
@@ -139,7 +133,7 @@ const processSteps: ProcessStep[] = [
     highlight: 'Done-for-you authority & cold outreach',
     description:
       'Profile assets, high-authority content engines, and custom cold email infrastructure designed and calibrated around your voice.',
-    ambientGlow: 'from-[#f7d984]/40 via-[#d4973b]/25 to-transparent',
+    ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
   },
   {
     step: '03',
@@ -150,7 +144,7 @@ const processSteps: ProcessStep[] = [
     highlight: 'Multi-channel outbound campaign go-live',
     description:
       'Content goes live, outbound sequences launch, and verified decision-makers start seeing your brand authority. You do nothing.',
-    ambientGlow: 'from-[#f5a742]/40 via-[#b85b14]/25 to-transparent',
+    ambientGlow: 'from-[#78E6C3]/40 via-[#0D382B]/25 to-transparent',
   },
   {
     step: '04',
@@ -161,7 +155,7 @@ const processSteps: ProcessStep[] = [
     highlight: 'Compound pipeline growth & booked calls',
     description:
       'Weekly transparent reports — zero black box. We continuously optimize message variants, reply rates, and meetings booked.',
-    ambientGlow: 'from-[#d4973b]/40 via-[#e67e22]/25 to-transparent',
+    ambientGlow: 'from-[#DFFF9A]/35 via-[#1A604D]/25 to-transparent',
   },
 ]
 
@@ -170,7 +164,7 @@ const engines = [
     icon: Sparkles,
     name: 'Media & Growth',
     role: 'The Attention Engine',
-    theme: 'gold',
+    theme: 'mint',
     description:
       'Personal branding, content, outreach, and automation — the system that turns founders into recognized industry authorities while their calendars fill with qualified inbound calls.',
     chips: ['Personal Branding', 'Content & Outreach', 'Lead Generation Engine'],
@@ -179,7 +173,7 @@ const engines = [
     icon: Cpu,
     name: 'Engineering',
     role: 'The Build Engine',
-    theme: 'bronze',
+    theme: 'lime',
     description:
       'AI-assisted product engineering that designs, ships, and tests high-performance platforms, multi-tenant SaaS, and LLM-powered applications — built for rock-solid scale.',
     chips: ['High-Performance SaaS', 'AI & LLM Systems', 'Full-Stack Architecture'],
@@ -210,8 +204,8 @@ function useCopyEmail() {
 function SectionDivider() {
   return (
     <div className="relative mx-auto max-w-6xl px-5 sm:px-8" aria-hidden="true">
-      <div className="pointer-events-none absolute inset-x-20 top-1/2 -translate-y-1/2 h-8 bg-gradient-to-r from-transparent via-[#e67e22]/12 to-transparent blur-md" />
-      <div className="relative h-px w-full bg-gradient-to-r from-transparent via-[#FFEB97]/25 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-20 top-1/2 -translate-y-1/2 h-8 bg-gradient-to-r from-transparent via-[#78E6C3]/15 to-transparent blur-md" />
+      <div className="relative h-px w-full bg-gradient-to-r from-transparent via-[#294438] to-transparent" />
     </div>
   )
 }
@@ -220,16 +214,16 @@ function Background() {
   return (
     <div
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-[#070504]"
+      className="pointer-events-none absolute inset-0 z-0 overflow-hidden bg-[#061A15]"
     >
       {/* Soft, Silky, Luxury Fluted Light Curtain (Crowns the Hero & Header at the top) */}
       <div className="absolute inset-x-0 top-0 h-[640px] sm:h-[720px] overflow-hidden select-none">
-        {/* Layer 1: Rich warm sunset amber gradient */}
+        {/* Layer 1: Rich deep emerald, mint & lime auroral gradient */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              'linear-gradient(to bottom, #FFF4CE 0%, #F5B041 12%, #D35400 28%, #6E2C00 48%, #2C1100 68%, #070504 88%, #070504 100%)',
+              'linear-gradient(to bottom, #DFFF9A 0%, #78E6C3 14%, #1A604D 30%, #0F3D30 50%, #0B241C 70%, #061A15 88%, #061A15 100%)',
           }}
         />
 
@@ -265,7 +259,7 @@ function Background() {
         <div
           className="absolute inset-0 opacity-35 mix-blend-screen"
           style={{
-            backgroundImage: `radial-gradient(ellipse 32px 24px at 32px 0px, rgba(255, 245, 210, 0.7) 0%, transparent 100%)`,
+            backgroundImage: `radial-gradient(ellipse 32px 24px at 32px 0px, rgba(223, 255, 154, 0.7) 0%, transparent 100%)`,
             backgroundSize: '64px 100%',
             backgroundRepeat: 'repeat-x',
           }}
@@ -288,27 +282,27 @@ function Background() {
           <rect width="100%" height="100%" filter="url(#fluted-grain)" />
         </svg>
 
-        {/* Layer 6: Smooth fade to deep obsidian page background */}
-        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-b from-transparent via-[#070504]/80 to-[#070504]" />
+        {/* Layer 6: Smooth fade to deep emerald page background */}
+        <div className="absolute inset-x-0 bottom-0 h-44 bg-gradient-to-b from-transparent via-[#061A15]/80 to-[#061A15]" />
       </div>
 
-      {/* Warm Atmospheric Ambient Lighting throughout the page body */}
-      {/* Mid-page warm amber spotlights (Services & About) */}
-      <div className="pointer-events-none absolute left-1/2 top-[28%] -translate-x-1/2 h-[700px] w-[1000px] rounded-full bg-[#e67e22]/18 blur-[180px]" />
-      <div className="pointer-events-none absolute -right-28 top-[38%] h-[650px] w-[650px] rounded-full bg-[#d35400]/20 blur-[160px]" />
-      <div className="pointer-events-none absolute -left-28 top-[50%] h-[650px] w-[650px] rounded-full bg-[#f5b041]/18 blur-[160px]" />
+      {/* Atmospheric Ambient Lighting throughout the page body */}
+      {/* Mid-page ambient emerald & mint spotlights (Services & About) */}
+      <div className="pointer-events-none absolute left-1/2 top-[28%] -translate-x-1/2 h-[700px] w-[1000px] rounded-full bg-[#78E6C3]/14 blur-[180px]" />
+      <div className="pointer-events-none absolute -right-28 top-[38%] h-[650px] w-[650px] rounded-full bg-[#1A604D]/22 blur-[160px]" />
+      <div className="pointer-events-none absolute -left-28 top-[50%] h-[650px] w-[650px] rounded-full bg-[#DFFF9A]/14 blur-[160px]" />
 
-      {/* Lower-mid warm bronze spotlight (Process section) */}
-      <div className="pointer-events-none absolute left-1/2 top-[64%] -translate-x-1/2 h-[750px] w-[1100px] rounded-full bg-[#d46a16]/22 blur-[180px]" />
-      <div className="pointer-events-none absolute right-[-5%] top-[70%] h-[650px] w-[650px] rounded-full bg-[#e67e22]/20 blur-[160px]" />
-      <div className="pointer-events-none absolute left-[-5%] top-[76%] h-[650px] w-[650px] rounded-full bg-[#f5b041]/18 blur-[160px]" />
+      {/* Lower-mid emerald & mint spotlight (Process section) */}
+      <div className="pointer-events-none absolute left-1/2 top-[64%] -translate-x-1/2 h-[750px] w-[1100px] rounded-full bg-[#78E6C3]/16 blur-[180px]" />
+      <div className="pointer-events-none absolute right-[-5%] top-[70%] h-[650px] w-[650px] rounded-full bg-[#0F3D30]/24 blur-[160px]" />
+      <div className="pointer-events-none absolute left-[-5%] top-[76%] h-[650px] w-[650px] rounded-full bg-[#DFFF9A]/14 blur-[160px]" />
 
-      {/* Luminous Warm Sunset Horizon at the bottom of the page (Contact & Footer) */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[900px] bg-gradient-to-t from-[#6e2a05]/50 via-[#3a1804]/35 to-transparent" />
-      <div className="pointer-events-none absolute left-1/2 bottom-20 -translate-x-1/2 h-[550px] w-[1100px] rounded-full bg-[#e67e22]/28 blur-[170px]" />
-      <div className="pointer-events-none absolute left-1/2 bottom-8 -translate-x-1/2 h-[350px] w-[800px] rounded-full bg-[#f5b041]/22 blur-[140px]" />
-      <div className="pointer-events-none absolute left-[8%] bottom-[12%] h-[550px] w-[550px] rounded-full bg-[#e67e22]/22 blur-[160px]" />
-      <div className="pointer-events-none absolute right-[8%] bottom-[8%] h-[550px] w-[550px] rounded-full bg-[#d4973b]/24 blur-[160px]" />
+      {/* Luminous Warm Horizon at the bottom of the page (Contact & Footer) */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[900px] bg-gradient-to-t from-[#0B241C]/65 via-[#061A15]/40 to-transparent" />
+      <div className="pointer-events-none absolute left-1/2 bottom-20 -translate-x-1/2 h-[550px] w-[1100px] rounded-full bg-[#78E6C3]/18 blur-[170px]" />
+      <div className="pointer-events-none absolute left-1/2 bottom-8 -translate-x-1/2 h-[350px] w-[800px] rounded-full bg-[#DFFF9A]/16 blur-[140px]" />
+      <div className="pointer-events-none absolute left-[8%] bottom-[12%] h-[550px] w-[550px] rounded-full bg-[#1A604D]/20 blur-[160px]" />
+      <div className="pointer-events-none absolute right-[8%] bottom-[8%] h-[550px] w-[550px] rounded-full bg-[#78E6C3]/16 blur-[160px]" />
     </div>
   )
 }
@@ -321,7 +315,7 @@ function BrandLogo({ className = 'h-8 w-8' }: { className?: string }) {
       <img
         src="/logo-concept-3.svg"
         alt="BrandRoute Partners Logo"
-        className="h-full w-full object-contain drop-shadow-[0_0_16px_rgba(255,235,151,0.35)]"
+        className="h-full w-full object-contain drop-shadow-[0_0_16px_rgba(120,230,195,0.4)]"
       />
     </span>
   )
@@ -339,9 +333,9 @@ function Header() {
 
   return (
     <div className="sticky top-3 sm:top-5 z-50 px-3 sm:px-6 w-full">
-      <header className="relative mx-auto flex h-14 sm:h-16 max-w-5xl items-center justify-between rounded-full border border-[#FFEB97]/20 bg-[#120a05]/80 px-3.5 sm:px-5 backdrop-blur-2xl shadow-[0_12px_36px_rgba(0,0,0,0.65),0_0_0_1px_rgba(255,235,151,0.06),inset_0_1px_1px_rgba(255,235,151,0.25)] transition-all">
+      <header className="relative mx-auto flex h-14 sm:h-16 max-w-5xl items-center justify-between rounded-full border border-[#294438] bg-[#0B241C]/85 px-3.5 sm:px-5 backdrop-blur-2xl shadow-[0_12px_36px_rgba(0,0,0,0.65),0_0_0_1px_rgba(120,230,195,0.06),inset_0_1px_1px_rgba(120,230,195,0.25)] transition-all">
         {/* Subtle top light reflection edge */}
-        <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFEB97]/40 to-transparent" />
+        <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
 
         {/* Brand */}
         <a
@@ -351,13 +345,13 @@ function Header() {
         >
           <div className="relative">
             <BrandLogo className="h-8 w-8 sm:h-9 sm:w-9" />
-            <div className="absolute inset-0 rounded-full bg-[#FFEB97]/15 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className="absolute inset-0 rounded-full bg-[#78E6C3]/15 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
           <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="text-[14px] sm:text-[15px] font-bold tracking-tight text-[#FAF6EE] group-hover:text-white transition-colors">
+            <span className="text-[14px] sm:text-[15px] font-bold tracking-tight text-[#F3F5F0] group-hover:text-white transition-colors">
               BrandRoute
             </span>
-            <span className="rounded-full bg-[#FFEB97]/10 border border-[#FFEB97]/20 px-2 py-0.5 text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-[#FFEB97]">
+            <span className="rounded-full bg-[#78E6C3]/10 border border-[#294438] px-2 py-0.5 text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-[#78E6C3]">
               Partners
             </span>
           </div>
@@ -365,14 +359,14 @@ function Header() {
 
         {/* Center Pill Dock */}
         <nav
-          className="hidden md:flex items-center gap-1 rounded-full border border-[#FFEB97]/15 bg-black/40 p-1 backdrop-blur-md shadow-[inset_0_1px_2px_rgba(0,0,0,0.4)]"
+          className="hidden md:flex items-center gap-1 rounded-full border border-[#294438] bg-black/40 p-1 backdrop-blur-md shadow-[inset_0_1px_2px_rgba(0,0,0,0.4)]"
           aria-label="Primary"
         >
           {navLinks.map((item) => (
             <a
               key={item.name}
               href={item.href}
-              className="rounded-full px-3.5 py-1.5 text-[13px] font-medium text-[#FAF6EE]/75 transition-all duration-200 hover:bg-white/[0.08] hover:text-[#FFEB97] hover:shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
+              className="rounded-full px-3.5 py-1.5 text-[13px] font-medium text-[#B5C2B9] transition-all duration-200 hover:bg-white/[0.08] hover:text-[#DFFF9A] hover:shadow-[0_2px_8px_rgba(0,0,0,0.3)]"
             >
               {item.name}
             </a>
@@ -381,23 +375,23 @@ function Header() {
 
         {/* Right CTA + Mobile Toggle */}
         <div className="flex items-center gap-2">
-          {/* Liquid Gold Header CTA */}
+          {/* Lime to Mint Header CTA */}
           <a
             href={`mailto:${EMAIL}`}
-            className="group relative inline-flex h-9 sm:h-10 items-center gap-1.5 sm:gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#FFEB97] via-[#f7d984] to-[#d4973b] px-3.5 sm:px-4 text-[12px] sm:text-[13px] font-bold text-[#180e04] shadow-[0_4px_20px_rgba(255,235,151,0.25),inset_0_1px_1px_rgba(255,255,255,0.7)] transition-all hover:scale-[1.02] hover:shadow-[0_4px_28px_rgba(255,235,151,0.45)]"
+            className="group relative inline-flex h-9 sm:h-10 items-center gap-1.5 sm:gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-3.5 sm:px-4 text-[12px] sm:text-[13px] font-bold text-[#061A15] shadow-[0_4px_20px_rgba(120,230,195,0.35),inset_0_1px_1px_rgba(255,255,255,0.7)] transition-all hover:scale-[1.02] hover:shadow-[0_4px_28px_rgba(120,230,195,0.55)]"
           >
             <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
             <CalendarCheck className="h-3.5 w-3.5 shrink-0" />
             <span className="hidden sm:inline">Book a Strategy Call</span>
             <span className="inline sm:hidden">Book Call</span>
-            <ArrowRight className="hidden sm:inline h-3 w-3 -mr-0.5 opacity-60 transition-transform group-hover:translate-x-0.5" />
+            <ArrowRight className="hidden sm:inline h-3 w-3 -mr-0.5 opacity-70 transition-transform group-hover:translate-x-0.5" />
           </a>
 
           {/* Mobile Menu Toggle Button */}
           <button
             type="button"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#FFEB97]/20 bg-white/[0.04] text-[#FAF6EE] transition hover:bg-white/[0.1] hover:text-[#FFEB97] md:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#294438] bg-white/[0.04] text-[#F3F5F0] transition hover:bg-white/[0.1] hover:text-[#78E6C3] md:hidden"
             aria-label="Toggle navigation menu"
             aria-expanded={mobileMenuOpen}
           >
@@ -414,7 +408,7 @@ function Header() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -8, scale: 0.98 }}
             transition={{ duration: 0.2 }}
-            className="mx-auto mt-2 max-w-5xl rounded-3xl border border-[#FFEB97]/20 bg-[#120a05]/95 p-3 backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.85)] md:hidden"
+            className="mx-auto mt-2 max-w-5xl rounded-3xl border border-[#294438] bg-[#0B241C]/95 p-3 backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.85)] md:hidden"
           >
             <nav className="flex flex-col gap-1">
               {navLinks.map((item) => (
@@ -422,10 +416,10 @@ function Header() {
                   key={item.name}
                   href={item.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium text-[#FAF6EE]/80 transition hover:bg-white/[0.06] hover:text-[#FFEB97]"
+                  className="flex items-center justify-between rounded-xl px-4 py-2.5 text-sm font-medium text-[#B5C2B9] transition hover:bg-white/[0.06] hover:text-[#DFFF9A]"
                 >
                   <span>{item.name}</span>
-                  <ArrowRight className="h-3.5 w-3.5 opacity-40" />
+                  <ArrowRight className="h-3.5 w-3.5 opacity-50" />
                 </a>
               ))}
             </nav>
@@ -448,20 +442,20 @@ function CircularBadge({ className = '' }: { className?: string }) {
           d="M 80, 80 m -56, 0 a 56,56 0 1,1 112,0 a 56,56 0 1,1 -112,0"
           fill="none"
         />
-        <text className="text-[9.5px] font-mono uppercase tracking-[0.24em] fill-[#FFEB97]/80">
+        <text className="text-[9.5px] font-mono uppercase tracking-[0.24em] fill-[#78E6C3]/80">
           <textPath href="#circlePath" startOffset="0%">
             BRANDROUTE PARTNERS • TECHNOLOGY × MEDIA • 2026 •
           </textPath>
         </text>
       </svg>
-      <div className="absolute flex h-9 w-9 items-center justify-center rounded-full border border-[#FFEB97]/35 bg-[#583714]/40 backdrop-blur-sm shadow-[0_0_20px_rgba(255,235,151,0.3)]">
-        <Sparkles className="h-4 w-4 text-[#FFEB97]" />
+      <div className="absolute flex h-9 w-9 items-center justify-center rounded-full border border-[#294438] bg-[#0B241C]/60 backdrop-blur-sm shadow-[0_0_20px_rgba(120,230,195,0.3)]">
+        <Sparkles className="h-4 w-4 text-[#DFFF9A]" />
       </div>
     </div>
   )
 }
 
-// Floating translucent glass pills with pulsing pearl dots (Reference Image 1 upgrade)
+// Floating translucent glass pills with pulsing pearl dots
 function FloatingPill({
   text,
   className = '',
@@ -495,11 +489,11 @@ function FloatingPill({
           delay: delay * 0.3,
         },
       }}
-      className={`group relative inline-flex items-center rounded-full border border-[#FFEB97]/30 bg-[#140c06]/90 px-4 py-1.5 backdrop-blur-sm shadow-[0_6px_24px_rgba(0,0,0,0.6)] transition-all hover:border-[#FFEB97]/75 hover:bg-[#1f130a]/95 hover:shadow-[0_8px_30px_rgba(88,55,20,0.45)] ${className}`}
+      className={`group relative inline-flex items-center rounded-full border border-[#294438] bg-[#0B241C]/90 px-4 py-1.5 backdrop-blur-sm shadow-[0_6px_24px_rgba(0,0,0,0.6)] transition-all hover:border-[#78E6C3]/75 hover:bg-[#102D22] hover:shadow-[0_8px_30px_rgba(120,230,195,0.25)] ${className}`}
     >
       {/* Attached luminous pearl dot with breathing glow */}
       <span
-        className={`absolute h-2.5 w-2.5 rounded-full bg-[#FFF4CE] shadow-[0_0_10px_#FFEB97,0_0_20px_rgba(255,235,151,0.5)] ${
+        className={`absolute h-2.5 w-2.5 rounded-full bg-[#DFFF9A] shadow-[0_0_10px_#78E6C3,0_0_20px_rgba(120,230,195,0.5)] ${
           dotPosition === 'top-left'
             ? '-left-1 -top-1'
             : dotPosition === 'top-right'
@@ -509,9 +503,9 @@ function FloatingPill({
             : '-bottom-1 -right-1'
         }`}
       >
-        <span className="absolute inset-0 rounded-full bg-[#FFEB97] opacity-60 animate-ping" />
+        <span className="absolute inset-0 rounded-full bg-[#78E6C3] opacity-60 animate-ping" />
       </span>
-      <span className="text-xs sm:text-sm font-medium tracking-wide text-[#FAF6EE] group-hover:text-white transition-colors">
+      <span className="text-xs sm:text-sm font-medium tracking-wide text-[#F3F5F0] group-hover:text-white transition-colors">
         {text}
       </span>
     </motion.div>
@@ -591,15 +585,15 @@ function Hero() {
 
         {/* Tagline Badge */}
         <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}>
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#FFEB97]/30 bg-[#583714]/35 px-4 py-1.5 text-xs text-[#FAF6EE] shadow-[0_0_20px_rgba(88,55,20,0.35)]">
-            <Sparkles className="h-3.5 w-3.5 text-[#FFEB97]" />
-            <span className="font-semibold tracking-[0.15em] uppercase text-[#FFEB97]">
+          <span className="inline-flex items-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/80 px-4 py-1.5 text-xs text-[#F3F5F0] shadow-[0_0_20px_rgba(11,36,28,0.4)]">
+            <Sparkles className="h-3.5 w-3.5 text-[#78E6C3]" />
+            <span className="font-semibold tracking-[0.15em] uppercase text-[#DFFF9A]">
               BRANDING × LEADS × TECHNOLOGY
             </span>
           </span>
         </motion.div>
 
-        {/* Hero Title */}
+        {/* Hero Title - Dual-Tone (White + Accent Lime to Mint Gradient) */}
         <motion.h1
           variants={fadeUp}
           initial="hidden"
@@ -607,29 +601,29 @@ function Hero() {
           custom={1}
           className="mt-6 text-balance text-4xl font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-[4.5rem]"
         >
-          Build Your Brand.
+          <span className="text-[#F3F5F0]">Build Your Brand.</span>
           <br />
-          <span className="bg-gradient-to-r from-[#FFEB97] via-[#ffd675] to-[#d4973b] bg-clip-text text-transparent drop-shadow-[0_4px_30px_rgba(255,235,151,0.3)]">
+          <span className="bg-gradient-to-r from-[#DFFF9A] via-[#A8F3AD] to-[#78E6C3] bg-clip-text text-transparent drop-shadow-[0_4px_30px_rgba(120,230,195,0.3)]">
             Generate More Leads.
           </span>
         </motion.h1>
       </div>
 
-      {/* 3. Subtitle & CTAs (Placed cleanly below the heading stage, with 0 interference) */}
+      {/* 3. Subtitle & CTAs */}
       <div className="mx-auto mt-6 max-w-2xl text-center">
         <motion.p
           variants={fadeUp}
           initial="hidden"
           animate="show"
           custom={2}
-          className="text-pretty text-base leading-relaxed text-[#FAF6EE]/65 sm:text-lg"
+          className="text-pretty text-base leading-relaxed text-[#B5C2B9] sm:text-lg"
         >
           Strategy, lead gen, and marketing systems for ambitious businesses.
           One system builds your reputation while the other fills your calendar
           — backed by high-performance engineering.
         </motion.p>
 
-        {/* Liquid Gold Button Combination */}
+        {/* Button Combination: Lime to Mint Gradient + Outline Glass */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -639,17 +633,17 @@ function Hero() {
         >
           <a
             href={`mailto:${EMAIL}`}
-            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#FFEB97] via-[#f7d984] to-[#d4973b] px-8 text-sm font-semibold text-[#180e04] shadow-[0_10px_35px_-8px_rgba(255,235,151,0.5),inset_0_1px_1.5px_rgba(255,255,255,0.7)] transition-all hover:scale-[1.02] hover:shadow-[0_12px_45px_-4px_rgba(255,235,151,0.7)] sm:w-auto"
+            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-8 text-sm font-bold text-[#061A15] shadow-[0_10px_35px_-8px_rgba(120,230,195,0.5),inset_0_1px_1.5px_rgba(255,255,255,0.8)] transition-all hover:scale-[1.02] hover:shadow-[0_12px_45px_-4px_rgba(120,230,195,0.7)] sm:w-auto"
           >
             <CalendarCheck className="h-4 w-4" />
             Book a Strategy Call
           </a>
           <a
             href="#services"
-            className="group inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-[#FFEB97]/25 bg-[#140c06]/60 backdrop-blur-md px-7 text-sm font-medium text-[#FAF6EE]/80 shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all hover:border-[#FFEB97]/60 hover:bg-[#1f130a]/80 hover:text-white sm:w-auto"
+            className="group inline-flex h-11 w-full items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/60 backdrop-blur-md px-7 text-sm font-medium text-[#F3F5F0] shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition-all hover:border-[#78E6C3]/60 hover:bg-[#102D22]/80 hover:text-[#78E6C3] sm:w-auto"
           >
             Explore Services
-            <ArrowDown className="h-4 w-4 text-[#FFEB97] transition-transform group-hover:translate-y-0.5" />
+            <ArrowDown className="h-4 w-4 text-[#78E6C3] transition-transform group-hover:translate-y-0.5" />
           </a>
         </motion.div>
 
@@ -691,16 +685,16 @@ function SectionHeading({
       custom={0}
       className={`max-w-2xl ${center ? 'mx-auto text-center' : ''}`}
     >
-      <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#FFEB97]">
+      <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#78E6C3]">
         {eyebrow}
       </p>
       <h2
         id={id}
-        className="mt-3 text-3xl font-semibold tracking-tight text-balance text-[#FAF6EE] sm:text-4xl"
+        className="mt-3 text-3xl font-semibold tracking-tight text-balance text-[#F3F5F0] sm:text-4xl"
       >
         {title}
       </h2>
-      <p className="mt-4 text-base leading-relaxed text-pretty text-[#FAF6EE]/60">
+      <p className="mt-4 text-base leading-relaxed text-pretty text-[#B5C2B9]">
         {subtitle}
       </p>
     </motion.div>
@@ -739,19 +733,19 @@ function ServicesCarousel() {
 
   return (
     <div className="relative mx-auto mt-10 sm:mt-14 w-full max-w-5xl select-none">
-      {/* 1. Architectural Crosshair Grid Background (from reference video) */}
+      {/* 1. Architectural Crosshair Grid Background */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
-        {/* Dual-layer ambient warm sunset lamp centered behind cards */}
-        <div className="absolute h-[520px] w-[580px] rounded-full bg-[#e67e22]/32 blur-[130px]" />
-        <div className="absolute h-[340px] w-[400px] rounded-full bg-[#f7d984]/22 blur-[90px]" />
+        {/* Dual-layer ambient emerald & mint lamp centered behind cards */}
+        <div className="absolute h-[520px] w-[580px] rounded-full bg-[#78E6C3]/22 blur-[130px]" />
+        <div className="absolute h-[340px] w-[400px] rounded-full bg-[#DFFF9A]/16 blur-[90px]" />
 
         {/* Minimalist grid lines */}
         <div
           className="absolute inset-0 opacity-[0.14]"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(255, 235, 151, 0.2) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255, 235, 151, 0.2) 1px, transparent 1px)
+              linear-gradient(to right, rgba(120, 230, 195, 0.2) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(120, 230, 195, 0.2) 1px, transparent 1px)
             `,
             backgroundSize: isMobile ? '80px 80px' : '120px 120px',
             backgroundPosition: 'center center',
@@ -759,7 +753,7 @@ function ServicesCarousel() {
         />
 
         {/* Crosshair (+) markers at grid corners */}
-        <div className="absolute inset-x-6 inset-y-6 sm:inset-x-12 sm:inset-y-10 flex flex-col justify-between font-mono text-xs text-[#FFEB97]/40">
+        <div className="absolute inset-x-6 inset-y-6 sm:inset-x-12 sm:inset-y-10 flex flex-col justify-between font-mono text-xs text-[#78E6C3]/40">
           <div className="flex justify-between">
             <span>+</span><span>+</span><span>+</span>
           </div>
@@ -788,7 +782,6 @@ function ServicesCarousel() {
       >
         <div className="relative flex h-full w-full items-center justify-center">
           {services.map((service, index) => {
-            // Forward circular slot index: 0 = center, 1 = right, 2 = parked right, 3 = parked left, 4 = left
             const dForward = (index - activeIndex + total) % total
 
             const isActive = dForward === 0
@@ -796,7 +789,6 @@ function ServicesCarousel() {
             const isLeft = dForward === 4
             const isVisible = isActive || isRight || isLeft
 
-            // Smooth deterministic 3D values with zero wrap jumps
             let x = 0
             let scale = 1
             let rotateY = 0
@@ -826,7 +818,6 @@ function ServicesCarousel() {
               zIndex = 20
               pointerEvents = 'auto'
             } else if (dForward === 2) {
-              // Parked on right, smoothly waiting to enter into right slot
               x = isMobile ? 220 : 430
               scale = 0.72
               rotateY = -26
@@ -834,7 +825,6 @@ function ServicesCarousel() {
               zIndex = 10
               pointerEvents = 'none'
             } else {
-              // dForward === 3: Parked on left, smoothly waiting to enter into left slot
               x = isMobile ? -220 : -430
               scale = 0.72
               rotateY = 26
@@ -858,7 +848,7 @@ function ServicesCarousel() {
                 }}
                 transition={{
                   duration: 0.62,
-                  ease: [0.16, 1, 0.3, 1], // Apple/Linear fluid glide
+                  ease: [0.16, 1, 0.3, 1],
                 }}
                 drag={isVisible ? 'x' : false}
                 dragConstraints={{ left: 0, right: 0 }}
@@ -885,46 +875,46 @@ function ServicesCarousel() {
                   backfaceVisibility: 'hidden',
                   pointerEvents,
                 }}
-                className={`absolute w-[295px] xs:w-[330px] sm:w-[380px] h-[430px] sm:h-[480px] rounded-[32px] sm:rounded-[36px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden border border-[#FFEB97]/25 shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(255,235,151,0.25)] select-none touch-pan-y ${
+                className={`absolute w-[295px] xs:w-[330px] sm:w-[380px] h-[430px] sm:h-[480px] rounded-[32px] sm:rounded-[36px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden border border-[#294438] shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(120,230,195,0.2)] select-none touch-pan-y ${
                   isActive
-                    ? 'cursor-grab active:cursor-grabbing bg-gradient-to-b from-[#1c1108]/95 via-[#2c1608]/95 to-[#5a2a0c] shadow-[0_30px_70px_rgba(180,80,20,0.38),inset_0_1px_1px_rgba(255,235,151,0.35)]'
-                    : 'cursor-pointer active:cursor-grabbing bg-gradient-to-b from-[#140b06]/95 via-[#1c0f07]/90 to-[#2c1407]/90 hover:border-[#FFEB97]/40'
+                    ? 'cursor-grab active:cursor-grabbing bg-gradient-to-b from-[#102D22]/98 via-[#0D261D]/98 to-[#061A15] border-[#78E6C3]/40 shadow-[0_30px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(120,230,195,0.2),inset_0_1px_1px_rgba(223,255,154,0.3)]'
+                    : 'cursor-pointer active:cursor-grabbing bg-gradient-to-b from-[#0B241C]/95 via-[#081F18]/90 to-[#061A15]/90 hover:border-[#78E6C3]/45'
                 }`}
               >
                 {/* Specular top rim light reflection */}
-                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFEB97]/60 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/60 to-transparent" />
 
-                {/* Ambient warm sunset lamp at the bottom (Exact replica of reference video) */}
+                {/* Ambient warm lamp at the bottom */}
                 <div
                   className={`pointer-events-none absolute -bottom-10 inset-x-0 h-52 bg-gradient-to-t ${service.ambientGlow} blur-2xl opacity-90`}
                 />
 
                 {/* Top Row: '+' Crosshair Marker & Badge */}
                 <div className="relative z-10 flex items-center justify-between">
-                  <span className="font-mono text-sm text-[#FFEB97]/70 select-none">
+                  <span className="font-mono text-sm text-[#78E6C3]/70 select-none">
                     +
                   </span>
-                  <span className="rounded-full border border-[#FFEB97]/20 bg-black/40 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.2em] text-[#FFEB97] backdrop-blur-sm">
+                  <span className="rounded-full border border-[#294438] bg-black/40 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.2em] text-[#DFFF9A] backdrop-blur-sm">
                     {service.badge}
                   </span>
                 </div>
 
                 {/* Center Content: Icon + Big Headline + Tagline */}
                 <div className="relative z-10 my-auto text-center px-2">
-                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FFEB97]/30 bg-gradient-to-br from-[#583714]/70 via-[#2a1a0b]/80 to-[#120a05] text-[#FFEB97] shadow-[0_0_25px_rgba(255,235,151,0.3),inset_0_1px_1px_rgba(255,235,151,0.4)]">
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_25px_rgba(120,230,195,0.3),inset_0_1px_1px_rgba(223,255,154,0.4)]">
                     <Icon className="h-6 w-6" strokeWidth={1.75} />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#FAF6EE] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
+                  <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#F3F5F0] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
                     {service.name}
                   </h3>
-                  <p className="mt-2 text-xs sm:text-sm font-medium text-[#FFEB97]/85 tracking-wide">
+                  <p className="mt-2 text-xs sm:text-sm font-medium text-[#78E6C3] tracking-wide">
                     {service.tagline}
                   </p>
                 </div>
 
                 {/* Bottom Content: Clean Description + Action CTA */}
                 <div className="relative z-10 text-center">
-                  <p className="text-xs sm:text-sm leading-relaxed text-[#FAF6EE]/75 line-clamp-3">
+                  <p className="text-xs sm:text-sm leading-relaxed text-[#B5C2B9] line-clamp-3">
                     {service.description}
                   </p>
 
@@ -936,7 +926,7 @@ function ServicesCarousel() {
                       transition={{ delay: 0.1 }}
                       href={`mailto:${EMAIL}?subject=Inquiry: ${encodeURIComponent(service.name)}`}
                       onClick={(e) => e.stopPropagation()}
-                      className="mt-4 inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#FFEB97] via-[#f7d984] to-[#d4973b] px-5 text-xs font-bold text-[#180e04] shadow-[0_4px_16px_rgba(255,235,151,0.35),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all hover:scale-105 active:scale-95"
+                      className="mt-4 inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all hover:scale-105 active:scale-95"
                     >
                       <CalendarCheck className="h-3.5 w-3.5" />
                       <span>Book Strategy Call</span>
@@ -950,19 +940,19 @@ function ServicesCarousel() {
         </div>
       </motion.div>
 
-      {/* 3. Floating Pagination Pill Dock (As shown in reference video) */}
+      {/* 3. Floating Pagination Pill Dock */}
       <div className="mt-8 flex items-center justify-center gap-4">
         <button
           type="button"
           onClick={handlePrev}
           aria-label="Previous service"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#FFEB97]/25 bg-[#120a05]/80 text-[#FAF6EE] backdrop-blur-md transition hover:border-[#FFEB97]/60 hover:bg-[#201208] hover:text-[#FFEB97] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#294438] bg-[#0B241C]/80 text-[#F3F5F0] backdrop-blur-md transition hover:border-[#78E6C3]/60 hover:bg-[#102D22] hover:text-[#78E6C3] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
 
         {/* Dots Capsule Dock */}
-        <div className="flex items-center gap-2 rounded-full border border-[#FFEB97]/20 bg-[#120a05]/85 px-4 py-2 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,235,151,0.2)]">
+        <div className="flex items-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/85 px-4 py-2 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(120,230,195,0.2)]">
           {services.map((s, idx) => {
             const isCurrent = idx === activeIndex
             return (
@@ -973,7 +963,7 @@ function ServicesCarousel() {
                 aria-label={`Jump to ${s.name}`}
                 className={`transition-all duration-300 rounded-full ${
                   isCurrent
-                    ? 'h-2.5 w-8 bg-gradient-to-r from-[#FFEB97] to-[#d4973b] shadow-[0_0_12px_rgba(255,235,151,0.6)]'
+                    ? 'h-2.5 w-8 bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] shadow-[0_0_12px_rgba(120,230,195,0.6)]'
                     : 'h-2 w-2 bg-white/25 hover:bg-white/50'
                 }`}
               />
@@ -985,7 +975,7 @@ function ServicesCarousel() {
           type="button"
           onClick={handleNext}
           aria-label="Next service"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#FFEB97]/25 bg-[#120a05]/80 text-[#FAF6EE] backdrop-blur-md transition hover:border-[#FFEB97]/60 hover:bg-[#201208] hover:text-[#FFEB97] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#294438] bg-[#0B241C]/80 text-[#F3F5F0] backdrop-blur-md transition hover:border-[#78E6C3]/60 hover:bg-[#102D22] hover:text-[#78E6C3] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
         >
           <ChevronRight className="h-4 w-4" />
         </button>
@@ -1032,11 +1022,11 @@ function AboutSection() {
           subtitle="A branding and lead-generation house backed by serious engineering — one side builds your reputation and pipeline, the other builds the platforms they run on."
         />
 
-        {/* Dual Luxury Companion Slabs: Media & Growth (Gold) vs Engineering (Bronze) */}
+        {/* Dual Companion Slabs: Media & Growth (Mint) vs Engineering (Lime) */}
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {engines.map((engine, i) => {
             const Icon = engine.icon
-            const isGold = engine.theme === 'gold'
+            const isMint = engine.theme === 'mint'
             return (
               <motion.article
                 key={engine.name}
@@ -1047,45 +1037,45 @@ function AboutSection() {
                 custom={i}
               >
                 <div
-                  className={`group relative h-full overflow-hidden rounded-2xl border p-7 transition-all duration-300 hover:shadow-[0_20px_55px_rgba(180,80,20,0.32)] ${
-                    isGold
-                      ? 'border-[#FFEB97]/30 bg-gradient-to-b from-[#241509]/95 via-[#180d05]/95 to-[#2c1305]/85 hover:border-[#FFEB97]/60 shadow-[0_16px_50px_rgba(180,80,20,0.22)]'
-                      : 'border-[#d4973b]/25 bg-gradient-to-b from-[#1e1007]/95 via-[#140a04]/95 to-[#240e04]/85 hover:border-[#d4973b]/50 shadow-[0_16px_50px_rgba(140,60,15,0.18)]'
+                  className={`group relative h-full overflow-hidden rounded-2xl border p-7 transition-all duration-300 hover:shadow-[0_20px_55px_rgba(11,36,28,0.5)] ${
+                    isMint
+                      ? 'border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] hover:border-[#78E6C3]/50 shadow-[0_16px_50px_rgba(6,26,21,0.4)]'
+                      : 'border-[#294438] bg-gradient-to-b from-[#0D281E]/95 via-[#082017]/95 to-[#061A15] hover:border-[#DFFF9A]/50 shadow-[0_16px_50px_rgba(6,26,21,0.4)]'
                   }`}
                 >
                   {/* Subtle top rim specular light */}
-                  <div className="pointer-events-none absolute inset-x-6 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFEB97]/40 to-transparent" />
-                  {/* Ambient warm glow at the bottom */}
-                  <div className="pointer-events-none absolute -bottom-10 inset-x-0 h-32 bg-gradient-to-t from-[#e67e22]/18 to-transparent blur-xl" />
-                  <div className="pointer-events-none absolute -left-16 -top-16 h-40 w-40 rounded-full bg-[#FFEB97]/0 blur-3xl transition-colors duration-500 group-hover:bg-[#FFEB97]/15" />
+                  <div className="pointer-events-none absolute inset-x-6 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
+                  {/* Ambient glow at the bottom */}
+                  <div className="pointer-events-none absolute -bottom-10 inset-x-0 h-32 bg-gradient-to-t from-[#78E6C3]/15 to-transparent blur-xl" />
+                  <div className="pointer-events-none absolute -left-16 -top-16 h-40 w-40 rounded-full bg-[#78E6C3]/0 blur-3xl transition-colors duration-500 group-hover:bg-[#78E6C3]/15" />
                   
                   <div className="flex items-center gap-4">
                     <span
-                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border shadow-[0_0_24px_rgba(88,55,20,0.4),inset_0_1px_1px_rgba(255,235,151,0.3)] ${
-                        isGold
-                          ? 'border-[#FFEB97]/30 bg-gradient-to-br from-[#583714]/60 to-[#2a1a0b]/80 text-[#FFEB97]'
-                          : 'border-[#d4973b]/25 bg-gradient-to-br from-[#40260c]/60 to-[#1a1005]/80 text-[#d4973b]'
+                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border shadow-[0_0_24px_rgba(11,36,28,0.5),inset_0_1px_1px_rgba(120,230,195,0.3)] ${
+                        isMint
+                          ? 'border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/60 to-[#0B241C]/80 text-[#78E6C3]'
+                          : 'border-[#DFFF9A]/30 bg-gradient-to-br from-[#123E2F]/60 to-[#0B241C]/80 text-[#DFFF9A]'
                       }`}
                     >
                       <Icon className="h-6 w-6" strokeWidth={1.75} />
                     </span>
                     <div>
-                      <h3 className="text-xl font-semibold tracking-tight text-[#FAF6EE]">
+                      <h3 className="text-xl font-semibold tracking-tight text-[#F3F5F0]">
                         {engine.name}
                       </h3>
-                      <p className="mt-0.5 font-mono text-xs uppercase tracking-[0.16em] text-[#FFEB97]/80">
+                      <p className="mt-0.5 font-mono text-xs uppercase tracking-[0.16em] text-[#78E6C3]/90">
                         {engine.role}
                       </p>
                     </div>
                   </div>
-                  <p className="mt-5 text-sm leading-relaxed text-[#FAF6EE]/60">
+                  <p className="mt-5 text-sm leading-relaxed text-[#B5C2B9]">
                     {engine.description}
                   </p>
                   <ul className="mt-5 flex flex-wrap gap-2">
                     {engine.chips.map((chip) => (
                       <li
                         key={chip}
-                        className="rounded-full border border-[#FFEB97]/15 bg-[#140c06]/80 px-3 py-1 text-xs text-[#FAF6EE]/75"
+                        className="rounded-full border border-[#294438] bg-[#061A15]/80 px-3 py-1 text-xs text-[#B5C2B9]"
                       >
                         {chip}
                       </li>
@@ -1133,19 +1123,19 @@ function ProcessCarousel() {
 
   return (
     <div className="relative mx-auto mt-10 sm:mt-14 w-full max-w-5xl select-none">
-      {/* 1. Architectural Crosshair Grid Background (from reference video) */}
+      {/* 1. Architectural Crosshair Grid Background */}
       <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
-        {/* Dual-layer ambient warm sunset lamp centered behind cards */}
-        <div className="absolute h-[520px] w-[580px] rounded-full bg-[#e67e22]/32 blur-[130px]" />
-        <div className="absolute h-[340px] w-[400px] rounded-full bg-[#f7d984]/22 blur-[90px]" />
+        {/* Dual-layer ambient emerald & mint lamp centered behind cards */}
+        <div className="absolute h-[520px] w-[580px] rounded-full bg-[#78E6C3]/22 blur-[130px]" />
+        <div className="absolute h-[340px] w-[400px] rounded-full bg-[#DFFF9A]/16 blur-[90px]" />
 
         {/* Minimalist grid lines */}
         <div
           className="absolute inset-0 opacity-[0.14]"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(255, 235, 151, 0.2) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(255, 235, 151, 0.2) 1px, transparent 1px)
+              linear-gradient(to right, rgba(120, 230, 195, 0.2) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(120, 230, 195, 0.2) 1px, transparent 1px)
             `,
             backgroundSize: isMobile ? '80px 80px' : '120px 120px',
             backgroundPosition: 'center center',
@@ -1153,7 +1143,7 @@ function ProcessCarousel() {
         />
 
         {/* Crosshair (+) markers at grid corners */}
-        <div className="absolute inset-x-6 inset-y-6 sm:inset-x-12 sm:inset-y-10 flex flex-col justify-between font-mono text-xs text-[#FFEB97]/40">
+        <div className="absolute inset-x-6 inset-y-6 sm:inset-x-12 sm:inset-y-10 flex flex-col justify-between font-mono text-xs text-[#78E6C3]/40">
           <div className="flex justify-between">
             <span>+</span><span>+</span><span>+</span>
           </div>
@@ -1182,7 +1172,6 @@ function ProcessCarousel() {
       >
         <div className="relative flex h-full w-full items-center justify-center">
           {processSteps.map((step, index) => {
-            // Forward circular slot index for 4 items: 0 = center, 1 = right, 2 = parked, 3 = left
             const dForward = (index - activeIndex + total) % total
 
             const isActive = dForward === 0
@@ -1219,7 +1208,6 @@ function ProcessCarousel() {
               zIndex = 20
               pointerEvents = 'auto'
             } else {
-              // dForward === 2: Parked behind
               x = 0
               scale = 0.72
               rotateY = 0
@@ -1243,7 +1231,7 @@ function ProcessCarousel() {
                 }}
                 transition={{
                   duration: 0.62,
-                  ease: [0.16, 1, 0.3, 1], // Apple/Linear fluid glide
+                  ease: [0.16, 1, 0.3, 1],
                 }}
                 drag={isVisible ? 'x' : false}
                 dragConstraints={{ left: 0, right: 0 }}
@@ -1270,44 +1258,44 @@ function ProcessCarousel() {
                   backfaceVisibility: 'hidden',
                   pointerEvents,
                 }}
-                className={`absolute w-[295px] xs:w-[330px] sm:w-[380px] h-[430px] sm:h-[480px] rounded-[32px] sm:rounded-[36px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden border border-[#FFEB97]/25 shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(255,235,151,0.25)] select-none touch-pan-y ${
+                className={`absolute w-[295px] xs:w-[330px] sm:w-[380px] h-[430px] sm:h-[480px] rounded-[32px] sm:rounded-[36px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden border border-[#294438] shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(120,230,195,0.2)] select-none touch-pan-y ${
                   isActive
-                    ? 'cursor-grab active:cursor-grabbing bg-gradient-to-b from-[#1c1108]/95 via-[#2c1608]/95 to-[#5a2a0c] shadow-[0_30px_70px_rgba(180,80,20,0.38),inset_0_1px_1px_rgba(255,235,151,0.35)]'
-                    : 'cursor-pointer active:cursor-grabbing bg-gradient-to-b from-[#140b06]/95 via-[#1c0f07]/90 to-[#2c1407]/90 hover:border-[#FFEB97]/40'
+                    ? 'cursor-grab active:cursor-grabbing bg-gradient-to-b from-[#102D22]/98 via-[#0D261D]/98 to-[#061A15] border-[#78E6C3]/40 shadow-[0_30px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(120,230,195,0.2),inset_0_1px_1px_rgba(223,255,154,0.3)]'
+                    : 'cursor-pointer active:cursor-grabbing bg-gradient-to-b from-[#0B241C]/95 via-[#081F18]/90 to-[#061A15]/90 hover:border-[#78E6C3]/45'
                 }`}
               >
                 {/* Specular top rim light reflection */}
-                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFEB97]/60 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/60 to-transparent" />
 
-                {/* Ambient warm sunset lamp at the bottom */}
+                {/* Ambient warm lamp at the bottom */}
                 <div
                   className={`pointer-events-none absolute -bottom-10 inset-x-0 h-52 bg-gradient-to-t ${step.ambientGlow} blur-2xl opacity-90`}
                 />
 
                 {/* Top Row: '+' Crosshair Marker & Badge */}
                 <div className="relative z-10 flex items-center justify-between">
-                  <span className="font-mono text-sm text-[#FFEB97]/70 select-none">
+                  <span className="font-mono text-sm text-[#78E6C3]/70 select-none">
                     +
                   </span>
-                  <span className="rounded-full border border-[#FFEB97]/20 bg-black/40 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.2em] text-[#FFEB97] backdrop-blur-sm">
+                  <span className="rounded-full border border-[#294438] bg-black/40 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.2em] text-[#DFFF9A] backdrop-blur-sm">
                     STAGE {step.step} / {step.stage}
                   </span>
                 </div>
 
                 {/* Center Content: Icon + Big Headline + Tagline */}
                 <div className="relative z-10 my-auto text-center px-2">
-                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#FFEB97]/30 bg-gradient-to-br from-[#583714]/70 via-[#2a1a0b]/80 to-[#120a05] text-[#FFEB97] shadow-[0_0_25px_rgba(255,235,151,0.3),inset_0_1px_1px_rgba(255,235,151,0.4)]">
+                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_25px_rgba(120,230,195,0.3),inset_0_1px_1px_rgba(223,255,154,0.4)]">
                     <Icon className="h-6 w-6" strokeWidth={1.75} />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#FAF6EE] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
+                  <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#F3F5F0] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
                     {step.title}
                   </h3>
                   <div className="mt-2 inline-flex items-center gap-1.5 flex-wrap justify-center">
-                    <span className="font-mono text-xs font-semibold text-[#FFEB97] tracking-wider uppercase">
+                    <span className="font-mono text-xs font-semibold text-[#78E6C3] tracking-wider uppercase">
                       {step.timeline}
                     </span>
-                    <span className="text-xs text-[#FAF6EE]/40">•</span>
-                    <span className="text-xs text-[#FFEB97]/85 font-medium">
+                    <span className="text-xs text-[#B5C2B9]/40">•</span>
+                    <span className="text-xs text-[#DFFF9A] font-medium">
                       {step.highlight}
                     </span>
                   </div>
@@ -1315,7 +1303,7 @@ function ProcessCarousel() {
 
                 {/* Bottom Content: Clean Description + Action CTA */}
                 <div className="relative z-10 text-center">
-                  <p className="text-xs sm:text-sm leading-relaxed text-[#FAF6EE]/75 line-clamp-3">
+                  <p className="text-xs sm:text-sm leading-relaxed text-[#B5C2B9] line-clamp-3">
                     {step.description}
                   </p>
 
@@ -1327,7 +1315,7 @@ function ProcessCarousel() {
                       transition={{ delay: 0.1 }}
                       href={`mailto:${EMAIL}?subject=Process Inquiry: Stage ${step.step} (${encodeURIComponent(step.title)})`}
                       onClick={(e) => e.stopPropagation()}
-                      className="mt-4 inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#FFEB97] via-[#f7d984] to-[#d4973b] px-5 text-xs font-bold text-[#180e04] shadow-[0_4px_16px_rgba(255,235,151,0.35),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all hover:scale-105 active:scale-95"
+                      className="mt-4 inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all hover:scale-105 active:scale-95"
                     >
                       <CalendarCheck className="h-3.5 w-3.5" />
                       <span>Book Strategy Call</span>
@@ -1347,13 +1335,13 @@ function ProcessCarousel() {
           type="button"
           onClick={handlePrev}
           aria-label="Previous step"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#FFEB97]/25 bg-[#120a05]/80 text-[#FAF6EE] backdrop-blur-md transition hover:border-[#FFEB97]/60 hover:bg-[#201208] hover:text-[#FFEB97] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#294438] bg-[#0B241C]/80 text-[#F3F5F0] backdrop-blur-md transition hover:border-[#78E6C3]/60 hover:bg-[#102D22] hover:text-[#78E6C3] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
         >
           <ChevronLeft className="h-4 w-4" />
         </button>
 
         {/* Dots Capsule Dock */}
-        <div className="flex items-center gap-2 rounded-full border border-[#FFEB97]/20 bg-[#120a05]/85 px-4 py-2 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(255,235,151,0.2)]">
+        <div className="flex items-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/85 px-4 py-2 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(120,230,195,0.2)]">
           {processSteps.map((s, idx) => {
             const isCurrent = idx === activeIndex
             return (
@@ -1364,7 +1352,7 @@ function ProcessCarousel() {
                 aria-label={`Jump to Stage ${s.step}`}
                 className={`transition-all duration-300 rounded-full ${
                   isCurrent
-                    ? 'h-2.5 w-8 bg-gradient-to-r from-[#FFEB97] to-[#d4973b] shadow-[0_0_12px_rgba(255,235,151,0.6)]'
+                    ? 'h-2.5 w-8 bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] shadow-[0_0_12px_rgba(120,230,195,0.6)]'
                     : 'h-2 w-2 bg-white/25 hover:bg-white/50'
                 }`}
               />
@@ -1376,7 +1364,7 @@ function ProcessCarousel() {
           type="button"
           onClick={handleNext}
           aria-label="Next step"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#FFEB97]/25 bg-[#120a05]/80 text-[#FAF6EE] backdrop-blur-md transition hover:border-[#FFEB97]/60 hover:bg-[#201208] hover:text-[#FFEB97] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
+          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#294438] bg-[#0B241C]/80 text-[#F3F5F0] backdrop-blur-md transition hover:border-[#78E6C3]/60 hover:bg-[#102D22] hover:text-[#78E6C3] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
         >
           <ChevronRight className="h-4 w-4" />
         </button>
@@ -1401,7 +1389,7 @@ function ProcessSection() {
           center
         />
 
-        {/* 3D Process Card Stack Carousel (Matching Pinterest / Reference Video) */}
+        {/* 3D Process Card Stack Carousel */}
         <ProcessCarousel />
       </div>
     </section>
@@ -1417,8 +1405,8 @@ function ContactSection() {
       aria-labelledby="contact-title"
       className="relative scroll-mt-20 py-20 sm:py-28 overflow-hidden"
     >
-      {/* Ambient warm atmospheric glow behind Contact Section */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[550px] w-[850px] rounded-full bg-[#e67e22]/20 blur-[150px]" />
+      {/* Ambient emerald atmospheric glow behind Contact Section */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[550px] w-[850px] rounded-full bg-[#78E6C3]/16 blur-[150px]" />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         <motion.div
@@ -1427,33 +1415,33 @@ function ContactSection() {
           whileInView="show"
           viewport={{ once: true, margin: '-80px' }}
           custom={0}
-          className="relative overflow-hidden rounded-3xl border border-[#FFEB97]/30 bg-gradient-to-b from-[#221308]/95 via-[#160c04]/95 to-[#381606]/90 px-6 py-16 text-center sm:px-12 sm:py-20 shadow-[0_30px_90px_rgba(180,80,20,0.32),inset_0_1px_1px_rgba(255,235,151,0.3)]"
+          className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] px-6 py-16 text-center sm:px-12 sm:py-20 shadow-[0_30px_90px_rgba(6,26,21,0.5),inset_0_1px_1px_rgba(120,230,195,0.25)]"
         >
           {/* Specular top rim light reflection */}
-          <div className="pointer-events-none absolute inset-x-12 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFEB97]/50 to-transparent" />
+          <div className="pointer-events-none absolute inset-x-12 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/50 to-transparent" />
 
           {/* Spotlight glow from top */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute left-1/2 top-0 h-72 w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFEB97]/25 blur-[120px]"
+            className="pointer-events-none absolute left-1/2 top-0 h-72 w-[620px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#78E6C3]/20 blur-[120px]"
           />
 
-          {/* Warm sunset lamp glow from bottom */}
+          {/* Warm mint & emerald lamp glow from bottom */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute -bottom-14 inset-x-0 h-52 bg-gradient-to-t from-[#e67e22]/32 via-[#d35400]/20 to-transparent blur-2xl"
+            className="pointer-events-none absolute -bottom-14 inset-x-0 h-52 bg-gradient-to-t from-[#78E6C3]/25 via-[#1A604D]/15 to-transparent blur-2xl"
           />
 
-          <p className="relative font-mono text-xs uppercase tracking-[0.25em] text-[#FFEB97]">
+          <p className="relative font-mono text-xs uppercase tracking-[0.25em] text-[#78E6C3]">
             04 / Get in touch
           </p>
           <h2
             id="contact-title"
-            className="relative mt-4 text-balance text-3xl font-semibold tracking-tight text-[#FAF6EE] sm:text-5xl"
+            className="relative mt-4 text-balance text-3xl font-semibold tracking-tight text-[#F3F5F0] sm:text-5xl"
           >
             Book your strategy call.
           </h2>
-          <p className="relative mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-[#FAF6EE]/60">
+          <p className="relative mx-auto mt-5 max-w-xl text-pretty text-base leading-relaxed text-[#B5C2B9]">
             Thirty minutes. Your brand, your goals, your market — and a clear
             route to more leads. No obligation, no black box.
           </p>
@@ -1461,7 +1449,7 @@ function ContactSection() {
           <div className="relative mt-9 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#FFEB97] via-[#f7d984] to-[#d4973b] px-8 text-sm font-semibold text-[#180e04] shadow-[0_10px_35px_-8px_rgba(255,235,151,0.5),inset_0_1px_1.5px_rgba(255,255,255,0.7)] transition-all hover:opacity-95 hover:scale-[1.02] sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-8 text-sm font-bold text-[#061A15] shadow-[0_10px_35px_-8px_rgba(120,230,195,0.5),inset_0_1px_1.5px_rgba(255,255,255,0.8)] transition-all hover:scale-[1.02] sm:w-auto"
             >
               <CalendarCheck className="h-4 w-4 shrink-0" />
               Book a Strategy Call
@@ -1472,10 +1460,10 @@ function ContactSection() {
               aria-label={
                 copied ? 'Email address copied' : 'Copy email address to clipboard'
               }
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-[#FFEB97]/25 bg-[#140c06]/60 backdrop-blur-md px-7 text-sm font-medium text-[#FAF6EE]/80 shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition hover:border-[#FFEB97]/60 hover:bg-[#1f130a]/80 hover:text-white sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/60 backdrop-blur-md px-7 text-sm font-medium text-[#F3F5F0] shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition hover:border-[#78E6C3]/60 hover:bg-[#102D22]/80 hover:text-[#78E6C3] sm:w-auto"
             >
               {copied ? (
-                <Check className="h-4 w-4 text-[#FFEB97]" />
+                <Check className="h-4 w-4 text-[#78E6C3]" />
               ) : (
                 <Copy className="h-4 w-4" />
               )}
@@ -1483,8 +1471,8 @@ function ContactSection() {
             </button>
           </div>
 
-          <p className="relative mt-8 inline-flex items-center gap-1.5 text-sm text-[#FAF6EE]/40">
-            <MapPin className="h-3.5 w-3.5 text-[#FFEB97]/70" />
+          <p className="relative mt-8 inline-flex items-center gap-1.5 text-sm text-[#B5C2B9]/60">
+            <MapPin className="h-3.5 w-3.5 text-[#78E6C3]" />
             Indore, India — working worldwide
           </p>
         </motion.div>
@@ -1495,21 +1483,21 @@ function ContactSection() {
 
 function Footer() {
   return (
-    <footer className="relative z-10 mt-auto overflow-hidden border-t border-[#FFEB97]/20 pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-16">
+    <footer className="relative z-10 mt-auto overflow-hidden border-t border-[#294438] pb-[max(2.5rem,env(safe-area-inset-bottom))] pt-16">
       {/* Top light reflection border edge */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#FFEB97]/40 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
 
-      {/* Warm sunset horizon atmosphere across the footer */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-[#5a2505]/40 via-[#220d02]/25 to-transparent" />
-      <div className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 h-64 w-[800px] rounded-full bg-[#e67e22]/22 blur-[130px]" />
-      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-36 w-[600px] rounded-full bg-[#f7d984]/12 blur-[100px]" />
+      {/* Atmospheric horizon across the footer */}
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-full bg-gradient-to-t from-[#0B241C]/40 via-[#061A15]/25 to-transparent" />
+      <div className="pointer-events-none absolute left-1/2 bottom-0 -translate-x-1/2 h-64 w-[800px] rounded-full bg-[#78E6C3]/18 blur-[130px]" />
+      <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-36 w-[600px] rounded-full bg-[#DFFF9A]/10 blur-[100px]" />
 
-      {/* Giant background wordmark in subtle champagne gold */}
+      {/* Giant background wordmark in subtle mint */}
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-x-0 top-3 select-none overflow-hidden text-center sm:top-6"
       >
-        <span className="whitespace-nowrap bg-gradient-to-b from-[#FFEB97]/[0.12] via-[#e67e22]/[0.06] to-transparent bg-clip-text text-[13vw] font-bold leading-none tracking-tighter text-transparent">
+        <span className="whitespace-nowrap bg-gradient-to-b from-[#78E6C3]/[0.10] via-[#DFFF9A]/[0.04] to-transparent bg-clip-text text-[13vw] font-bold leading-none tracking-tighter text-transparent">
           BRANDROUTE
         </span>
       </div>
@@ -1520,17 +1508,17 @@ function Footer() {
           <div>
             <a href="#top" className="group flex items-center gap-2.5" aria-label="Back to top">
               <BrandLogo className="h-9 w-9" />
-              <span className="text-[15px] font-semibold tracking-tight text-[#FAF6EE]">
-                BrandRoute <span className="font-normal text-[#FAF6EE]/50">Partners</span>
+              <span className="text-[15px] font-semibold tracking-tight text-[#F3F5F0]">
+                BrandRoute <span className="font-normal text-[#B5C2B9]/60">Partners</span>
               </span>
             </a>
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#FAF6EE]/50">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#B5C2B9]">
               Personal branding, lead generation, and marketing automation —
               backed by high-performance engineering.
             </p>
             <a
               href={`mailto:${EMAIL}`}
-              className="mt-4 inline-flex items-center gap-1.5 text-sm text-[#FFEB97] transition hover:opacity-80"
+              className="mt-4 inline-flex items-center gap-1.5 text-sm text-[#78E6C3] transition hover:text-[#DFFF9A]"
             >
               <Mail className="h-3.5 w-3.5" />
               {EMAIL}
@@ -1539,22 +1527,22 @@ function Footer() {
 
           {/* Company */}
           <nav aria-label="Company">
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-[#FAF6EE]/40">
+            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-[#B5C2B9]/50">
               Company
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
               <li>
-                <a href="#about" className="text-[#FAF6EE]/60 transition hover:text-[#FFEB97]">
+                <a href="#about" className="text-[#B5C2B9] transition hover:text-[#78E6C3]">
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#process" className="text-[#FAF6EE]/60 transition hover:text-[#FFEB97]">
+                <a href="#process" className="text-[#B5C2B9] transition hover:text-[#78E6C3]">
                   Our Process
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-[#FAF6EE]/60 transition hover:text-[#FFEB97]">
+                <a href="#contact" className="text-[#B5C2B9] transition hover:text-[#78E6C3]">
                   Contact
                 </a>
               </li>
@@ -1563,7 +1551,7 @@ function Footer() {
 
           {/* Services */}
           <nav aria-label="Services">
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-[#FAF6EE]/40">
+            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-[#B5C2B9]/50">
               Services
             </h3>
             <ul className="mt-4 space-y-2.5 text-sm">
@@ -1571,7 +1559,7 @@ function Footer() {
                 <li key={service.name}>
                   <a
                     href="#services"
-                    className="text-[#FAF6EE]/60 transition hover:text-[#FFEB97]"
+                    className="text-[#B5C2B9] transition hover:text-[#78E6C3]"
                   >
                     {service.name}
                   </a>
@@ -1582,16 +1570,16 @@ function Footer() {
 
           {/* CTA */}
           <div>
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-[#FAF6EE]/40">
+            <h3 className="font-mono text-xs uppercase tracking-[0.2em] text-[#B5C2B9]/50">
               Ready to grow?
             </h3>
-            <p className="mt-4 text-sm leading-relaxed text-[#FAF6EE]/50">
+            <p className="mt-4 text-sm leading-relaxed text-[#B5C2B9]">
               See exactly how your brand and pipeline would grow — on a free
               strategy call.
             </p>
             <a
               href={`mailto:${EMAIL}`}
-              className="mt-4 inline-flex h-10 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#FFEB97] via-[#f7d984] to-[#d4973b] px-5 text-[13px] font-semibold text-[#180e04] shadow-[0_4px_20px_rgba(255,235,151,0.25),inset_0_1px_1px_rgba(255,255,255,0.7)] transition hover:opacity-95 hover:scale-[1.02]"
+              className="mt-4 inline-flex h-10 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-[13px] font-bold text-[#061A15] shadow-[0_4px_20px_rgba(120,230,195,0.3),inset_0_1px_1px_rgba(255,255,255,0.8)] transition hover:opacity-95 hover:scale-[1.02]"
             >
               Book a Strategy Call
               <ArrowUpRight className="h-3.5 w-3.5" />
@@ -1599,10 +1587,10 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-[#FFEB97]/10 pt-6 text-xs text-[#FAF6EE]/40 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-[#294438] pt-6 text-xs text-[#B5C2B9]/50 sm:flex-row">
           <p>© 2026 BrandRoute Partners. All rights reserved.</p>
-          <p className="font-mono uppercase tracking-[0.22em] text-[#FAF6EE]/30">
-            Technology × Media
+          <p className="font-mono uppercase tracking-[0.22em] text-[#78E6C3]/70">
+            Same Goals. A Calmer, Sharper Look.
           </p>
         </div>
       </div>
@@ -1613,7 +1601,7 @@ function Footer() {
 export default function Home() {
   return (
     <MotionConfig reducedMotion="user">
-      <div className="relative isolate flex min-h-screen flex-col bg-[#070504] font-sans text-[#FAF6EE] antialiased">
+      <div className="relative isolate flex min-h-screen flex-col bg-[#061A15] font-sans text-[#F3F5F0] antialiased">
         <Background />
         <Header />
         <main className="relative z-10 flex-1">

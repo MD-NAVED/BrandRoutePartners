@@ -34,7 +34,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="antialiased bg-[#070504] text-[#FAF6EE] font-sans selection:bg-[#FFEB97]/30 selection:text-white">
+      <body className="antialiased bg-[#061A15] text-[#F3F5F0] font-sans selection:bg-[#78E6C3]/30 selection:text-white">
         {children}
         <Toaster />
       </body>

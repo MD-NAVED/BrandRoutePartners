@@ -2,13 +2,13 @@
 @import "tw-animate-css";
 
 ::selection {
-  background: rgba(255, 235, 151, 0.35);
+  background: rgba(120, 230, 195, 0.35);
   color: #ffffff;
 }
 
 html {
   scrollbar-width: thin;
-  scrollbar-color: rgba(255, 235, 151, 0.22) #070504;
+  scrollbar-color: rgba(120, 230, 195, 0.25) #061A15;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
@@ -17,16 +17,16 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track {
-  background: #070504;
+  background: #061A15;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: rgba(255, 235, 151, 0.16);
+  background: rgba(120, 230, 195, 0.2);
   border-radius: 8px;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 235, 151, 0.32);
+  background: rgba(120, 230, 195, 0.38);
 }
 
 @keyframes spin-slow {
@@ -86,24 +86,24 @@ body::-webkit-scrollbar-thumb:hover {
 
 :root {
   --radius: 0.625rem;
-  --background: #070504;
-  --foreground: #faf6ee;
-  --card: #0e0a07;
-  --card-foreground: #faf6ee;
-  --popover: #0e0a07;
-  --popover-foreground: #faf6ee;
-  --primary: #FFEB97;
-  --primary-foreground: #1c1307;
-  --secondary: #1f150c;
-  --secondary-foreground: #f4ede1;
-  --muted: #1f150c;
-  --muted-foreground: #9a8c79;
-  --accent: #583714;
-  --accent-foreground: #FFEB97;
+  --background: #061A15;
+  --foreground: #F3F5F0;
+  --card: #102D22;
+  --card-foreground: #F3F5F0;
+  --popover: #102D22;
+  --popover-foreground: #F3F5F0;
+  --primary: #78E6C3;
+  --primary-foreground: #061A15;
+  --secondary: #0B241C;
+  --secondary-foreground: #B5C2B9;
+  --muted: #0B241C;
+  --muted-foreground: #B5C2B9;
+  --accent: #102D22;
+  --accent-foreground: #DFFF9A;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: rgba(255, 235, 151, 0.12);
-  --input: rgba(255, 235, 151, 0.15);
-  --ring: #FFEB97;
+  --border: #294438;
+  --input: #294438;
+  --ring: #78E6C3;
 }
 
 @layer base {
@@ -111,7 +111,7 @@ body::-webkit-scrollbar-thumb:hover {
     @apply border-border outline-ring/50;
   }
   body {
-    background-color: #070504;
-    color: #f7f3ea;
+    background-color: #061A15;
+    color: #F3F5F0;
   }
 }
