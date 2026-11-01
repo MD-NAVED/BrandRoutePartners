@@ -5,14 +5,19 @@ import { Toaster } from "@/components/ui/toaster";
 export const metadata: Metadata = {
   title: "BrandRoute Partners — Build Your Brand. Generate More Leads.",
   description:
-    "Personal branding, lead generation, cold email marketing, sales support, and marketing automation — backed by high-performance engineering. One system builds your reputation while the other fills your calendar.",
+    "Personal branding, lead generation, cold outreach, SaaS development, rapid MVP launch, custom AI chatbots, and AI workflow automation — backed by high-performance engineering.",
   keywords: [
     "BrandRoute Partners",
     "personal branding",
     "lead generation",
     "cold email marketing",
+    "SaaS development",
+    "rapid MVP launch",
+    "custom AI chatbots",
+    "AI automation",
     "sales support",
     "marketing automation",
+    "software engineering",
     "brand growth",
   ],
   authors: [{ name: "BrandRoute Partners" }],
@@ -21,7 +26,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "BrandRoute Partners",
-    description: "Technology × Media — build, launch, and grow your brand.",
+    description: "Technology × Media — build, launch, and scale your brand & product.",
     siteName: "BrandRoute Partners",
     type: "website",
   },

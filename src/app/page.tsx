@@ -1,11 +1,12 @@
 'use client'
 
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { AnimatePresence, motion, MotionConfig, type Variants } from 'framer-motion'
 import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
+  Bot,
   CalendarCheck,
   Check,
   ChevronLeft,
@@ -14,6 +15,7 @@ import {
   Cpu,
   Fingerprint,
   Headset,
+  Layers,
   Mail,
   MapPin,
   Menu,
@@ -55,10 +57,12 @@ type Service = {
   description: string
   icon: LucideIcon
   badge: string
+  category: 'Growth & Outreach' | 'AI & Engineering'
   ambientGlow: string
 }
 
 const services: Service[] = [
+  // Growth & Outreach
   {
     name: 'Personal Branding',
     tagline: 'Build authority, trust and long-term recognition',
@@ -66,6 +70,7 @@ const services: Service[] = [
       'Your profile becomes a 24/7 revenue engine that positions you as the leading voice in your industry — building authority before you ever speak.',
     icon: Fingerprint,
     badge: '01 / Authority',
+    category: 'Growth & Outreach',
     ambientGlow: 'from-[#78E6C3]/35 via-[#1A604D]/25 to-transparent',
   },
   {
@@ -75,6 +80,7 @@ const services: Service[] = [
       'Qualified decision-makers, not bloated scrape lists. Every account is researched, validated, and warmed before it ever reaches your calendar.',
     icon: Target,
     badge: '02 / Pipeline',
+    category: 'Growth & Outreach',
     ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
   },
   {
@@ -84,6 +90,7 @@ const services: Service[] = [
       'Zero-spam infrastructure with isolated custom domains, calibrated warmup routines, and messages that read like an executive wrote them.',
     icon: Send,
     badge: '03 / Outbound',
+    category: 'Growth & Outreach',
     ambientGlow: 'from-[#78E6C3]/35 via-[#0D382B]/25 to-transparent',
   },
   {
@@ -93,6 +100,7 @@ const services: Service[] = [
       'We manage inbox friction, qualify incoming replies in real time, and route eager prospects straight to your calendar without deal drop-off.',
     icon: Headset,
     badge: '04 / Velocity',
+    category: 'Growth & Outreach',
     ambientGlow: 'from-[#DFFF9A]/30 via-[#1A604D]/20 to-transparent',
   },
   {
@@ -102,7 +110,49 @@ const services: Service[] = [
       'Automated nurture funnels, CRM synchronization, and weekly transparent reporting. The machine keeps running while you run the business.',
     icon: Workflow,
     badge: '05 / Scale',
+    category: 'Growth & Outreach',
     ambientGlow: 'from-[#78E6C3]/30 via-[#144838]/20 to-transparent',
+  },
+  // AI & Tech Engineering
+  {
+    name: 'SaaS Development',
+    tagline: 'High-performance, multi-tenant cloud platforms built to scale',
+    description:
+      'Full-stack cloud architectures, seamless billing & subscription infra, bulletproof auth, and blazingly fast Next.js & Node backends engineered for heavy production scale.',
+    icon: Layers,
+    badge: '06 / Architecture',
+    category: 'AI & Engineering',
+    ambientGlow: 'from-[#78E6C3]/35 via-[#1A604D]/25 to-transparent',
+  },
+  {
+    name: 'Rapid MVP Launch',
+    tagline: 'From napkin concept to live production software in 2–4 weeks',
+    description:
+      'Stop wasting months in development cycles. We architect, design, and ship functional, investor-ready MVPs so you can validate and acquire paying customers immediately.',
+    icon: Rocket,
+    badge: '07 / Velocity',
+    category: 'AI & Engineering',
+    ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
+  },
+  {
+    name: 'Custom AI Chatbots',
+    tagline: 'Intelligent RAG agents & 24/7 conversational customer engines',
+    description:
+      'Proprietary AI agents trained on your business documents, knowledge base, and CRM. They qualify inbound leads, answer deep inquiries, and book strategy calls around the clock.',
+    icon: Bot,
+    badge: '08 / Intelligence',
+    category: 'AI & Engineering',
+    ambientGlow: 'from-[#78E6C3]/35 via-[#0D382B]/25 to-transparent',
+  },
+  {
+    name: 'AI Automation & Workflows',
+    tagline: 'Autonomous agentic pipelines that replace repetitive manual tasks',
+    description:
+      'Custom LLM pipelines, autonomous agents, automated document extraction, and cross-platform integrations that run silently in the background 24/7 without manual intervention.',
+    icon: Cpu,
+    badge: '09 / Autonomy',
+    category: 'AI & Engineering',
+    ambientGlow: 'from-[#DFFF9A]/30 via-[#1A604D]/20 to-transparent',
   },
 ]
 
@@ -181,7 +231,7 @@ const engines = [
     theme: 'lime',
     description:
       'AI-assisted product engineering that designs, ships, and tests high-performance platforms, multi-tenant SaaS, and LLM-powered applications — built for rock-solid scale.',
-    chips: ['High-Performance SaaS', 'AI & LLM Systems', 'Full-Stack Architecture'],
+    chips: ['SaaS Development', 'Rapid MVP Launch', 'Custom AI Chatbots', 'AI Automation Workflows'],
   },
 ]
 
@@ -544,18 +594,16 @@ function Hero() {
           <div className="pointer-events-auto absolute -top-4 left-6 xl:left-12">
             <FloatingPill
               text="Personal Branding"
-              dotPosition="top-left"
               delay={0.2}
               yOffset={7}
               duration={4.4}
             />
           </div>
 
-          {/* Top Right Pill (well away from Circular Badge) */}
+          {/* Top Right Pill */}
           <div className="pointer-events-auto absolute -top-4 right-16 xl:right-28">
             <FloatingPill
-              text="Lead Generation"
-              dotPosition="top-right"
+              text="SaaS & MVP Build"
               delay={0.5}
               yOffset={8}
               duration={4.8}
@@ -566,18 +614,16 @@ function Hero() {
           <div className="pointer-events-auto absolute top-1/2 -translate-y-1/2 -left-6 xl:-left-16">
             <FloatingPill
               text="Cold Email Marketing"
-              dotPosition="bottom-left"
               delay={0.8}
               yOffset={7}
               duration={4.0}
             />
           </div>
 
-          {/* Mid Right Pill (safely below Circular Badge) */}
+          {/* Mid Right Pill */}
           <div className="pointer-events-auto absolute top-[65%] -right-4 xl:-right-12">
             <FloatingPill
-              text="Sales Support"
-              dotPosition="bottom-right"
+              text="AI Chatbots & Automation"
               delay={1.1}
               yOffset={8}
               duration={4.6}
@@ -587,8 +633,7 @@ function Hero() {
           {/* Bottom Center Pill (isolated inside the heading stage, well above subtitle) */}
           <div className="pointer-events-auto absolute -bottom-5 left-1/2 -translate-x-1/2">
             <FloatingPill
-              text="Marketing Automation"
-              dotPosition="top-left"
+              text="Lead Generation Engine"
               delay={1.4}
               yOffset={6}
               duration={4.2}
@@ -715,11 +760,26 @@ function SectionHeading({
   )
 }
 
+const serviceCategories = ['All Services', 'Growth & Outreach', 'AI & Engineering'] as const
+type ServiceCategory = (typeof serviceCategories)[number]
+
 function ServicesCarousel() {
+  const [selectedCategory, setSelectedCategory] = useState<ServiceCategory>('All Services')
   const [activeIndex, setActiveIndex] = useState(0)
   const isMobile = useIsMobile()
-  const total = services.length
   const lastActionTime = useRef(0)
+
+  const filteredServices = useMemo(() => {
+    if (selectedCategory === 'All Services') return services
+    return services.filter((s) => s.category === selectedCategory)
+  }, [selectedCategory])
+
+  const total = filteredServices.length
+
+  const handleSelectCategory = (cat: ServiceCategory) => {
+    setSelectedCategory(cat)
+    setActiveIndex(0)
+  }
 
   const handlePrev = useCallback(() => {
     const now = performance.now()
@@ -746,7 +806,41 @@ function ServicesCarousel() {
   }, [handlePrev, handleNext])
 
   return (
-    <div className="relative mx-auto mt-8 sm:mt-14 w-full max-w-5xl select-none px-2 sm:px-0">
+    <div className="relative mx-auto mt-6 sm:mt-10 w-full max-w-5xl select-none px-2 sm:px-0">
+      {/* Category Filter Capsule Dock */}
+      <div className="flex items-center justify-center mb-6 sm:mb-8">
+        <div className="inline-flex items-center gap-1 sm:gap-1.5 p-1 rounded-full border border-[#294438] bg-[#0B241C]/85 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(120,230,195,0.15)]">
+          {serviceCategories.map((cat) => {
+            const isSelected = selectedCategory === cat
+            const count =
+              cat === 'All Services'
+                ? services.length
+                : services.filter((s) => s.category === cat).length
+            return (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => handleSelectCategory(cat)}
+                className={`relative rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all duration-200 ${
+                  isSelected
+                    ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_2px_14px_rgba(120,230,195,0.4)]'
+                    : 'text-[#B5C2B9] hover:text-[#F3F5F0] hover:bg-white/[0.05]'
+                }`}
+              >
+                <span>{cat}</span>
+                <span
+                  className={`ml-1 text-[11px] font-mono ${
+                    isSelected ? 'opacity-80' : 'text-[#78E6C3]/70'
+                  }`}
+                >
+                  ({count})
+                </span>
+              </button>
+            )
+          })}
+        </div>
+      </div>
+
       {/* 1. Architectural Crosshair Grid Background with Feathered Vignette (Zero hard box edges) */}
       <div
         className="pointer-events-none absolute -inset-x-2 sm:-inset-x-8 -inset-y-6 -z-10 flex items-center justify-center overflow-hidden"
@@ -809,12 +903,12 @@ function ServicesCarousel() {
         }}
       >
         <div className="relative flex h-full w-full items-center justify-center">
-          {services.map((service, index) => {
+          {filteredServices.map((service, index) => {
             const dForward = (index - activeIndex + total) % total
 
             const isActive = dForward === 0
-            const isRight = dForward === 1
-            const isLeft = dForward === 4
+            const isRight = total > 1 && dForward === 1
+            const isLeft = total > 1 && dForward === total - 1
             const isVisible = isActive || isRight || isLeft
 
             let x = 0
@@ -845,7 +939,7 @@ function ServicesCarousel() {
               opacity = isMobile ? 0.35 : 0.65
               zIndex = 20
               pointerEvents = 'auto'
-            } else if (dForward === 2) {
+            } else if (dForward <= total / 2) {
               x = isMobile ? 180 : 430
               scale = 0.72
               rotateY = -26
@@ -981,7 +1075,7 @@ function ServicesCarousel() {
 
         {/* Dots Capsule Dock */}
         <div className="flex items-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/85 px-4 py-2 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(120,230,195,0.2)]">
-          {services.map((s, idx) => {
+          {filteredServices.map((s, idx) => {
             const isCurrent = idx === activeIndex
             return (
               <button
