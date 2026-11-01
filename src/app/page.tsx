@@ -7,7 +7,6 @@ import {
   ArrowRight,
   ArrowUpRight,
   Bot,
-  CalendarCheck,
   Check,
   ChevronLeft,
   ChevronRight,
@@ -468,10 +467,8 @@ function Header() {
             className="group relative inline-flex h-9 sm:h-10 items-center gap-1.5 sm:gap-2 overflow-hidden rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-3.5 sm:px-4 text-[12px] sm:text-[13px] font-bold text-[#061A15] shadow-[0_4px_20px_rgba(120,230,195,0.35),inset_0_1px_1px_rgba(255,255,255,0.7)] transition-all hover:scale-[1.02] hover:shadow-[0_4px_28px_rgba(120,230,195,0.55)]"
           >
             <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-            <CalendarCheck className="h-3.5 w-3.5 shrink-0" />
-            <span className="hidden sm:inline">Book a Strategy Call</span>
-            <span className="inline sm:hidden">Book Call</span>
-            <ArrowRight className="hidden sm:inline h-3 w-3 -mr-0.5 opacity-70 transition-transform group-hover:translate-x-0.5" />
+            <span>Book a call</span>
+            <ArrowUpRight className="h-3.5 w-3.5 opacity-80 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
 
           {/* Mobile Menu Toggle Button */}
@@ -694,8 +691,8 @@ function Hero() {
             href={`mailto:${EMAIL}`}
             className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-8 text-sm font-bold text-[#061A15] shadow-[0_10px_35px_-8px_rgba(120,230,195,0.5),inset_0_1px_1.5px_rgba(255,255,255,0.8)] transition-all hover:scale-[1.02] hover:shadow-[0_12px_45px_-4px_rgba(120,230,195,0.7)] sm:w-auto"
           >
-            <CalendarCheck className="h-4 w-4" />
-            Book a Strategy Call
+            <span>Book a Strategy Call</span>
+            <ArrowRight className="h-4 w-4" />
           </a>
           <a
             href="#services"
@@ -1050,7 +1047,6 @@ function ServicesCarousel() {
                       onClick={(e) => e.stopPropagation()}
                       className="mt-4 inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all hover:scale-105 active:scale-95"
                     >
-                      <CalendarCheck className="h-3.5 w-3.5" />
                       <span>Book Strategy Call</span>
                       <ArrowRight className="h-3.5 w-3.5" />
                     </motion.a>
@@ -1453,7 +1449,6 @@ function ProcessCarousel() {
                       onClick={(e) => e.stopPropagation()}
                       className="mt-4 inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all hover:scale-105 active:scale-95"
                     >
-                      <CalendarCheck className="h-3.5 w-3.5" />
                       <span>Book Strategy Call</span>
                       <ArrowRight className="h-3.5 w-3.5" />
                     </motion.a>
@@ -1586,10 +1581,10 @@ function ContactSection() {
           <div className="relative mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-7 text-sm font-bold text-[#061A15] shadow-[0_10px_35px_-8px_rgba(120,230,195,0.5),inset_0_1px_1.5px_rgba(255,255,255,0.8)] transition-all hover:scale-[1.02] sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-7 text-sm font-bold text-[#061A15] shadow-[0_10px_35px_-8px_rgba(120,230,195,0.5),inset_0_1px_1.5px_rgba(255,255,255,0.8)] transition-all hover:scale-[1.02] sm:w-auto"
             >
-              <CalendarCheck className="h-4 w-4 shrink-0" />
-              Book a Strategy Call
+              <span>Book a Strategy Call</span>
+              <ArrowRight className="h-4 w-4 shrink-0" />
             </a>
             <a
               href={`tel:${PHONE_TEL}`}
