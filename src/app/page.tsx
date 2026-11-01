@@ -487,36 +487,11 @@ function Header() {
   )
 }
 
-function CircularBadge({ className = '' }: { className?: string }) {
-  return (
-    <div className={`relative flex items-center justify-center ${className}`}>
-      <svg
-        viewBox="0 0 160 160"
-        className="h-28 w-28 sm:h-32 sm:w-32 animate-spin-slow select-none"
-      >
-        <path
-          id="circlePath"
-          d="M 80, 80 m -56, 0 a 56,56 0 1,1 112,0 a 56,56 0 1,1 -112,0"
-          fill="none"
-        />
-        <text className="text-[9.5px] font-mono uppercase tracking-[0.24em] fill-[#78E6C3]/80">
-          <textPath href="#circlePath" startOffset="0%">
-            BRANDROUTE PARTNERS • TECHNOLOGY × MEDIA • 2026 •
-          </textPath>
-        </text>
-      </svg>
-      <div className="absolute flex h-9 w-9 items-center justify-center rounded-full border border-[#294438] bg-[#0B241C]/60 backdrop-blur-sm shadow-[0_0_20px_rgba(120,230,195,0.3)]">
-        <Sparkles className="h-4 w-4 text-[#DFFF9A]" />
-      </div>
-    </div>
-  )
-}
-
-// Floating translucent glass pills with pulsing pearl dots
+// Floating translucent glass pills
 function FloatingPill({
   text,
   className = '',
-  dotPosition = 'top-left',
+  dotPosition,
   yOffset = 6,
   duration = 4.2,
   delay = 0,
@@ -548,20 +523,6 @@ function FloatingPill({
       }}
       className={`group relative inline-flex items-center rounded-full border border-[#294438] bg-[#0B241C]/90 px-4 py-1.5 backdrop-blur-sm shadow-[0_6px_24px_rgba(0,0,0,0.6)] transition-all hover:border-[#78E6C3]/75 hover:bg-[#102D22] hover:shadow-[0_8px_30px_rgba(120,230,195,0.25)] ${className}`}
     >
-      {/* Attached luminous pearl dot with breathing glow */}
-      <span
-        className={`absolute h-2.5 w-2.5 rounded-full bg-[#DFFF9A] shadow-[0_0_10px_#78E6C3,0_0_20px_rgba(120,230,195,0.5)] ${
-          dotPosition === 'top-left'
-            ? '-left-1 -top-1'
-            : dotPosition === 'top-right'
-            ? '-right-1 -top-1'
-            : dotPosition === 'bottom-left'
-            ? '-bottom-1 -left-1'
-            : '-bottom-1 -right-1'
-        }`}
-      >
-        <span className="absolute inset-0 rounded-full bg-[#78E6C3] opacity-60 animate-ping" />
-      </span>
       <span className="text-xs sm:text-sm font-medium tracking-wide text-[#F3F5F0] group-hover:text-white transition-colors">
         {text}
       </span>
@@ -635,10 +596,6 @@ function Hero() {
           </div>
         </div>
 
-        {/* Circular Rotating Badge in the open space on the right (XL screens) */}
-        <div className="hidden xl:block absolute -right-24 top-0 pointer-events-none">
-          <CircularBadge />
-        </div>
 
         {/* Tagline Badge */}
         <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}>
