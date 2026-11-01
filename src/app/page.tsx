@@ -17,7 +17,9 @@ import {
   Mail,
   MapPin,
   Menu,
+  MessageCircle,
   PenTool,
+  Phone,
   PhoneCall,
   Rocket,
   Route,
@@ -32,6 +34,9 @@ import {
 import { useIsMobile } from '@/hooks/use-mobile'
 
 const EMAIL = 'fuzail@brandroutepartner.com'
+const PHONE = '+91 80852 58803'
+const PHONE_TEL = '+918085258803'
+const WHATSAPP_URL = 'https://wa.me/918085258803?text=Hi%20BrandRoute%20Partners%2C%20I%20would%20like%20to%20inquire%20about%20your%20services.'
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 
@@ -199,6 +204,27 @@ function useCopyEmail() {
   }, [])
 
   return { copied, copy }
+}
+
+function useCopyPhone() {
+  const [copiedPhone, setCopiedPhone] = useState(false)
+
+  const copyPhone = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(PHONE)
+    } catch {
+      const textarea = document.createElement('textarea')
+      textarea.value = PHONE
+      document.body.appendChild(textarea)
+      textarea.select()
+      document.execCommand('copy')
+      document.body.removeChild(textarea)
+    }
+    setCopiedPhone(true)
+    window.setTimeout(() => setCopiedPhone(false), 2000)
+  }, [])
+
+  return { copiedPhone, copyPhone }
 }
 
 function SectionDivider() {
@@ -433,6 +459,26 @@ function Header() {
                   <ArrowRight className="h-3.5 w-3.5 opacity-50" />
                 </a>
               ))}
+              <div className="mt-2 border-t border-[#294438] pt-2 flex flex-col gap-1.5">
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-2 rounded-xl bg-white/[0.04] px-4 py-2 text-xs font-semibold text-[#78E6C3] transition hover:bg-white/[0.08]"
+                >
+                  <Phone className="h-3.5 w-3.5 text-[#78E6C3]" />
+                  <span>Call {PHONE}</span>
+                </a>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center gap-2 rounded-xl bg-white/[0.04] px-4 py-2 text-xs font-semibold text-[#25D366] transition hover:bg-white/[0.08]"
+                >
+                  <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </div>
             </nav>
           </motion.div>
         )}
@@ -1437,6 +1483,7 @@ function ProcessSection() {
 
 function ContactSection() {
   const { copied, copy } = useCopyEmail()
+  const { copiedPhone, copyPhone } = useCopyPhone()
 
   return (
     <section
@@ -1485,35 +1532,81 @@ function ContactSection() {
             route to more leads. No obligation, no black box.
           </p>
 
-          <div className="relative mt-9 flex flex-col items-center justify-center gap-3.5 sm:flex-row">
+          <div className="relative mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-8 text-sm font-bold text-[#061A15] shadow-[0_10px_35px_-8px_rgba(120,230,195,0.5),inset_0_1px_1.5px_rgba(255,255,255,0.8)] transition-all hover:scale-[1.02] sm:w-auto"
+              className="inline-flex h-12 w-full items-center justify-center gap-2.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-7 text-sm font-bold text-[#061A15] shadow-[0_10px_35px_-8px_rgba(120,230,195,0.5),inset_0_1px_1.5px_rgba(255,255,255,0.8)] transition-all hover:scale-[1.02] sm:w-auto"
             >
               <CalendarCheck className="h-4 w-4 shrink-0" />
               Book a Strategy Call
             </a>
-            <button
-              type="button"
-              onClick={copy}
-              aria-label={
-                copied ? 'Email address copied' : 'Copy email address to clipboard'
-              }
-              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/60 backdrop-blur-md px-7 text-sm font-medium text-[#F3F5F0] shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition hover:border-[#78E6C3]/60 hover:bg-[#102D22]/80 hover:text-[#78E6C3] sm:w-auto"
+            <a
+              href={`tel:${PHONE_TEL}`}
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/60 backdrop-blur-md px-6 text-sm font-semibold text-[#F3F5F0] shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition hover:border-[#78E6C3]/60 hover:bg-[#102D22]/80 hover:text-[#78E6C3] sm:w-auto"
             >
-              {copied ? (
-                <Check className="h-4 w-4 text-[#78E6C3]" />
-              ) : (
-                <Copy className="h-4 w-4" />
-              )}
-              {copied ? 'Copied!' : 'Copy email'}
-            </button>
+              <Phone className="h-4 w-4 text-[#78E6C3]" />
+              Call Directly
+            </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/60 backdrop-blur-md px-6 text-sm font-semibold text-[#F3F5F0] shadow-[0_4px_20px_rgba(0,0,0,0.4)] transition hover:border-[#25D366]/60 hover:bg-[#102D22]/80 hover:text-[#25D366] sm:w-auto"
+            >
+              <MessageCircle className="h-4 w-4 text-[#25D366]" />
+              WhatsApp
+            </a>
           </div>
 
-          <p className="relative mt-8 inline-flex items-center gap-1.5 text-sm text-[#B5C2B9]/60">
-            <MapPin className="h-3.5 w-3.5 text-[#78E6C3]" />
-            Indore, India — working worldwide
-          </p>
+          {/* Direct channels bar */}
+          <div className="relative mt-10 pt-8 border-t border-[#294438]/70 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-xs sm:text-sm text-[#B5C2B9]">
+            <div className="flex items-center gap-1.5">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="inline-flex items-center gap-1.5 transition hover:text-[#78E6C3]"
+              >
+                <Mail className="h-4 w-4 text-[#78E6C3]" />
+                <span>{EMAIL}</span>
+              </a>
+              <button
+                type="button"
+                onClick={copy}
+                title="Copy email"
+                aria-label={copied ? 'Email copied' : 'Copy email'}
+                className="p-1 text-[#B5C2B9]/60 hover:text-[#78E6C3] transition"
+              >
+                {copied ? <Check className="h-3.5 w-3.5 text-[#78E6C3]" /> : <Copy className="h-3.5 w-3.5" />}
+              </button>
+            </div>
+
+            <span className="hidden sm:inline text-[#294438]">•</span>
+
+            <div className="flex items-center gap-1.5">
+              <a
+                href={`tel:${PHONE_TEL}`}
+                className="inline-flex items-center gap-1.5 transition hover:text-[#78E6C3]"
+              >
+                <Phone className="h-4 w-4 text-[#78E6C3]" />
+                <span>{PHONE}</span>
+              </a>
+              <button
+                type="button"
+                onClick={copyPhone}
+                title="Copy phone"
+                aria-label={copiedPhone ? 'Phone copied' : 'Copy phone'}
+                className="p-1 text-[#B5C2B9]/60 hover:text-[#78E6C3] transition"
+              >
+                {copiedPhone ? <Check className="h-3.5 w-3.5 text-[#78E6C3]" /> : <Copy className="h-3.5 w-3.5" />}
+              </button>
+            </div>
+
+            <span className="hidden sm:inline text-[#294438]">•</span>
+
+            <span className="inline-flex items-center gap-1.5 text-[#B5C2B9]/70">
+              <MapPin className="h-4 w-4 text-[#78E6C3]" />
+              <span>Indore, India — working worldwide</span>
+            </span>
+          </div>
         </motion.div>
       </div>
     </section>
@@ -1552,13 +1645,31 @@ function Footer() {
               Personal branding, lead generation, and marketing automation —
               backed by high-performance engineering.
             </p>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="mt-4 inline-flex items-center gap-1.5 text-sm text-[#78E6C3] transition hover:text-[#DFFF9A]"
-            >
-              <Mail className="h-3.5 w-3.5" />
-              {EMAIL}
-            </a>
+            <div className="mt-4 flex flex-col gap-2.5 text-sm">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="inline-flex items-center gap-2 text-[#78E6C3] transition hover:text-[#DFFF9A]"
+              >
+                <Mail className="h-3.5 w-3.5" />
+                <span>{EMAIL}</span>
+              </a>
+              <a
+                href={`tel:${PHONE_TEL}`}
+                className="inline-flex items-center gap-2 text-[#B5C2B9] transition hover:text-[#78E6C3]"
+              >
+                <Phone className="h-3.5 w-3.5 text-[#78E6C3]" />
+                <span>{PHONE}</span>
+              </a>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[#B5C2B9] transition hover:text-[#25D366]"
+              >
+                <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
+                <span>Chat on WhatsApp</span>
+              </a>
+            </div>
           </div>
 
           {/* Company */}
@@ -1613,13 +1724,22 @@ function Footer() {
               See exactly how your brand and pipeline would grow — on a free
               strategy call.
             </p>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="mt-4 inline-flex h-10 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-[13px] font-bold text-[#061A15] shadow-[0_4px_20px_rgba(120,230,195,0.3),inset_0_1px_1px_rgba(255,255,255,0.8)] transition hover:opacity-95 hover:scale-[1.02]"
-            >
-              Book a Strategy Call
-              <ArrowUpRight className="h-3.5 w-3.5" />
-            </a>
+            <div className="mt-4 flex flex-col sm:flex-row gap-2">
+              <a
+                href={`mailto:${EMAIL}`}
+                className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-[13px] font-bold text-[#061A15] shadow-[0_4px_20px_rgba(120,230,195,0.3),inset_0_1px_1px_rgba(255,255,255,0.8)] transition hover:opacity-95 hover:scale-[1.02]"
+              >
+                Book a Call
+                <ArrowUpRight className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href={`tel:${PHONE_TEL}`}
+                className="inline-flex h-10 items-center justify-center gap-1.5 rounded-full border border-[#294438] bg-[#0B241C]/60 px-4 text-[13px] font-semibold text-[#78E6C3] transition hover:border-[#78E6C3]/60 hover:text-white"
+              >
+                <Phone className="h-3.5 w-3.5" />
+                Call Now
+              </a>
+            </div>
           </div>
         </div>
 
