@@ -743,28 +743,34 @@ function ServicesCarousel() {
   }, [handlePrev, handleNext])
 
   return (
-    <div className="relative mx-auto mt-10 sm:mt-14 w-full max-w-5xl select-none">
-      {/* 1. Architectural Crosshair Grid Background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
+    <div className="relative mx-auto mt-8 sm:mt-14 w-full max-w-5xl select-none px-2 sm:px-0">
+      {/* 1. Architectural Crosshair Grid Background with Feathered Vignette (Zero hard box edges) */}
+      <div
+        className="pointer-events-none absolute -inset-x-2 sm:-inset-x-8 -inset-y-6 -z-10 flex items-center justify-center overflow-hidden"
+        style={{
+          maskImage: 'radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 80%)',
+        }}
+      >
         {/* Dual-layer ambient emerald & mint lamp centered behind cards */}
-        <div className="absolute h-[520px] w-[580px] rounded-full bg-[#78E6C3]/22 blur-[130px]" />
-        <div className="absolute h-[340px] w-[400px] rounded-full bg-[#DFFF9A]/16 blur-[90px]" />
+        <div className="absolute h-[420px] sm:h-[520px] w-[90%] sm:w-[580px] rounded-full bg-[#78E6C3]/20 blur-[100px] sm:blur-[130px]" />
+        <div className="absolute h-[260px] sm:h-[340px] w-[70%] sm:w-[400px] rounded-full bg-[#DFFF9A]/14 blur-[70px] sm:blur-[90px]" />
 
-        {/* Minimalist grid lines */}
+        {/* Minimalist grid lines with soft feathering */}
         <div
-          className="absolute inset-0 opacity-[0.14]"
+          className="absolute inset-0 opacity-[0.10] sm:opacity-[0.14]"
           style={{
             backgroundImage: `
               linear-gradient(to right, rgba(120, 230, 195, 0.2) 1px, transparent 1px),
               linear-gradient(to bottom, rgba(120, 230, 195, 0.2) 1px, transparent 1px)
             `,
-            backgroundSize: isMobile ? '80px 80px' : '120px 120px',
+            backgroundSize: isMobile ? '70px 70px' : '120px 120px',
             backgroundPosition: 'center center',
           }}
         />
 
         {/* Crosshair (+) markers at grid corners */}
-        <div className="absolute inset-x-6 inset-y-6 sm:inset-x-12 sm:inset-y-10 flex flex-col justify-between font-mono text-xs text-[#78E6C3]/40">
+        <div className="absolute inset-x-8 inset-y-8 sm:inset-x-12 sm:inset-y-10 flex flex-col justify-between font-mono text-xs text-[#78E6C3]/30">
           <div className="flex justify-between">
             <span>+</span><span>+</span><span>+</span>
           </div>
@@ -777,10 +783,18 @@ function ServicesCarousel() {
         </div>
       </div>
 
-      {/* 2. 3D Card Stack Stage - Supports gesture pan across entire stage */}
+      {/* 2. 3D Card Stack Stage - Smooth side edge fade on mobile (No cut box edges) */}
       <motion.div
-        className="relative mx-auto flex h-[490px] sm:h-[540px] items-center justify-center overflow-hidden touch-pan-y"
-        style={{ perspective: 1200 }}
+        className="relative mx-auto flex h-[480px] sm:h-[540px] items-center justify-center touch-pan-y overflow-hidden"
+        style={{
+          perspective: 1200,
+          maskImage: isMobile
+            ? 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)'
+            : undefined,
+          WebkitMaskImage: isMobile
+            ? 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)'
+            : undefined,
+        }}
         onPanEnd={(_, info) => {
           const swipeThreshold = 35
           const velocityThreshold = 250
@@ -815,28 +829,28 @@ function ServicesCarousel() {
               zIndex = 30
               pointerEvents = 'auto'
             } else if (isRight) {
-              x = isMobile ? 140 : 275
-              scale = isMobile ? 0.83 : 0.86
-              rotateY = isMobile ? -14 : -19
-              opacity = isMobile ? 0.45 : 0.65
+              x = isMobile ? 115 : 275
+              scale = isMobile ? 0.78 : 0.86
+              rotateY = isMobile ? -10 : -19
+              opacity = isMobile ? 0.35 : 0.65
               zIndex = 20
               pointerEvents = 'auto'
             } else if (isLeft) {
-              x = isMobile ? -140 : -275
-              scale = isMobile ? 0.83 : 0.86
-              rotateY = isMobile ? 14 : 19
-              opacity = isMobile ? 0.45 : 0.65
+              x = isMobile ? -115 : -275
+              scale = isMobile ? 0.78 : 0.86
+              rotateY = isMobile ? 10 : 19
+              opacity = isMobile ? 0.35 : 0.65
               zIndex = 20
               pointerEvents = 'auto'
             } else if (dForward === 2) {
-              x = isMobile ? 220 : 430
+              x = isMobile ? 180 : 430
               scale = 0.72
               rotateY = -26
               opacity = 0
               zIndex = 10
               pointerEvents = 'none'
             } else {
-              x = isMobile ? -220 : -430
+              x = isMobile ? -180 : -430
               scale = 0.72
               rotateY = 26
               opacity = 0
@@ -886,10 +900,10 @@ function ServicesCarousel() {
                   backfaceVisibility: 'hidden',
                   pointerEvents,
                 }}
-                className={`absolute w-[295px] xs:w-[330px] sm:w-[380px] h-[430px] sm:h-[480px] rounded-[32px] sm:rounded-[36px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden border border-[#294438] shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(120,230,195,0.2)] select-none touch-pan-y ${
+                className={`absolute w-[280px] xs:w-[315px] sm:w-[380px] h-[435px] sm:h-[480px] rounded-[36px] sm:rounded-[40px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden border shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(120,230,195,0.2)] select-none touch-pan-y ${
                   isActive
                     ? 'cursor-grab active:cursor-grabbing bg-gradient-to-b from-[#102D22]/98 via-[#0D261D]/98 to-[#061A15] border-[#78E6C3]/40 shadow-[0_30px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(120,230,195,0.2),inset_0_1px_1px_rgba(223,255,154,0.3)]'
-                    : 'cursor-pointer active:cursor-grabbing bg-gradient-to-b from-[#0B241C]/95 via-[#081F18]/90 to-[#061A15]/90 hover:border-[#78E6C3]/45'
+                    : 'cursor-pointer active:cursor-grabbing bg-gradient-to-b from-[#0B241C]/95 via-[#081F18]/90 to-[#061A15]/90 border-[#294438]/80 hover:border-[#78E6C3]/45'
                 }`}
               >
                 {/* Specular top rim light reflection */}
@@ -1133,28 +1147,34 @@ function ProcessCarousel() {
   }, [handlePrev, handleNext])
 
   return (
-    <div className="relative mx-auto mt-10 sm:mt-14 w-full max-w-5xl select-none">
-      {/* 1. Architectural Crosshair Grid Background */}
-      <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center overflow-hidden">
+    <div className="relative mx-auto mt-8 sm:mt-14 w-full max-w-5xl select-none px-2 sm:px-0">
+      {/* 1. Architectural Crosshair Grid Background with Feathered Vignette (Zero hard box edges) */}
+      <div
+        className="pointer-events-none absolute -inset-x-2 sm:-inset-x-8 -inset-y-6 -z-10 flex items-center justify-center overflow-hidden"
+        style={{
+          maskImage: 'radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 80%)',
+        }}
+      >
         {/* Dual-layer ambient emerald & mint lamp centered behind cards */}
-        <div className="absolute h-[520px] w-[580px] rounded-full bg-[#78E6C3]/22 blur-[130px]" />
-        <div className="absolute h-[340px] w-[400px] rounded-full bg-[#DFFF9A]/16 blur-[90px]" />
+        <div className="absolute h-[420px] sm:h-[520px] w-[90%] sm:w-[580px] rounded-full bg-[#78E6C3]/20 blur-[100px] sm:blur-[130px]" />
+        <div className="absolute h-[260px] sm:h-[340px] w-[70%] sm:w-[400px] rounded-full bg-[#DFFF9A]/14 blur-[70px] sm:blur-[90px]" />
 
-        {/* Minimalist grid lines */}
+        {/* Minimalist grid lines with soft feathering */}
         <div
-          className="absolute inset-0 opacity-[0.14]"
+          className="absolute inset-0 opacity-[0.10] sm:opacity-[0.14]"
           style={{
             backgroundImage: `
               linear-gradient(to right, rgba(120, 230, 195, 0.2) 1px, transparent 1px),
               linear-gradient(to bottom, rgba(120, 230, 195, 0.2) 1px, transparent 1px)
             `,
-            backgroundSize: isMobile ? '80px 80px' : '120px 120px',
+            backgroundSize: isMobile ? '70px 70px' : '120px 120px',
             backgroundPosition: 'center center',
           }}
         />
 
         {/* Crosshair (+) markers at grid corners */}
-        <div className="absolute inset-x-6 inset-y-6 sm:inset-x-12 sm:inset-y-10 flex flex-col justify-between font-mono text-xs text-[#78E6C3]/40">
+        <div className="absolute inset-x-8 inset-y-8 sm:inset-x-12 sm:inset-y-10 flex flex-col justify-between font-mono text-xs text-[#78E6C3]/30">
           <div className="flex justify-between">
             <span>+</span><span>+</span><span>+</span>
           </div>
@@ -1167,10 +1187,18 @@ function ProcessCarousel() {
         </div>
       </div>
 
-      {/* 2. 3D Card Stack Stage - Supports pan gesture across entire stage */}
+      {/* 2. 3D Card Stack Stage - Smooth side edge fade on mobile (No cut box edges) */}
       <motion.div
-        className="relative mx-auto flex h-[490px] sm:h-[540px] items-center justify-center overflow-hidden touch-pan-y"
-        style={{ perspective: 1200 }}
+        className="relative mx-auto flex h-[480px] sm:h-[540px] items-center justify-center touch-pan-y overflow-hidden"
+        style={{
+          perspective: 1200,
+          maskImage: isMobile
+            ? 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)'
+            : undefined,
+          WebkitMaskImage: isMobile
+            ? 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)'
+            : undefined,
+        }}
         onPanEnd={(_, info) => {
           const swipeThreshold = 35
           const velocityThreshold = 250
@@ -1205,17 +1233,17 @@ function ProcessCarousel() {
               zIndex = 30
               pointerEvents = 'auto'
             } else if (isRight) {
-              x = isMobile ? 140 : 275
-              scale = isMobile ? 0.83 : 0.86
-              rotateY = isMobile ? -14 : -19
-              opacity = isMobile ? 0.45 : 0.65
+              x = isMobile ? 115 : 275
+              scale = isMobile ? 0.78 : 0.86
+              rotateY = isMobile ? -10 : -19
+              opacity = isMobile ? 0.35 : 0.65
               zIndex = 20
               pointerEvents = 'auto'
             } else if (isLeft) {
-              x = isMobile ? -140 : -275
-              scale = isMobile ? 0.83 : 0.86
-              rotateY = isMobile ? 14 : 19
-              opacity = isMobile ? 0.45 : 0.65
+              x = isMobile ? -115 : -275
+              scale = isMobile ? 0.78 : 0.86
+              rotateY = isMobile ? 10 : 19
+              opacity = isMobile ? 0.35 : 0.65
               zIndex = 20
               pointerEvents = 'auto'
             } else {
@@ -1269,10 +1297,10 @@ function ProcessCarousel() {
                   backfaceVisibility: 'hidden',
                   pointerEvents,
                 }}
-                className={`absolute w-[295px] xs:w-[330px] sm:w-[380px] h-[430px] sm:h-[480px] rounded-[32px] sm:rounded-[36px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden border border-[#294438] shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(120,230,195,0.2)] select-none touch-pan-y ${
+                className={`absolute w-[280px] xs:w-[315px] sm:w-[380px] h-[435px] sm:h-[480px] rounded-[36px] sm:rounded-[40px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden border shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(120,230,195,0.2)] select-none touch-pan-y ${
                   isActive
                     ? 'cursor-grab active:cursor-grabbing bg-gradient-to-b from-[#102D22]/98 via-[#0D261D]/98 to-[#061A15] border-[#78E6C3]/40 shadow-[0_30px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(120,230,195,0.2),inset_0_1px_1px_rgba(223,255,154,0.3)]'
-                    : 'cursor-pointer active:cursor-grabbing bg-gradient-to-b from-[#0B241C]/95 via-[#081F18]/90 to-[#061A15]/90 hover:border-[#78E6C3]/45'
+                    : 'cursor-pointer active:cursor-grabbing bg-gradient-to-b from-[#0B241C]/95 via-[#081F18]/90 to-[#061A15]/90 border-[#294438]/80 hover:border-[#78E6C3]/45'
                 }`}
               >
                 {/* Specular top rim light reflection */}
