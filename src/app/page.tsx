@@ -307,6 +307,28 @@ function Background() {
   )
 }
 
+function BrandWordmark({ size = 'default' }: { size?: 'default' | 'large' }) {
+  const isLarge = size === 'large'
+  return (
+    <div className="flex flex-col select-none leading-none">
+      <span
+        className={`font-black uppercase tracking-[0.18em] text-[#78E6C3] drop-shadow-[0_0_14px_rgba(120,230,195,0.45)] transition-colors group-hover:text-white ${
+          isLarge ? 'text-xl sm:text-2xl' : 'text-[13.5px] sm:text-[15px]'
+        }`}
+      >
+        BRANDROUTE
+      </span>
+      <span
+        className={`font-mono uppercase font-semibold text-[#B5C2B9] tracking-[0.40em] transition-colors group-hover:text-[#DFFF9A] ${
+          isLarge ? 'text-[10px] sm:text-[11px] mt-1.5' : 'text-[8.5px] sm:text-[9.5px] mt-1'
+        } pl-[1px]`}
+      >
+        PARTNERS
+      </span>
+    </div>
+  )
+}
+
 function BrandLogo({ className = 'h-8 w-8' }: { className?: string }) {
   return (
     <span
@@ -333,28 +355,17 @@ function Header() {
 
   return (
     <div className="sticky top-3 sm:top-5 z-50 px-3 sm:px-6 w-full">
-      <header className="relative mx-auto flex h-14 sm:h-16 max-w-5xl items-center justify-between rounded-full border border-[#294438] bg-[#0B241C]/85 px-3.5 sm:px-5 backdrop-blur-2xl shadow-[0_12px_36px_rgba(0,0,0,0.65),0_0_0_1px_rgba(120,230,195,0.06),inset_0_1px_1px_rgba(120,230,195,0.25)] transition-all">
+      <header className="relative mx-auto flex h-14 sm:h-16 max-w-5xl items-center justify-between rounded-full border border-[#294438] bg-[#0B241C]/85 px-4 sm:px-6 backdrop-blur-2xl shadow-[0_12px_36px_rgba(0,0,0,0.65),0_0_0_1px_rgba(120,230,195,0.06),inset_0_1px_1px_rgba(120,230,195,0.25)] transition-all">
         {/* Subtle top light reflection edge */}
         <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
 
-        {/* Brand */}
+        {/* Brand Wordmark (Matching uploaded reference screenshot) */}
         <a
           href="#top"
-          className="group flex items-center gap-2.5 sm:gap-3"
+          className="group flex items-center gap-2 select-none py-1 transition-transform hover:scale-[1.02]"
           aria-label="BrandRoute Partners — back to top"
         >
-          <div className="relative">
-            <BrandLogo className="h-8 w-8 sm:h-9 sm:w-9" />
-            <div className="absolute inset-0 rounded-full bg-[#78E6C3]/15 blur-sm opacity-0 group-hover:opacity-100 transition-opacity" />
-          </div>
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            <span className="text-[14px] sm:text-[15px] font-bold tracking-tight text-[#F3F5F0] group-hover:text-white transition-colors">
-              BrandRoute
-            </span>
-            <span className="rounded-full bg-[#78E6C3]/10 border border-[#294438] px-2 py-0.5 text-[9px] sm:text-[10px] font-semibold uppercase tracking-wider text-[#78E6C3]">
-              Partners
-            </span>
-          </div>
+          <BrandWordmark />
         </a>
 
         {/* Center Pill Dock */}
@@ -1506,11 +1517,8 @@ function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 md:grid-cols-[1.5fr_1fr_1fr_1.3fr]">
           {/* Brand */}
           <div>
-            <a href="#top" className="group flex items-center gap-2.5" aria-label="Back to top">
-              <BrandLogo className="h-9 w-9" />
-              <span className="text-[15px] font-semibold tracking-tight text-[#F3F5F0]">
-                BrandRoute <span className="font-normal text-[#B5C2B9]/60">Partners</span>
-              </span>
+            <a href="#top" className="group flex flex-col items-start leading-none select-none transition-transform hover:scale-[1.02]" aria-label="Back to top">
+              <BrandWordmark size="large" />
             </a>
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-[#B5C2B9]">
               Personal branding, lead generation, and marketing automation —
