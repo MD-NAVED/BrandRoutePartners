@@ -10,8 +10,10 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
+  Code2,
   Copy,
   Cpu,
+  Database,
   Fingerprint,
   Headset,
   Layers,
@@ -25,11 +27,14 @@ import {
   Rocket,
   Route,
   Send,
+  Server,
   Sparkles,
   Target,
+  Terminal,
   TrendingUp,
   Workflow,
   X,
+  Zap,
   type LucideIcon,
 } from 'lucide-react'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -50,166 +55,240 @@ const fadeUp: Variants = {
   }),
 }
 
-type Service = {
+type Offering = {
   name: string
   tagline: string
   description: string
   icon: LucideIcon
   badge: string
   category: 'Growth & Outreach' | 'AI & Engineering'
+  features: string[]
   ambientGlow: string
 }
 
-const services: Service[] = [
-  // Growth & Outreach
+const marketingOfferings: Offering[] = [
   {
     name: 'Personal Branding',
-    tagline: 'Build authority, trust and long-term recognition',
-    description:
-      'Your profile becomes a 24/7 revenue engine that positions you as the leading voice in your industry — building authority before you ever speak.',
-    icon: Fingerprint,
     badge: '01 / Authority',
+    tagline: 'Build authority, trust and long-term recognition',
     category: 'Growth & Outreach',
+    description:
+      'Your profile becomes a 24/7 revenue engine. High-impact thought-leadership content and executive positioning that pre-sells your expertise before a prospect ever joins a call.',
+    icon: Fingerprint,
+    features: ['Ghostwritten High-Authority Content', 'Executive Profile Optimization', 'Thought-Leadership Positioning', 'Inbound DM Funnel Architecture'],
     ambientGlow: 'from-[#78E6C3]/35 via-[#1A604D]/25 to-transparent',
   },
   {
-    name: 'Lead Generation',
-    tagline: 'Find, qualify and convert high-intent leads',
-    description:
-      'Qualified decision-makers, not bloated scrape lists. Every account is researched, validated, and warmed before it ever reaches your calendar.',
-    icon: Target,
+    name: 'High-Intent Lead Generation',
     badge: '02 / Pipeline',
+    tagline: 'Find, qualify and convert high-intent B2B leads',
     category: 'Growth & Outreach',
+    description:
+      'Handpicked decision-makers, not bloated scrape lists. Every prospect account is researched, ICP-matched, and verified so your pipeline is filled with buyers ready for high-ticket deals.',
+    icon: Target,
+    features: ['Verified B2B Decision Makers', 'Zero Scrape Waste / Manual QA', 'Deep ICP & Persona Targeting', 'Custom Account Data Enrichment'],
     ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
   },
   {
-    name: 'Cold Email Marketing',
-    tagline: 'Reach the right people with high-converting outreach',
-    description:
-      'Zero-spam infrastructure with isolated custom domains, calibrated warmup routines, and messages that read like an executive wrote them.',
-    icon: Send,
+    name: 'Cold Email Infrastructure',
     badge: '03 / Outbound',
+    tagline: 'Reach the right people with high-converting outreach',
     category: 'Growth & Outreach',
+    description:
+      'Spam-proof outbound setup. Custom isolated secondary domains, SPF/DKIM/DMARC authentication, calibrated ramp-up routines, and human-sounding executive copy.',
+    icon: Send,
+    features: ['Isolated Secondary Domains', '100% Primary Domain Protection', 'Automated Ramp & Warmup Routines', 'High-Converting Executive Copywriting'],
     ambientGlow: 'from-[#78E6C3]/35 via-[#0D382B]/25 to-transparent',
   },
   {
-    name: 'Sales Support',
-    tagline: 'Turn conversations into revenue with dedicated support',
-    description:
-      'We manage inbox friction, qualify incoming replies in real time, and route eager prospects straight to your calendar without deal drop-off.',
-    icon: Headset,
+    name: 'Sales Support & Deal Closing',
     badge: '04 / Velocity',
+    tagline: 'Turn conversations into revenue with dedicated support',
     category: 'Growth & Outreach',
-    ambientGlow: 'from-[#DFFF9A]/30 via-[#1A604D]/20 to-transparent',
-  },
-  {
-    name: 'Marketing Automation',
-    tagline: 'Automate your growth workflows, CRM and more',
     description:
-      'Automated nurture funnels, CRM synchronization, and weekly transparent reporting. The machine keeps running while you run the business.',
-    icon: Workflow,
-    badge: '05 / Scale',
-    category: 'Growth & Outreach',
-    ambientGlow: 'from-[#78E6C3]/30 via-[#144838]/20 to-transparent',
-  },
-  // AI & Tech Engineering
-  {
-    name: 'SaaS Development',
-    tagline: 'High-performance, multi-tenant cloud platforms built to scale',
-    description:
-      'Full-stack cloud architectures, seamless billing & subscription infra, bulletproof auth, and blazingly fast Next.js & Node backends engineered for heavy production scale.',
-    icon: Layers,
-    badge: '06 / Architecture',
-    category: 'AI & Engineering',
-    ambientGlow: 'from-[#78E6C3]/35 via-[#1A604D]/25 to-transparent',
-  },
-  {
-    name: 'Rapid MVP Launch',
-    tagline: 'From napkin concept to live production software in 2–4 weeks',
-    description:
-      'Stop wasting months in development cycles. We architect, design, and ship functional, investor-ready MVPs so you can validate and acquire paying customers immediately.',
-    icon: Rocket,
-    badge: '07 / Velocity',
-    category: 'AI & Engineering',
-    ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
-  },
-  {
-    name: 'Custom AI Chatbots',
-    tagline: 'Intelligent RAG agents & 24/7 conversational customer engines',
-    description:
-      'Proprietary AI agents trained on your business documents, knowledge base, and CRM. They qualify inbound leads, answer deep inquiries, and book strategy calls around the clock.',
-    icon: Bot,
-    badge: '08 / Intelligence',
-    category: 'AI & Engineering',
-    ambientGlow: 'from-[#78E6C3]/35 via-[#0D382B]/25 to-transparent',
-  },
-  {
-    name: 'AI Automation & Workflows',
-    tagline: 'Autonomous agentic pipelines that replace repetitive manual tasks',
-    description:
-      'Custom LLM pipelines, autonomous agents, automated document extraction, and cross-platform integrations that run silently in the background 24/7 without manual intervention.',
-    icon: Cpu,
-    badge: '09 / Autonomy',
-    category: 'AI & Engineering',
+      'We handle inbox friction, qualify incoming replies in real-time, counter objections, and route qualified prospects directly into your calendar without deal drop-off.',
+    icon: Headset,
+    features: ['Real-Time Inbox Management', 'Rapid Reply Qualification', 'Objection Handling Playbooks', 'Direct Calendar Slot Booking'],
     ambientGlow: 'from-[#DFFF9A]/30 via-[#1A604D]/20 to-transparent',
   },
 ]
 
-type ProcessStep = {
+const techOfferings: Offering[] = [
+  {
+    name: 'Full-Stack SaaS Development',
+    badge: '01 / Architecture',
+    tagline: 'High-performance cloud platforms engineered to scale',
+    category: 'AI & Engineering',
+    description:
+      'Full-stack cloud architectures built with Next.js, TypeScript, PostgreSQL, and scalable microservices. Seamless Stripe billing, secure RBAC auth, and blazingly fast APIs.',
+    icon: Layers,
+    features: ['Multi-Tenant Cloud SaaS', 'Stripe Billing & Subscriptions', 'Bulletproof Auth & Role-Based RBAC', 'Optimized REST / GraphQL APIs'],
+    ambientGlow: 'from-[#78E6C3]/35 via-[#1A604D]/25 to-transparent',
+  },
+  {
+    name: 'Rapid MVP in 2–4 Weeks',
+    badge: '02 / Speed',
+    tagline: 'From napkin concept to live production software in 14–30 days',
+    category: 'AI & Engineering',
+    description:
+      'Stop burning months in development limbo. We architect, design, and ship functional, investor-ready MVPs so you can validate your concept and acquire paying users immediately.',
+    icon: Rocket,
+    features: ['14–30 Days Fast Turnaround', 'Clean Production-Ready Codebase', 'Investor & Demo Ready UI/UX', 'Zero Tech Debt / Extensible Design'],
+    ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
+  },
+  {
+    name: 'Custom AI Chatbots & RAG',
+    badge: '03 / Intelligence',
+    tagline: 'Intelligent conversational engines trained on your private data',
+    category: 'AI & Engineering',
+    description:
+      'Deep-context AI agents trained on your business documents, knowledge base, and CRM. They qualify inbound leads, answer deep inquiries, and book calls 24/7 without hallucinations.',
+    icon: Bot,
+    features: ['Vector RAG Knowledge Base', 'Context-Aware Lead Qualification', '24/7 Multi-Channel Support', 'Zero-Hallucination Guardrails'],
+    ambientGlow: 'from-[#78E6C3]/35 via-[#0D382B]/25 to-transparent',
+  },
+  {
+    name: 'AI Automation & Agentic Workflows',
+    badge: '04 / Autonomy',
+    tagline: 'Autonomous AI pipelines that eliminate repetitive manual work',
+    category: 'AI & Engineering',
+    description:
+      'Custom LLM pipelines, autonomous agents, automated document extraction, and cross-platform integrations that run silently in the background 24/7 without manual intervention.',
+    icon: Cpu,
+    features: ['Autonomous Agent Pipelines', 'Document & PDF Data Extraction', 'Cross-SaaS API Integrations', 'Scheduled Background Workers'],
+    ambientGlow: 'from-[#DFFF9A]/30 via-[#1A604D]/20 to-transparent',
+  },
+]
+
+// Backward-compatible array for footer & navigation
+const services: Offering[] = [...marketingOfferings, ...techOfferings]
+
+type BlueprintStep = {
   step: string
-  title: string
   stage: string
   timeline: string
+  title: string
   highlight: string
   description: string
   icon: LucideIcon
-  ambientGlow: string
 }
 
-const processSteps: ProcessStep[] = [
+const marketingProcess: BlueprintStep[] = [
   {
     step: '01',
     stage: 'Discovery',
     timeline: 'Day 1',
-    icon: PhoneCall,
-    title: 'Strategy Call',
-    highlight: 'Zero-pressure alignment & positioning',
+    title: 'Strategy & ICP Alignment',
+    highlight: 'Zero-pressure positioning audit',
     description:
-      'We unpack your positioning, ideal decision-makers, and market bottlenecks to architect an exact route to qualified pipeline.',
-    ambientGlow: 'from-[#78E6C3]/40 via-[#1A604D]/25 to-transparent',
+      'We unpack your highest-margin offers, define your exact ideal customer profile (ICP), and architect winning outreach angles.',
+    icon: PhoneCall,
   },
   {
     step: '02',
     stage: 'Architecture',
     timeline: 'Week 1',
-    icon: PenTool,
-    title: 'Build the System',
-    highlight: 'Done-for-you authority & cold outreach',
+    title: 'Domain & Warmup Setup',
+    highlight: '100% deliverability infrastructure',
     description:
-      'Profile assets, high-authority content engines, and custom cold email infrastructure designed and calibrated around your voice.',
-    ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
+      'We spin up dedicated secondary domains with SPF, DKIM, DMARC records and initiate automated warm-up sequences.',
+    icon: Terminal,
   },
   {
     step: '03',
     stage: 'Deployment',
     timeline: 'Week 2',
-    icon: Rocket,
-    title: 'Launch & Reach',
-    highlight: 'Multi-channel outbound campaign go-live',
+    title: 'Precision Outbound Go-Live',
+    highlight: 'High-authority campaign launch',
     description:
-      'Content goes live, outbound sequences launch, and verified decision-makers start seeing your brand authority. You do nothing.',
-    ambientGlow: 'from-[#78E6C3]/40 via-[#0D382B]/25 to-transparent',
+      'Personalized, multi-variant campaigns launch to verified decision-makers. Copy is calibrated around your unique voice.',
+    icon: Rocket,
   },
   {
     step: '04',
     stage: 'Velocity',
     timeline: 'Continuous',
-    icon: TrendingUp,
-    title: 'Scale & Report',
-    highlight: 'Compound pipeline growth & booked calls',
+    title: 'Booked Calls & Scaling',
+    highlight: 'Compound pipeline growth',
     description:
-      'Weekly transparent reports — zero black box. We continuously optimize message variants, reply rates, and meetings booked.',
-    ambientGlow: 'from-[#DFFF9A]/35 via-[#1A604D]/25 to-transparent',
+      'We qualify positive responses, route meetings onto your calendar, and continuously optimize messaging based on reply metrics.',
+    icon: TrendingUp,
+  },
+]
+
+const techProcess: BlueprintStep[] = [
+  {
+    step: '01',
+    stage: 'Blueprint',
+    timeline: 'Days 1–3',
+    title: 'Scope, PRD & Architecture',
+    highlight: 'System design & database schema',
+    description:
+      'We draft the technical specs, map out user stories, design the database schema, and finalize the modern tech stack.',
+    icon: Terminal,
+  },
+  {
+    step: '02',
+    stage: 'Sprint',
+    timeline: 'Weeks 1–2',
+    title: 'Rapid Full-Stack Build',
+    highlight: 'Clean, production-grade code',
+    description:
+      'Intense engineering sprint: responsive UI components, database models, auth flows, API routes, and core functionality.',
+    icon: Code2,
+  },
+  {
+    step: '03',
+    stage: 'Intelligence',
+    timeline: 'Week 3',
+    title: 'AI & Workflow Integration',
+    highlight: 'RAG, LLMs & API automations',
+    description:
+      'We wire up LLM models, vector search, custom bots, payment gateways, and autonomous background automations.',
+    icon: Cpu,
+  },
+  {
+    step: '04',
+    stage: 'Launch',
+    timeline: 'Week 4',
+    title: 'Cloud Deploy & Code Handover',
+    highlight: 'Zero-downtime launch & handover',
+    description:
+      'End-to-end testing, security audit, production deployment on Vercel/AWS with custom domains, and full source code handover.',
+    icon: Server,
+  },
+]
+
+const techStackCategories = [
+  {
+    title: 'Frontend & Interfaces',
+    badge: 'UI & UX',
+    icon: Code2,
+    skills: ['Next.js 15 (App Router)', 'React 19', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Radix / shadcn/ui'],
+  },
+  {
+    title: 'Backend & APIs',
+    badge: 'Core Engine',
+    icon: Server,
+    skills: ['Node.js', 'Python', 'FastAPI', 'Express.js', 'REST & GraphQL', 'Serverless & Edge Workers'],
+  },
+  {
+    title: 'Databases & Storage',
+    badge: 'Data Layer',
+    icon: Database,
+    skills: ['PostgreSQL', 'Supabase', 'Prisma ORM', 'Redis Cache', 'Cloud Storage / S3'],
+  },
+  {
+    title: 'AI, LLMs & Agents',
+    badge: 'Intelligence',
+    icon: Bot,
+    skills: ['OpenAI GPT-4o', 'Anthropic Claude 3.5', 'LangChain', 'LlamaIndex', 'pgvector & Pinecone', 'Autonomous Agentic Loops'],
+  },
+  {
+    title: 'DevOps & Deployment',
+    badge: 'Infrastructure',
+    icon: Terminal,
+    skills: ['Vercel', 'Docker', 'AWS (ECS / S3 / Lambda)', 'GitHub Actions CI/CD', 'Cloudflare DNS & CDN'],
   },
 ]
 
@@ -706,369 +785,574 @@ function SectionHeading({
   )
 }
 
-const serviceCategories = ['All Services', 'Growth & Outreach', 'AI & Engineering'] as const
-type ServiceCategory = (typeof serviceCategories)[number]
+type Pillar = 'marketing' | 'tech'
 
-function ServicesCarousel() {
-  const [selectedCategory, setSelectedCategory] = useState<ServiceCategory>('All Services')
-  const [activeIndex, setActiveIndex] = useState(0)
-  const isMobile = useIsMobile()
-  const lastActionTime = useRef(0)
+function DualEngineHub() {
+  const [activePillar, setActivePillar] = useState<Pillar>('marketing')
 
-  const filteredServices = useMemo(() => {
-    if (selectedCategory === 'All Services') return services
-    return services.filter((s) => s.category === selectedCategory)
-  }, [selectedCategory])
-
-  const total = filteredServices.length
-
-  const handleSelectCategory = (cat: ServiceCategory) => {
-    setSelectedCategory(cat)
-    setActiveIndex(0)
-  }
-
-  const handlePrev = useCallback(() => {
-    const now = performance.now()
-    if (now - lastActionTime.current < 280) return
-    lastActionTime.current = now
-    setActiveIndex((prev) => (prev - 1 + total) % total)
-  }, [total])
-
-  const handleNext = useCallback(() => {
-    const now = performance.now()
-    if (now - lastActionTime.current < 280) return
-    lastActionTime.current = now
-    setActiveIndex((prev) => (prev + 1) % total)
-  }, [total])
-
-  // Keyboard arrow navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') handlePrev()
-      if (e.key === 'ArrowRight') handleNext()
-    }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [handlePrev, handleNext])
-
-  return (
-    <div className="relative mx-auto mt-6 sm:mt-10 w-full max-w-5xl select-none px-2 sm:px-0">
-      {/* Category Filter Capsule Dock */}
-      <div className="flex items-center justify-center mb-6 sm:mb-8">
-        <div className="inline-flex items-center gap-1 sm:gap-1.5 p-1 rounded-full border border-[#294438] bg-[#0B241C]/85 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(120,230,195,0.15)]">
-          {serviceCategories.map((cat) => {
-            const isSelected = selectedCategory === cat
-            const count =
-              cat === 'All Services'
-                ? services.length
-                : services.filter((s) => s.category === cat).length
-            return (
-              <button
-                key={cat}
-                type="button"
-                onClick={() => handleSelectCategory(cat)}
-                className={`relative rounded-full px-3 sm:px-4 py-1.5 text-xs sm:text-[13px] font-semibold transition-all duration-200 ${
-                  isSelected
-                    ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_2px_14px_rgba(120,230,195,0.4)]'
-                    : 'text-[#B5C2B9] hover:text-[#F3F5F0] hover:bg-white/[0.05]'
-                }`}
-              >
-                <span>{cat}</span>
-                <span
-                  className={`ml-1 text-[11px] font-mono ${
-                    isSelected ? 'opacity-80' : 'text-[#78E6C3]/70'
-                  }`}
-                >
-                  ({count})
-                </span>
-              </button>
-            )
-          })}
-        </div>
-      </div>
-
-      {/* 1. Architectural Crosshair Grid Background with Feathered Vignette (Zero hard box edges) */}
-      <div
-        className="pointer-events-none absolute -inset-x-2 sm:-inset-x-8 -inset-y-6 -z-10 flex items-center justify-center overflow-hidden"
-        style={{
-          maskImage: 'radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 80%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 80%)',
-        }}
-      >
-        {/* Dual-layer ambient emerald & mint lamp centered behind cards */}
-        <div className="absolute h-[420px] sm:h-[520px] w-[90%] sm:w-[580px] rounded-full bg-[#78E6C3]/20 blur-[100px] sm:blur-[130px]" />
-        <div className="absolute h-[260px] sm:h-[340px] w-[70%] sm:w-[400px] rounded-full bg-[#DFFF9A]/14 blur-[70px] sm:blur-[90px]" />
-
-        {/* Minimalist grid lines with soft feathering */}
-        <div
-          className="absolute inset-0 opacity-[0.10] sm:opacity-[0.14]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(120, 230, 195, 0.2) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(120, 230, 195, 0.2) 1px, transparent 1px)
-            `,
-            backgroundSize: isMobile ? '70px 70px' : '120px 120px',
-            backgroundPosition: 'center center',
-          }}
-        />
-
-        {/* Crosshair (+) markers at grid corners */}
-        <div className="absolute inset-x-8 inset-y-8 sm:inset-x-12 sm:inset-y-10 flex flex-col justify-between font-mono text-xs text-[#78E6C3]/30">
-          <div className="flex justify-between">
-            <span>+</span><span>+</span><span>+</span>
-          </div>
-          <div className="flex justify-between">
-            <span>+</span><span>+</span><span>+</span>
-          </div>
-          <div className="flex justify-between">
-            <span>+</span><span>+</span><span>+</span>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. 3D Card Stack Stage - Smooth side edge fade on mobile (No cut box edges) */}
-      <motion.div
-        className="relative mx-auto flex h-[480px] sm:h-[540px] items-center justify-center touch-pan-y overflow-hidden"
-        style={{
-          perspective: 1200,
-          maskImage: isMobile
-            ? 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)'
-            : undefined,
-          WebkitMaskImage: isMobile
-            ? 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)'
-            : undefined,
-        }}
-        onPanEnd={(_, info) => {
-          const swipeThreshold = 35
-          const velocityThreshold = 250
-          if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
-            handleNext()
-          } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
-            handlePrev()
-          }
-        }}
-      >
-        <div className="relative flex h-full w-full items-center justify-center">
-          {filteredServices.map((service, index) => {
-            const dForward = (index - activeIndex + total) % total
-
-            const isActive = dForward === 0
-            const isRight = total > 1 && dForward === 1
-            const isLeft = total > 1 && dForward === total - 1
-            const isVisible = isActive || isRight || isLeft
-
-            let x = 0
-            let scale = 1
-            let rotateY = 0
-            let opacity = 1
-            let zIndex = 30
-            let pointerEvents: 'auto' | 'none' = 'auto'
-
-            if (isActive) {
-              x = 0
-              scale = 1
-              rotateY = 0
-              opacity = 1
-              zIndex = 30
-              pointerEvents = 'auto'
-            } else if (isRight) {
-              x = isMobile ? 115 : 275
-              scale = isMobile ? 0.78 : 0.86
-              rotateY = isMobile ? -10 : -19
-              opacity = isMobile ? 0.35 : 0.65
-              zIndex = 20
-              pointerEvents = 'auto'
-            } else if (isLeft) {
-              x = isMobile ? -115 : -275
-              scale = isMobile ? 0.78 : 0.86
-              rotateY = isMobile ? 10 : 19
-              opacity = isMobile ? 0.35 : 0.65
-              zIndex = 20
-              pointerEvents = 'auto'
-            } else if (dForward <= total / 2) {
-              x = isMobile ? 180 : 430
-              scale = 0.72
-              rotateY = -26
-              opacity = 0
-              zIndex = 10
-              pointerEvents = 'none'
-            } else {
-              x = isMobile ? -180 : -430
-              scale = 0.72
-              rotateY = 26
-              opacity = 0
-              zIndex = 10
-              pointerEvents = 'none'
-            }
-
-            const Icon = service.icon
-
-            return (
-              <motion.div
-                key={service.name}
-                initial={false}
-                animate={{
-                  x,
-                  scale,
-                  rotateY,
-                  opacity,
-                  zIndex,
-                }}
-                transition={{
-                  duration: 0.62,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                drag={isVisible ? 'x' : false}
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.16}
-                onDragEnd={(_, info) => {
-                  const swipeThreshold = 35
-                  const velocityThreshold = 250
-                  if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
-                    handleNext()
-                  } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
-                    handlePrev()
-                  }
-                }}
-                onClick={() => {
-                  if (isLeft) {
-                    handlePrev()
-                  } else if (isRight) {
-                    handleNext()
-                  }
-                }}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  willChange: 'transform, opacity',
-                  backfaceVisibility: 'hidden',
-                  pointerEvents,
-                }}
-                className={`absolute w-[280px] xs:w-[315px] sm:w-[380px] h-[435px] sm:h-[480px] rounded-[36px] sm:rounded-[40px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden border shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(120,230,195,0.2)] select-none touch-pan-y ${
-                  isActive
-                    ? 'cursor-grab active:cursor-grabbing bg-gradient-to-b from-[#102D22]/98 via-[#0D261D]/98 to-[#061A15] border-[#78E6C3]/40 shadow-[0_30px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(120,230,195,0.2),inset_0_1px_1px_rgba(223,255,154,0.3)]'
-                    : 'cursor-pointer active:cursor-grabbing bg-gradient-to-b from-[#0B241C]/95 via-[#081F18]/90 to-[#061A15]/90 border-[#294438]/80 hover:border-[#78E6C3]/45'
-                }`}
-              >
-                {/* Specular top rim light reflection */}
-                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/60 to-transparent" />
-
-                {/* Ambient warm lamp at the bottom */}
-                <div
-                  className={`pointer-events-none absolute -bottom-10 inset-x-0 h-52 bg-gradient-to-t ${service.ambientGlow} blur-2xl opacity-90`}
-                />
-
-                {/* Top Row: '+' Crosshair Marker & Badge */}
-                <div className="relative z-10 flex items-center justify-between">
-                  <span className="font-mono text-sm text-[#78E6C3]/70 select-none">
-                    +
-                  </span>
-                  <span className="rounded-full border border-[#294438] bg-black/40 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.2em] text-[#DFFF9A] backdrop-blur-sm">
-                    {service.badge}
-                  </span>
-                </div>
-
-                {/* Center Content: Icon + Big Headline + Tagline */}
-                <div className="relative z-10 my-auto text-center px-2">
-                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_25px_rgba(120,230,195,0.3),inset_0_1px_1px_rgba(223,255,154,0.4)]">
-                    <Icon className="h-6 w-6" strokeWidth={1.75} />
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#F3F5F0] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
-                    {service.name}
-                  </h3>
-                  <p className="mt-2 text-xs sm:text-sm font-medium text-[#78E6C3] tracking-wide">
-                    {service.tagline}
-                  </p>
-                </div>
-
-                {/* Bottom Content: Clean Description + Action CTA */}
-                <div className="relative z-10 text-center">
-                  <p className="text-xs sm:text-sm leading-relaxed text-[#B5C2B9] line-clamp-3">
-                    {service.description}
-                  </p>
-
-                  {/* Interactive Button on Active Card */}
-                  {isActive && (
-                    <motion.a
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 }}
-                      href={`mailto:${EMAIL}?subject=Inquiry: ${encodeURIComponent(service.name)}`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="mt-4 inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all hover:scale-105 active:scale-95"
-                    >
-                      <span>Book Strategy Call</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </motion.a>
-                  )}
-                </div>
-              </motion.div>
-            )
-          })}
-        </div>
-      </motion.div>
-
-      {/* 3. Floating Pagination Pill Dock */}
-      <div className="mt-8 flex items-center justify-center gap-4">
-        <button
-          type="button"
-          onClick={handlePrev}
-          aria-label="Previous service"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#294438] bg-[#0B241C]/80 text-[#F3F5F0] backdrop-blur-md transition hover:border-[#78E6C3]/60 hover:bg-[#102D22] hover:text-[#78E6C3] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </button>
-
-        {/* Dots Capsule Dock */}
-        <div className="flex items-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/85 px-4 py-2 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(120,230,195,0.2)]">
-          {filteredServices.map((s, idx) => {
-            const isCurrent = idx === activeIndex
-            return (
-              <button
-                key={s.name}
-                type="button"
-                onClick={() => setActiveIndex(idx)}
-                aria-label={`Jump to ${s.name}`}
-                className={`transition-all duration-300 rounded-full ${
-                  isCurrent
-                    ? 'h-2.5 w-8 bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] shadow-[0_0_12px_rgba(120,230,195,0.6)]'
-                    : 'h-2 w-2 bg-white/25 hover:bg-white/50'
-                }`}
-              />
-            )
-          })}
-        </div>
-
-        <button
-          type="button"
-          onClick={handleNext}
-          aria-label="Next service"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#294438] bg-[#0B241C]/80 text-[#F3F5F0] backdrop-blur-md transition hover:border-[#78E6C3]/60 hover:bg-[#102D22] hover:text-[#78E6C3] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </button>
-      </div>
-    </div>
-  )
-}
-
-function ServicesSection() {
   return (
     <section
-      id="services"
-      aria-labelledby="services-title"
+      id="capabilities"
+      aria-labelledby="capabilities-title"
       className="relative scroll-mt-20 py-20 sm:py-28 overflow-hidden"
     >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
+      {/* Anchor targets so navbar links (#services & #process) navigate seamlessly */}
+      <div id="services" className="-top-24 absolute pointer-events-none" />
+
+      {/* Ambient background glows */}
+      <div className="pointer-events-none absolute left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[900px] rounded-full bg-[#78E6C3]/12 blur-[160px]" />
+      <div className="pointer-events-none absolute right-[10%] top-1/2 h-[450px] w-[450px] rounded-full bg-[#DFFF9A]/10 blur-[150px]" />
+
+      <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+        {/* Section Heading */}
         <SectionHeading
-          id="services-title"
-          eyebrow="01 / What we do"
-          title="Build your brand. Fill your pipeline."
-          subtitle="Explore our core growth systems. Click or swipe through the interactive 3D deck to see how each system scales your authority and revenue."
+          id="capabilities-title"
+          eyebrow="02 / Interactive Capabilities Hub"
+          title="Two specialized engines. One unified partner."
+          subtitle="Toggle between our Growth Marketing and Tech Engineering engines to see what we deliver, the modern stack we build with, and exactly how we execute."
           center
         />
 
-        {/* 3D Card Stack Carousel (Matching Pinterest / Reference Video) */}
-        <ServicesCarousel />
+        {/* 2-Pillar Segmented Toggle Switch */}
+        <div className="mt-10 sm:mt-12 flex justify-center">
+          <div className="relative inline-flex items-center rounded-full border border-[#294438] bg-[#0B241C]/90 p-1.5 backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(120,230,195,0.2)]">
+            {/* Specular top rim line */}
+            <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
+
+            {/* Pillar 1: Marketing & Growth */}
+            <button
+              type="button"
+              onClick={() => setActivePillar('marketing')}
+              className={`relative z-10 flex items-center gap-2 rounded-full px-5 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-sm font-bold transition-all duration-300 ${
+                activePillar === 'marketing'
+                  ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_20px_rgba(120,230,195,0.45),inset_0_1px_1px_rgba(255,255,255,0.8)] scale-[1.02]'
+                  : 'text-[#B5C2B9] hover:text-[#F3F5F0] hover:bg-white/[0.04]'
+              }`}
+            >
+              <Sparkles className="h-4 w-4 shrink-0" />
+              <span>Marketing & Growth</span>
+              <span
+                className={`hidden md:inline-flex rounded-full px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider ${
+                  activePillar === 'marketing'
+                    ? 'bg-[#061A15]/20 text-[#061A15]'
+                    : 'bg-[#102D22] text-[#78E6C3]'
+                }`}
+              >
+                Authority & Leads
+              </span>
+            </button>
+
+            {/* Pillar 2: Tech Stack & Engineering */}
+            <button
+              type="button"
+              onClick={() => setActivePillar('tech')}
+              className={`relative z-10 flex items-center gap-2 rounded-full px-5 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-sm font-bold transition-all duration-300 ${
+                activePillar === 'tech'
+                  ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_20px_rgba(120,230,195,0.45),inset_0_1px_1px_rgba(255,255,255,0.8)] scale-[1.02]'
+                  : 'text-[#B5C2B9] hover:text-[#F3F5F0] hover:bg-white/[0.04]'
+              }`}
+            >
+              <Code2 className="h-4 w-4 shrink-0" />
+              <span>Tech Stack & Engineering</span>
+              <span
+                className={`hidden md:inline-flex rounded-full px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider ${
+                  activePillar === 'tech'
+                    ? 'bg-[#061A15]/20 text-[#061A15]'
+                    : 'bg-[#102D22] text-[#DFFF9A]'
+                }`}
+              >
+                SaaS, MVP & AI
+              </span>
+            </button>
+          </div>
+        </div>
+
+        {/* Dynamic Content Panel with Framer Motion AnimatePresence */}
+        <div className="mt-12 sm:mt-16">
+          <AnimatePresence mode="wait">
+            {activePillar === 'marketing' ? (
+              <motion.div
+                key="marketing-view"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.38, ease: EASE }}
+                className="space-y-16 sm:space-y-20"
+              >
+                {/* 1. Marketing Offerings Grid */}
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
+                    <div>
+                      <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#78E6C3]">
+                        ENGINE 01 / WHAT WE DELIVER
+                      </p>
+                      <h3 className="mt-1.5 text-2xl sm:text-3xl font-semibold tracking-tight text-[#F3F5F0]">
+                        Growth & Outbound Capabilities
+                      </h3>
+                    </div>
+                    <p className="text-xs sm:text-sm text-[#B5C2B9] max-w-md">
+                      Done-for-you systems designed to build category authority, generate qualified enterprise leads, and keep your calendar booked.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-5 md:grid-cols-2">
+                    {marketingOfferings.map((offering, idx) => {
+                      const Icon = offering.icon
+                      return (
+                        <div
+                          key={offering.name}
+                          className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/90 via-[#0B241C]/90 to-[#061A15] p-6 sm:p-8 transition-all duration-300 hover:border-[#78E6C3]/50 hover:shadow-[0_20px_50px_rgba(6,26,21,0.6)]"
+                        >
+                          {/* Specular top rim light */}
+                          <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
+                          <div className={`pointer-events-none absolute -bottom-10 inset-x-0 h-40 bg-gradient-to-t ${offering.ambientGlow} blur-2xl opacity-50 group-hover:opacity-80 transition-opacity`} />
+
+                          <div>
+                            {/* Header: Crosshair + Badge */}
+                            <div className="flex items-center justify-between">
+                              <span className="font-mono text-xs text-[#78E6C3]/60">+</span>
+                              <span className="rounded-full border border-[#294438] bg-[#061A15]/80 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[#DFFF9A]">
+                                {offering.badge}
+                              </span>
+                            </div>
+
+                            {/* Icon & Title */}
+                            <div className="mt-6 flex items-start gap-4">
+                              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(120,230,195,0.25)]">
+                                <Icon className="h-6 w-6" strokeWidth={1.75} />
+                              </div>
+                              <div>
+                                <h4 className="text-xl font-bold tracking-tight text-[#F3F5F0]">
+                                  {offering.name}
+                                </h4>
+                                <p className="mt-1 text-xs font-medium text-[#78E6C3]">
+                                  {offering.tagline}
+                                </p>
+                              </div>
+                            </div>
+
+                            {/* Description */}
+                            <p className="mt-4 text-sm leading-relaxed text-[#B5C2B9]">
+                              {offering.description}
+                            </p>
+
+                            {/* Features Bullet List */}
+                            <ul className="mt-5 space-y-2 border-t border-[#294438]/70 pt-4">
+                              {offering.features.map((feature) => (
+                                <li
+                                  key={feature}
+                                  className="flex items-center gap-2.5 text-xs text-[#B5C2B9]"
+                                >
+                                  <Check className="h-3.5 w-3.5 shrink-0 text-[#78E6C3]" />
+                                  <span>{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Action Button */}
+                          <div className="mt-6 pt-4 border-t border-[#294438]/50 flex items-center justify-between">
+                            <span className="font-mono text-[11px] text-[#B5C2B9]/60">
+                              0{idx + 1} / OUTBOUND
+                            </span>
+                            <a
+                              href={`mailto:${EMAIL}?subject=Marketing%20Inquiry:%20${encodeURIComponent(offering.name)}`}
+                              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#78E6C3] transition-colors hover:text-white"
+                            >
+                              <span>Inquire about this</span>
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </a>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* 2. Kaise Karte Hain Vo (The 4-Step Outbound Route) */}
+                <div className="relative pt-4">
+                  <div id="process" className="-top-24 absolute pointer-events-none" />
+
+                  <div className="text-center max-w-2xl mx-auto mb-10">
+                    <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#78E6C3]">
+                      EXECUTION BLUEPRINT • KAISE KARTE HAIN VO
+                    </p>
+                    <h3 className="mt-2 text-2xl sm:text-4xl font-semibold tracking-tight text-[#F3F5F0]">
+                      The 4-Step Outbound Route
+                    </h3>
+                    <p className="mt-3 text-sm text-[#B5C2B9]">
+                      A transparent, zero-black-box pipeline. Every phase is calibrated to turn cold market prospects into eager buyers.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {marketingProcess.map((step) => {
+                      const StepIcon = step.icon
+                      return (
+                        <div
+                          key={step.step}
+                          className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#294438] bg-gradient-to-b from-[#102D22]/80 via-[#0B241C]/80 to-[#061A15] p-6 transition-all duration-300 hover:border-[#78E6C3]/40 shadow-[0_12px_36px_rgba(0,0,0,0.4)]"
+                        >
+                          <div className="pointer-events-none absolute inset-x-6 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/30 to-transparent" />
+
+                          <div>
+                            {/* Step & Timeline Tag */}
+                            <div className="flex items-center justify-between">
+                              <span className="font-mono text-xs font-bold text-[#78E6C3]">
+                                STAGE {step.step}
+                              </span>
+                              <span className="rounded-full border border-[#294438] bg-[#061A15]/90 px-2.5 py-0.5 font-mono text-[10px] uppercase text-[#DFFF9A]">
+                                {step.timeline}
+                              </span>
+                            </div>
+
+                            {/* Icon & Title */}
+                            <div className="mt-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#78E6C3]/30 bg-[#0B241C] text-[#78E6C3]">
+                              <StepIcon className="h-5 w-5" />
+                            </div>
+
+                            <h4 className="mt-4 text-lg font-bold text-[#F3F5F0]">
+                              {step.title}
+                            </h4>
+                            <p className="mt-1 text-xs font-medium text-[#78E6C3]">
+                              {step.highlight}
+                            </p>
+
+                            <p className="mt-3 text-xs leading-relaxed text-[#B5C2B9]">
+                              {step.description}
+                            </p>
+                          </div>
+
+                          <div className="mt-6 pt-3 border-t border-[#294438]/50 text-[11px] font-mono text-[#B5C2B9]/50">
+                            Phase {step.step} • {step.stage}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* 3. Marketing Quick Action Callout */}
+                <div className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-r from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-10 shadow-[0_20px_60px_rgba(6,26,21,0.5)]">
+                  <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#78E6C3]/15 blur-3xl" />
+                  <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div>
+                      <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#78E6C3]">
+                        ACTION READY
+                      </span>
+                      <h4 className="mt-1.5 text-xl sm:text-2xl font-bold text-[#F3F5F0]">
+                        Ready to fill your pipeline with high-intent decision-makers?
+                      </h4>
+                      <p className="mt-2 text-xs sm:text-sm text-[#B5C2B9] max-w-xl">
+                        Schedule a 30-minute discovery session. We will audit your current outreach, identify key bottlenecks, and outline a tailored outbound route.
+                      </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                      <a
+                        href={`mailto:${EMAIL}?subject=Growth%20Strategy%20Call%20Booking`}
+                        className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs sm:text-sm font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.4)] transition hover:scale-105"
+                      >
+                        <span>Book Growth Strategy Call</span>
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                      <a
+                        href={WHATSAPP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/80 px-5 text-xs sm:text-sm font-semibold text-[#F3F5F0] transition hover:border-[#25D366] hover:text-[#25D366]"
+                      >
+                        <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                        <span>Chat on WhatsApp</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ) : (
+              <motion.div
+                key="tech-view"
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -16 }}
+                transition={{ duration: 0.38, ease: EASE }}
+                className="space-y-16 sm:space-y-20"
+              >
+                {/* 1. Tech & AI Offerings Grid */}
+                <div>
+                  <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
+                    <div>
+                      <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#DFFF9A]">
+                        ENGINE 02 / WHAT WE BUILD
+                      </p>
+                      <h3 className="mt-1.5 text-2xl sm:text-3xl font-semibold tracking-tight text-[#F3F5F0]">
+                        Full-Stack SaaS, MVP & AI Systems
+                      </h3>
+                    </div>
+                    <p className="text-xs sm:text-sm text-[#B5C2B9] max-w-md">
+                      Production software engineered with modern architectures, bulletproof reliability, and integrated artificial intelligence.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-5 md:grid-cols-2">
+                    {techOfferings.map((offering, idx) => {
+                      const Icon = offering.icon
+                      return (
+                        <div
+                          key={offering.name}
+                          className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/90 via-[#0B241C]/90 to-[#061A15] p-6 sm:p-8 transition-all duration-300 hover:border-[#DFFF9A]/50 hover:shadow-[0_20px_50px_rgba(6,26,21,0.6)]"
+                        >
+                          {/* Specular top rim light */}
+                          <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/40 to-transparent" />
+                          <div className={`pointer-events-none absolute -bottom-10 inset-x-0 h-40 bg-gradient-to-t ${offering.ambientGlow} blur-2xl opacity-50 group-hover:opacity-80 transition-opacity`} />
+
+                          <div>
+                            {/* Header: Crosshair + Badge */}
+                            <div className="flex items-center justify-between">
+                              <span className="font-mono text-xs text-[#DFFF9A]/60">+</span>
+                              <span className="rounded-full border border-[#294438] bg-[#061A15]/80 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[#78E6C3]">
+                                {offering.badge}
+                              </span>
+                            </div>
+
+                            {/* Icon & Title */}
+                            <div className="mt-6 flex items-start gap-4">
+                              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#DFFF9A]/30 bg-gradient-to-br from-[#123E2F]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(223,255,154,0.25)]">
+                                <Icon className="h-6 w-6" strokeWidth={1.75} />
+                              </div>
+                              <div>
+                                <h4 className="text-xl font-bold tracking-tight text-[#F3F5F0]">
+                                  {offering.name}
+                                </h4>
+                                <p className="mt-1 text-xs font-medium text-[#DFFF9A]">
+                                  {offering.tagline}
+                                </p>
+                              </div>
+                            </div>
+
+                            {/* Description */}
+                            <p className="mt-4 text-sm leading-relaxed text-[#B5C2B9]">
+                              {offering.description}
+                            </p>
+
+                            {/* Features Bullet List */}
+                            <ul className="mt-5 space-y-2 border-t border-[#294438]/70 pt-4">
+                              {offering.features.map((feature) => (
+                                <li
+                                  key={feature}
+                                  className="flex items-center gap-2.5 text-xs text-[#B5C2B9]"
+                                >
+                                  <Check className="h-3.5 w-3.5 shrink-0 text-[#DFFF9A]" />
+                                  <span>{feature}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+
+                          {/* Action Button */}
+                          <div className="mt-6 pt-4 border-t border-[#294438]/50 flex items-center justify-between">
+                            <span className="font-mono text-[11px] text-[#B5C2B9]/60">
+                              0{idx + 1} / ENGINEERING
+                            </span>
+                            <a
+                              href={`mailto:${EMAIL}?subject=Tech%20Architecture%20Inquiry:%20${encodeURIComponent(offering.name)}`}
+                              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#DFFF9A] transition-colors hover:text-white"
+                            >
+                              <span>Discuss architecture</span>
+                              <ArrowRight className="h-3.5 w-3.5" />
+                            </a>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* 2. Mera Tech Stack (Production Arsenal Grid) */}
+                <div className="relative pt-4">
+                  <div className="text-center max-w-2xl mx-auto mb-10">
+                    <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#DFFF9A]">
+                      MERA TECH STACK • PRODUCTION ARSENAL
+                    </p>
+                    <h3 className="mt-2 text-2xl sm:text-4xl font-semibold tracking-tight text-[#F3F5F0]">
+                      Modern, scalable tools. Zero legacy bloat.
+                    </h3>
+                    <p className="mt-3 text-sm text-[#B5C2B9]">
+                      We build production platforms with industry-standard frameworks, scalable databases, and state-of-the-art AI infrastructure.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {techStackCategories.map((cat) => {
+                      const CatIcon = cat.icon
+                      return (
+                        <div
+                          key={cat.title}
+                          className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#294438] bg-gradient-to-b from-[#102D22]/85 via-[#0B241C]/85 to-[#061A15] p-6 shadow-[0_12px_36px_rgba(0,0,0,0.4)] transition-all hover:border-[#78E6C3]/40"
+                        >
+                          <div className="pointer-events-none absolute inset-x-6 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/30 to-transparent" />
+
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#78E6C3]/30 bg-[#0B241C] text-[#78E6C3]">
+                                <CatIcon className="h-5 w-5" />
+                              </div>
+                              <span className="rounded-full border border-[#294438] bg-[#061A15]/80 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#DFFF9A]">
+                                {cat.badge}
+                              </span>
+                            </div>
+
+                            <h4 className="mt-4 text-base font-bold text-[#F3F5F0]">
+                              {cat.title}
+                            </h4>
+
+                            <div className="mt-4 flex flex-wrap gap-2">
+                              {cat.skills.map((skill) => (
+                                <span
+                                  key={skill}
+                                  className="rounded-lg border border-[#294438] bg-[#061A15]/90 px-2.5 py-1 text-xs font-medium text-[#B5C2B9] hover:border-[#78E6C3]/40 hover:text-white transition-colors"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+
+                    {/* Bonus Card: Code Quality & Architecture Guarantees */}
+                    <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#78E6C3]/30 bg-gradient-to-b from-[#1A604D]/30 via-[#0B241C]/90 to-[#061A15] p-6 shadow-[0_12px_36px_rgba(0,0,0,0.4)]">
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#DFFF9A]/40 bg-[#0B241C] text-[#DFFF9A]">
+                            <Zap className="h-5 w-5" />
+                          </div>
+                          <span className="rounded-full border border-[#78E6C3]/40 bg-[#061A15]/80 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#78E6C3]">
+                            STANDARDS
+                          </span>
+                        </div>
+                        <h4 className="mt-4 text-base font-bold text-[#F3F5F0]">
+                          Production Engineering Standards
+                        </h4>
+                        <div className="mt-4 space-y-2">
+                          <div className="flex items-center gap-2 text-xs text-[#B5C2B9]">
+                            <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
+                            <span>100% Type-Safe TypeScript Codebase</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-[#B5C2B9]">
+                            <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
+                            <span>Full CI/CD Pipeline & Automated Tests</span>
+                          </div>
+                          <div className="flex items-center gap-2 text-xs text-[#B5C2B9]">
+                            <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
+                            <span>Full Source Code IP Handover</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Kaise Karte Hain Vo (The 4-Stage Engineering Sprint) */}
+                <div className="relative pt-4">
+                  <div className="text-center max-w-2xl mx-auto mb-10">
+                    <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#DFFF9A]">
+                      EXECUTION BLUEPRINT • KAISE KARTE HAIN VO
+                    </p>
+                    <h3 className="mt-2 text-2xl sm:text-4xl font-semibold tracking-tight text-[#F3F5F0]">
+                      The 2–4 Week Engineering Sprint
+                    </h3>
+                    <p className="mt-3 text-sm text-[#B5C2B9]">
+                      How we transform your product concept into a live, scalable, production-grade cloud software in 14–30 days.
+                    </p>
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {techProcess.map((step) => {
+                      const StepIcon = step.icon
+                      return (
+                        <div
+                          key={step.step}
+                          className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#294438] bg-gradient-to-b from-[#102D22]/80 via-[#0B241C]/80 to-[#061A15] p-6 transition-all duration-300 hover:border-[#DFFF9A]/40 shadow-[0_12px_36px_rgba(0,0,0,0.4)]"
+                        >
+                          <div className="pointer-events-none absolute inset-x-6 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/30 to-transparent" />
+
+                          <div>
+                            {/* Step & Timeline Tag */}
+                            <div className="flex items-center justify-between">
+                              <span className="font-mono text-xs font-bold text-[#DFFF9A]">
+                                STAGE {step.step}
+                              </span>
+                              <span className="rounded-full border border-[#294438] bg-[#061A15]/90 px-2.5 py-0.5 font-mono text-[10px] uppercase text-[#78E6C3]">
+                                {step.timeline}
+                              </span>
+                            </div>
+
+                            {/* Icon & Title */}
+                            <div className="mt-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#DFFF9A]/30 bg-[#0B241C] text-[#DFFF9A]">
+                              <StepIcon className="h-5 w-5" />
+                            </div>
+
+                            <h4 className="mt-4 text-lg font-bold text-[#F3F5F0]">
+                              {step.title}
+                            </h4>
+                            <p className="mt-1 text-xs font-medium text-[#DFFF9A]">
+                              {step.highlight}
+                            </p>
+
+                            <p className="mt-3 text-xs leading-relaxed text-[#B5C2B9]">
+                              {step.description}
+                            </p>
+                          </div>
+
+                          <div className="mt-6 pt-3 border-t border-[#294438]/50 text-[11px] font-mono text-[#B5C2B9]/50">
+                            Sprint {step.step} • {step.stage}
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+                </div>
+
+                {/* 4. Tech Quick Action Callout */}
+                <div className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-r from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-10 shadow-[0_20px_60px_rgba(6,26,21,0.5)]">
+                  <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#DFFF9A]/15 blur-3xl" />
+                  <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div>
+                      <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
+                        BUILD WITH US
+                      </span>
+                      <h4 className="mt-1.5 text-xl sm:text-2xl font-bold text-[#F3F5F0]">
+                        Have a SaaS idea, MVP, or AI workflow to build?
+                      </h4>
+                      <p className="mt-2 text-xs sm:text-sm text-[#B5C2B9] max-w-xl">
+                        Let's review your product specifications. We'll provide technical scope estimates, architecture blueprints, and a rapid delivery roadmap.
+                      </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+                      <a
+                        href={`mailto:${EMAIL}?subject=Tech%20Project%20Scope%20Discussion`}
+                        className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs sm:text-sm font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.4)] transition hover:scale-105"
+                      >
+                        <span>Discuss Architecture</span>
+                        <ArrowRight className="h-4 w-4" />
+                      </a>
+                      <a
+                        href={WHATSAPP_URL}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/80 px-5 text-xs sm:text-sm font-semibold text-[#F3F5F0] transition hover:border-[#25D366] hover:text-[#25D366]"
+                      >
+                        <MessageCircle className="h-4 w-4 text-[#25D366]" />
+                        <span>WhatsApp Developer</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   )
@@ -1084,7 +1368,7 @@ function AboutSection() {
       <div className="mx-auto max-w-6xl px-5 sm:px-8">
         <SectionHeading
           id="about-title"
-          eyebrow="02 / Who we are"
+          eyebrow="01 / Who we are"
           title="Two engines. One route."
           subtitle="A branding and lead-generation house backed by serious engineering — one side builds your reputation and pipeline, the other builds the platforms they run on."
         />
@@ -1158,324 +1442,6 @@ function AboutSection() {
   )
 }
 
-function ProcessCarousel() {
-  const [activeIndex, setActiveIndex] = useState(0)
-  const isMobile = useIsMobile()
-  const total = processSteps.length
-  const lastActionTime = useRef(0)
-
-  const handlePrev = useCallback(() => {
-    const now = performance.now()
-    if (now - lastActionTime.current < 280) return
-    lastActionTime.current = now
-    setActiveIndex((prev) => (prev - 1 + total) % total)
-  }, [total])
-
-  const handleNext = useCallback(() => {
-    const now = performance.now()
-    if (now - lastActionTime.current < 280) return
-    lastActionTime.current = now
-    setActiveIndex((prev) => (prev + 1) % total)
-  }, [total])
-
-  // Keyboard arrow navigation
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') handlePrev()
-      if (e.key === 'ArrowRight') handleNext()
-    }
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [handlePrev, handleNext])
-
-  return (
-    <div className="relative mx-auto mt-8 sm:mt-14 w-full max-w-5xl select-none px-2 sm:px-0">
-      {/* 1. Architectural Crosshair Grid Background with Feathered Vignette (Zero hard box edges) */}
-      <div
-        className="pointer-events-none absolute -inset-x-2 sm:-inset-x-8 -inset-y-6 -z-10 flex items-center justify-center overflow-hidden"
-        style={{
-          maskImage: 'radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 80%)',
-          WebkitMaskImage: 'radial-gradient(ellipse 75% 65% at 50% 50%, black 20%, transparent 80%)',
-        }}
-      >
-        {/* Dual-layer ambient emerald & mint lamp centered behind cards */}
-        <div className="absolute h-[420px] sm:h-[520px] w-[90%] sm:w-[580px] rounded-full bg-[#78E6C3]/20 blur-[100px] sm:blur-[130px]" />
-        <div className="absolute h-[260px] sm:h-[340px] w-[70%] sm:w-[400px] rounded-full bg-[#DFFF9A]/14 blur-[70px] sm:blur-[90px]" />
-
-        {/* Minimalist grid lines with soft feathering */}
-        <div
-          className="absolute inset-0 opacity-[0.10] sm:opacity-[0.14]"
-          style={{
-            backgroundImage: `
-              linear-gradient(to right, rgba(120, 230, 195, 0.2) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(120, 230, 195, 0.2) 1px, transparent 1px)
-            `,
-            backgroundSize: isMobile ? '70px 70px' : '120px 120px',
-            backgroundPosition: 'center center',
-          }}
-        />
-
-        {/* Crosshair (+) markers at grid corners */}
-        <div className="absolute inset-x-8 inset-y-8 sm:inset-x-12 sm:inset-y-10 flex flex-col justify-between font-mono text-xs text-[#78E6C3]/30">
-          <div className="flex justify-between">
-            <span>+</span><span>+</span><span>+</span>
-          </div>
-          <div className="flex justify-between">
-            <span>+</span><span>+</span><span>+</span>
-          </div>
-          <div className="flex justify-between">
-            <span>+</span><span>+</span><span>+</span>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. 3D Card Stack Stage - Smooth side edge fade on mobile (No cut box edges) */}
-      <motion.div
-        className="relative mx-auto flex h-[480px] sm:h-[540px] items-center justify-center touch-pan-y overflow-hidden"
-        style={{
-          perspective: 1200,
-          maskImage: isMobile
-            ? 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)'
-            : undefined,
-          WebkitMaskImage: isMobile
-            ? 'linear-gradient(to right, transparent 0%, black 14%, black 86%, transparent 100%)'
-            : undefined,
-        }}
-        onPanEnd={(_, info) => {
-          const swipeThreshold = 35
-          const velocityThreshold = 250
-          if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
-            handleNext()
-          } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
-            handlePrev()
-          }
-        }}
-      >
-        <div className="relative flex h-full w-full items-center justify-center">
-          {processSteps.map((step, index) => {
-            const dForward = (index - activeIndex + total) % total
-
-            const isActive = dForward === 0
-            const isRight = dForward === 1
-            const isLeft = dForward === 3
-            const isVisible = isActive || isRight || isLeft
-
-            let x = 0
-            let scale = 1
-            let rotateY = 0
-            let opacity = 1
-            let zIndex = 30
-            let pointerEvents: 'auto' | 'none' = 'auto'
-
-            if (isActive) {
-              x = 0
-              scale = 1
-              rotateY = 0
-              opacity = 1
-              zIndex = 30
-              pointerEvents = 'auto'
-            } else if (isRight) {
-              x = isMobile ? 115 : 275
-              scale = isMobile ? 0.78 : 0.86
-              rotateY = isMobile ? -10 : -19
-              opacity = isMobile ? 0.35 : 0.65
-              zIndex = 20
-              pointerEvents = 'auto'
-            } else if (isLeft) {
-              x = isMobile ? -115 : -275
-              scale = isMobile ? 0.78 : 0.86
-              rotateY = isMobile ? 10 : 19
-              opacity = isMobile ? 0.35 : 0.65
-              zIndex = 20
-              pointerEvents = 'auto'
-            } else {
-              x = 0
-              scale = 0.72
-              rotateY = 0
-              opacity = 0
-              zIndex = 10
-              pointerEvents = 'none'
-            }
-
-            const Icon = step.icon
-
-            return (
-              <motion.div
-                key={step.title}
-                initial={false}
-                animate={{
-                  x,
-                  scale,
-                  rotateY,
-                  opacity,
-                  zIndex,
-                }}
-                transition={{
-                  duration: 0.62,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                drag={isVisible ? 'x' : false}
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={0.16}
-                onDragEnd={(_, info) => {
-                  const swipeThreshold = 35
-                  const velocityThreshold = 250
-                  if (info.offset.x < -swipeThreshold || info.velocity.x < -velocityThreshold) {
-                    handleNext()
-                  } else if (info.offset.x > swipeThreshold || info.velocity.x > velocityThreshold) {
-                    handlePrev()
-                  }
-                }}
-                onClick={() => {
-                  if (isLeft) {
-                    handlePrev()
-                  } else if (isRight) {
-                    handleNext()
-                  }
-                }}
-                style={{
-                  transformStyle: 'preserve-3d',
-                  willChange: 'transform, opacity',
-                  backfaceVisibility: 'hidden',
-                  pointerEvents,
-                }}
-                className={`absolute w-[280px] xs:w-[315px] sm:w-[380px] h-[435px] sm:h-[480px] rounded-[36px] sm:rounded-[40px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden border shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1px_rgba(120,230,195,0.2)] select-none touch-pan-y ${
-                  isActive
-                    ? 'cursor-grab active:cursor-grabbing bg-gradient-to-b from-[#102D22]/98 via-[#0D261D]/98 to-[#061A15] border-[#78E6C3]/40 shadow-[0_30px_70px_rgba(0,0,0,0.85),0_0_35px_rgba(120,230,195,0.2),inset_0_1px_1px_rgba(223,255,154,0.3)]'
-                    : 'cursor-pointer active:cursor-grabbing bg-gradient-to-b from-[#0B241C]/95 via-[#081F18]/90 to-[#061A15]/90 border-[#294438]/80 hover:border-[#78E6C3]/45'
-                }`}
-              >
-                {/* Specular top rim light reflection */}
-                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/60 to-transparent" />
-
-                {/* Ambient warm lamp at the bottom */}
-                <div
-                  className={`pointer-events-none absolute -bottom-10 inset-x-0 h-52 bg-gradient-to-t ${step.ambientGlow} blur-2xl opacity-90`}
-                />
-
-                {/* Top Row: '+' Crosshair Marker & Badge */}
-                <div className="relative z-10 flex items-center justify-between">
-                  <span className="font-mono text-sm text-[#78E6C3]/70 select-none">
-                    +
-                  </span>
-                  <span className="rounded-full border border-[#294438] bg-black/40 px-3 py-1 text-[11px] font-mono uppercase tracking-[0.2em] text-[#DFFF9A] backdrop-blur-sm">
-                    STAGE {step.step} / {step.stage}
-                  </span>
-                </div>
-
-                {/* Center Content: Icon + Big Headline + Tagline */}
-                <div className="relative z-10 my-auto text-center px-2">
-                  <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl border border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_25px_rgba(120,230,195,0.3),inset_0_1px_1px_rgba(223,255,154,0.4)]">
-                    <Icon className="h-6 w-6" strokeWidth={1.75} />
-                  </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold tracking-tight text-[#F3F5F0] drop-shadow-[0_2px_12px_rgba(0,0,0,0.8)]">
-                    {step.title}
-                  </h3>
-                  <div className="mt-2 inline-flex items-center gap-1.5 flex-wrap justify-center">
-                    <span className="font-mono text-xs font-semibold text-[#78E6C3] tracking-wider uppercase">
-                      {step.timeline}
-                    </span>
-                    <span className="text-xs text-[#B5C2B9]/40">•</span>
-                    <span className="text-xs text-[#DFFF9A] font-medium">
-                      {step.highlight}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Bottom Content: Clean Description + Action CTA */}
-                <div className="relative z-10 text-center">
-                  <p className="text-xs sm:text-sm leading-relaxed text-[#B5C2B9] line-clamp-3">
-                    {step.description}
-                  </p>
-
-                  {/* Interactive Button on Active Card */}
-                  {isActive && (
-                    <motion.a
-                      initial={{ opacity: 0, y: 6 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: 0.1 }}
-                      href={`mailto:${EMAIL}?subject=Process Inquiry: Stage ${step.step} (${encodeURIComponent(step.title)})`}
-                      onClick={(e) => e.stopPropagation()}
-                      className="mt-4 inline-flex h-9 items-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35),inset_0_1px_1px_rgba(255,255,255,0.8)] transition-all hover:scale-105 active:scale-95"
-                    >
-                      <span>Book Strategy Call</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
-                    </motion.a>
-                  )}
-                </div>
-              </motion.div>
-            )
-          })}
-        </div>
-      </motion.div>
-
-      {/* 3. Floating Pagination Pill Dock (4 dots for 4 steps) */}
-      <div className="mt-8 flex items-center justify-center gap-4">
-        <button
-          type="button"
-          onClick={handlePrev}
-          aria-label="Previous step"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#294438] bg-[#0B241C]/80 text-[#F3F5F0] backdrop-blur-md transition hover:border-[#78E6C3]/60 hover:bg-[#102D22] hover:text-[#78E6C3] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
-        >
-          <ChevronLeft className="h-4 w-4" />
-        </button>
-
-        {/* Dots Capsule Dock */}
-        <div className="flex items-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/85 px-4 py-2 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.5),inset_0_1px_1px_rgba(120,230,195,0.2)]">
-          {processSteps.map((s, idx) => {
-            const isCurrent = idx === activeIndex
-            return (
-              <button
-                key={s.step}
-                type="button"
-                onClick={() => setActiveIndex(idx)}
-                aria-label={`Jump to Stage ${s.step}`}
-                className={`transition-all duration-300 rounded-full ${
-                  isCurrent
-                    ? 'h-2.5 w-8 bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] shadow-[0_0_12px_rgba(120,230,195,0.6)]'
-                    : 'h-2 w-2 bg-white/25 hover:bg-white/50'
-                }`}
-              />
-            )
-          })}
-        </div>
-
-        <button
-          type="button"
-          onClick={handleNext}
-          aria-label="Next step"
-          className="flex h-10 w-10 items-center justify-center rounded-full border border-[#294438] bg-[#0B241C]/80 text-[#F3F5F0] backdrop-blur-md transition hover:border-[#78E6C3]/60 hover:bg-[#102D22] hover:text-[#78E6C3] active:scale-95 shadow-[0_4px_16px_rgba(0,0,0,0.4)]"
-        >
-          <ChevronRight className="h-4 w-4" />
-        </button>
-      </div>
-    </div>
-  )
-}
-
-function ProcessSection() {
-  return (
-    <section
-      id="process"
-      aria-labelledby="process-title"
-      className="relative scroll-mt-20 py-20 sm:py-28 overflow-hidden"
-    >
-      <div className="mx-auto max-w-6xl px-5 sm:px-8">
-        <SectionHeading
-          id="process-title"
-          eyebrow="03 / How it works"
-          title="From first call to full calendar."
-          subtitle="A clear, transparent 4-stage pipeline. Click or swipe through the interactive 3D deck to explore each phase."
-          center
-        />
-
-        {/* 3D Process Card Stack Carousel */}
-        <ProcessCarousel />
-      </div>
-    </section>
-  )
-}
-
 function ContactSection() {
   const { copied, copy } = useCopyEmail()
   const { copiedPhone, copyPhone } = useCopyPhone()
@@ -1514,7 +1480,7 @@ function ContactSection() {
           />
 
           <p className="relative font-mono text-xs uppercase tracking-[0.25em] text-[#78E6C3]">
-            04 / Get in touch
+            03 / Get in touch
           </p>
           <h2
             id="contact-title"
@@ -1758,11 +1724,9 @@ export default function Home() {
         <main className="relative z-10 flex-1">
           <Hero />
           <SectionDivider />
-          <ServicesSection />
-          <SectionDivider />
           <AboutSection />
           <SectionDivider />
-          <ProcessSection />
+          <DualEngineHub />
           <SectionDivider />
           <ContactSection />
         </main>
