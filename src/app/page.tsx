@@ -794,38 +794,37 @@ function DualEngineHub() {
     <section
       id="capabilities"
       aria-labelledby="capabilities-title"
-      className="relative scroll-mt-20 py-20 sm:py-28 overflow-hidden"
+      className="relative scroll-mt-20 py-16 sm:py-24 overflow-hidden"
     >
-      {/* Anchor targets so navbar links (#services & #process) navigate seamlessly */}
+      {/* Anchor targets so navbar links (#services & #process) navigate smoothly */}
       <div id="services" className="-top-24 absolute pointer-events-none" />
 
       {/* Ambient background glows */}
-      <div className="pointer-events-none absolute left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[900px] rounded-full bg-[#78E6C3]/12 blur-[160px]" />
-      <div className="pointer-events-none absolute right-[10%] top-1/2 h-[450px] w-[450px] rounded-full bg-[#DFFF9A]/10 blur-[150px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[800px] rounded-full bg-[#78E6C3]/10 blur-[150px]" />
+      <div className="pointer-events-none absolute right-[10%] top-1/2 h-[400px] w-[400px] rounded-full bg-[#DFFF9A]/08 blur-[140px]" />
 
       <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
         {/* Section Heading */}
         <SectionHeading
           id="capabilities-title"
-          eyebrow="02 / Interactive Capabilities Hub"
+          eyebrow="02 / Dual-Engine Capabilities"
           title="Two specialized engines. One unified partner."
-          subtitle="Toggle between our Growth Marketing and Tech Engineering engines to see what we deliver, the modern stack we build with, and exactly how we execute."
+          subtitle="Toggle between our Growth Marketing and Tech Engineering capabilities to see what we deliver, the stack we build with, and how we execute."
           center
         />
 
-        {/* 2-Pillar Segmented Toggle Switch */}
-        <div className="mt-10 sm:mt-12 flex justify-center">
-          <div className="relative inline-flex items-center rounded-full border border-[#294438] bg-[#0B241C]/90 p-1.5 backdrop-blur-2xl shadow-[0_16px_40px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(120,230,195,0.2)]">
-            {/* Specular top rim line */}
+        {/* 2-Pillar Tactile Segmented Toggle Switch */}
+        <div className="mt-8 sm:mt-10 flex justify-center">
+          <div className="relative inline-flex items-center rounded-full border border-[#294438] bg-[#0B241C]/90 p-1.5 backdrop-blur-2xl shadow-[0_12px_36px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(120,230,195,0.2)]">
             <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
 
             {/* Pillar 1: Marketing & Growth */}
             <button
               type="button"
               onClick={() => setActivePillar('marketing')}
-              className={`relative z-10 flex items-center gap-2 rounded-full px-5 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-sm font-bold transition-all duration-300 ${
+              className={`relative z-10 flex items-center gap-2 rounded-full px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-bold transition-all duration-300 ${
                 activePillar === 'marketing'
-                  ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_20px_rgba(120,230,195,0.45),inset_0_1px_1px_rgba(255,255,255,0.8)] scale-[1.02]'
+                  ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_18px_rgba(120,230,195,0.45)] scale-[1.02]'
                   : 'text-[#B5C2B9] hover:text-[#F3F5F0] hover:bg-white/[0.04]'
               }`}
             >
@@ -846,9 +845,9 @@ function DualEngineHub() {
             <button
               type="button"
               onClick={() => setActivePillar('tech')}
-              className={`relative z-10 flex items-center gap-2 rounded-full px-5 py-2.5 sm:px-7 sm:py-3 text-xs sm:text-sm font-bold transition-all duration-300 ${
+              className={`relative z-10 flex items-center gap-2 rounded-full px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-bold transition-all duration-300 ${
                 activePillar === 'tech'
-                  ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_20px_rgba(120,230,195,0.45),inset_0_1px_1px_rgba(255,255,255,0.8)] scale-[1.02]'
+                  ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_18px_rgba(120,230,195,0.45)] scale-[1.02]'
                   : 'text-[#B5C2B9] hover:text-[#F3F5F0] hover:bg-white/[0.04]'
               }`}
             >
@@ -867,202 +866,130 @@ function DualEngineHub() {
           </div>
         </div>
 
-        {/* Dynamic Content Panel with Framer Motion AnimatePresence */}
-        <div className="mt-12 sm:mt-16">
+        {/* Dynamic Compact Showcase (Split Layout: What We Do on Left, Kaise Karte Hain on Right) */}
+        <div className="mt-10 sm:mt-12">
           <AnimatePresence mode="wait">
             {activePillar === 'marketing' ? (
               <motion.div
                 key="marketing-view"
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.38, ease: EASE }}
-                className="space-y-16 sm:space-y-20"
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.32, ease: EASE }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start"
               >
-                {/* 1. Marketing Offerings Grid */}
-                <div>
-                  <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
-                    <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#78E6C3]">
-                        ENGINE 01 / WHAT WE DELIVER
-                      </p>
-                      <h3 className="mt-1.5 text-2xl sm:text-3xl font-semibold tracking-tight text-[#F3F5F0]">
-                        Growth & Outbound Capabilities
-                      </h3>
-                    </div>
-                    <p className="text-xs sm:text-sm text-[#B5C2B9] max-w-md">
-                      Done-for-you systems designed to build category authority, generate qualified enterprise leads, and keep your calendar booked.
-                    </p>
+                {/* Left (7 cols): What We Deliver (Clean, lightweight capability rows) */}
+                <div className="lg:col-span-7 space-y-3.5">
+                  <div className="flex items-center justify-between pb-2 border-b border-[#294438]/60">
+                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#78E6C3]">
+                      ENGINE 01 / WHAT WE DELIVER
+                    </span>
+                    <span className="text-[11px] font-mono text-[#B5C2B9]/60">
+                      4 Growth Capabilities
+                    </span>
                   </div>
 
-                  <div className="grid gap-5 md:grid-cols-2">
-                    {marketingOfferings.map((offering, idx) => {
-                      const Icon = offering.icon
-                      return (
-                        <div
-                          key={offering.name}
-                          className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/90 via-[#0B241C]/90 to-[#061A15] p-6 sm:p-8 transition-all duration-300 hover:border-[#78E6C3]/50 hover:shadow-[0_20px_50px_rgba(6,26,21,0.6)]"
-                        >
-                          {/* Specular top rim light */}
-                          <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
-                          <div className={`pointer-events-none absolute -bottom-10 inset-x-0 h-40 bg-gradient-to-t ${offering.ambientGlow} blur-2xl opacity-50 group-hover:opacity-80 transition-opacity`} />
-
-                          <div>
-                            {/* Header: Crosshair + Badge */}
-                            <div className="flex items-center justify-between">
-                              <span className="font-mono text-xs text-[#78E6C3]/60">+</span>
-                              <span className="rounded-full border border-[#294438] bg-[#061A15]/80 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[#DFFF9A]">
-                                {offering.badge}
-                              </span>
-                            </div>
-
-                            {/* Icon & Title */}
-                            <div className="mt-6 flex items-start gap-4">
-                              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(120,230,195,0.25)]">
-                                <Icon className="h-6 w-6" strokeWidth={1.75} />
-                              </div>
-                              <div>
-                                <h4 className="text-xl font-bold tracking-tight text-[#F3F5F0]">
-                                  {offering.name}
-                                </h4>
-                                <p className="mt-1 text-xs font-medium text-[#78E6C3]">
-                                  {offering.tagline}
-                                </p>
-                              </div>
-                            </div>
-
-                            {/* Description */}
-                            <p className="mt-4 text-sm leading-relaxed text-[#B5C2B9]">
-                              {offering.description}
-                            </p>
-
-                            {/* Features Bullet List */}
-                            <ul className="mt-5 space-y-2 border-t border-[#294438]/70 pt-4">
-                              {offering.features.map((feature) => (
-                                <li
-                                  key={feature}
-                                  className="flex items-center gap-2.5 text-xs text-[#B5C2B9]"
-                                >
-                                  <Check className="h-3.5 w-3.5 shrink-0 text-[#78E6C3]" />
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Action Button */}
-                          <div className="mt-6 pt-4 border-t border-[#294438]/50 flex items-center justify-between">
-                            <span className="font-mono text-[11px] text-[#B5C2B9]/60">
-                              0{idx + 1} / OUTBOUND
-                            </span>
-                            <a
-                              href={`mailto:${EMAIL}?subject=Marketing%20Inquiry:%20${encodeURIComponent(offering.name)}`}
-                              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#78E6C3] transition-colors hover:text-white"
-                            >
-                              <span>Inquire about this</span>
-                              <ArrowRight className="h-3.5 w-3.5" />
-                            </a>
-                          </div>
+                  {marketingOfferings.map((offering) => {
+                    const Icon = offering.icon
+                    return (
+                      <div
+                        key={offering.name}
+                        className="group relative flex items-start gap-4 rounded-2xl border border-[#294438] bg-[#0B241C]/65 p-4 sm:p-5 transition-all duration-200 hover:border-[#78E6C3]/50 hover:bg-[#102D22]/80 hover:shadow-[0_10px_30px_rgba(6,26,21,0.5)]"
+                      >
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/60 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_15px_rgba(120,230,195,0.2)]">
+                          <Icon className="h-5 w-5" strokeWidth={1.8} />
                         </div>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* 2. Kaise Karte Hain Vo (The 4-Step Outbound Route) */}
-                <div className="relative pt-4">
-                  <div id="process" className="-top-24 absolute pointer-events-none" />
-
-                  <div className="text-center max-w-2xl mx-auto mb-10">
-                    <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#78E6C3]">
-                      EXECUTION BLUEPRINT • KAISE KARTE HAIN VO
-                    </p>
-                    <h3 className="mt-2 text-2xl sm:text-4xl font-semibold tracking-tight text-[#F3F5F0]">
-                      The 4-Step Outbound Route
-                    </h3>
-                    <p className="mt-3 text-sm text-[#B5C2B9]">
-                      A transparent, zero-black-box pipeline. Every phase is calibrated to turn cold market prospects into eager buyers.
-                    </p>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    {marketingProcess.map((step) => {
-                      const StepIcon = step.icon
-                      return (
-                        <div
-                          key={step.step}
-                          className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#294438] bg-gradient-to-b from-[#102D22]/80 via-[#0B241C]/80 to-[#061A15] p-6 transition-all duration-300 hover:border-[#78E6C3]/40 shadow-[0_12px_36px_rgba(0,0,0,0.4)]"
-                        >
-                          <div className="pointer-events-none absolute inset-x-6 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/30 to-transparent" />
-
-                          <div>
-                            {/* Step & Timeline Tag */}
-                            <div className="flex items-center justify-between">
-                              <span className="font-mono text-xs font-bold text-[#78E6C3]">
-                                STAGE {step.step}
-                              </span>
-                              <span className="rounded-full border border-[#294438] bg-[#061A15]/90 px-2.5 py-0.5 font-mono text-[10px] uppercase text-[#DFFF9A]">
-                                {step.timeline}
-                              </span>
-                            </div>
-
-                            {/* Icon & Title */}
-                            <div className="mt-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#78E6C3]/30 bg-[#0B241C] text-[#78E6C3]">
-                              <StepIcon className="h-5 w-5" />
-                            </div>
-
-                            <h4 className="mt-4 text-lg font-bold text-[#F3F5F0]">
-                              {step.title}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-2">
+                            <h4 className="text-base font-semibold text-[#F3F5F0] group-hover:text-[#78E6C3] transition-colors">
+                              {offering.name}
                             </h4>
-                            <p className="mt-1 text-xs font-medium text-[#78E6C3]">
-                              {step.highlight}
-                            </p>
-
-                            <p className="mt-3 text-xs leading-relaxed text-[#B5C2B9]">
-                              {step.description}
-                            </p>
+                            <span className="font-mono text-[10px] text-[#DFFF9A] px-2 py-0.5 rounded-full bg-[#061A15]/80 border border-[#294438]">
+                              {offering.badge}
+                            </span>
                           </div>
-
-                          <div className="mt-6 pt-3 border-t border-[#294438]/50 text-[11px] font-mono text-[#B5C2B9]/50">
-                            Phase {step.step} • {step.stage}
+                          <p className="mt-1 text-xs text-[#B5C2B9] leading-relaxed">
+                            {offering.description}
+                          </p>
+                          <div className="mt-2.5 flex flex-wrap gap-1.5">
+                            {offering.features.map((feature) => (
+                              <span
+                                key={feature}
+                                className="inline-flex items-center gap-1 text-[11px] text-[#78E6C3] bg-[#061A15]/70 px-2 py-0.5 rounded-md border border-[#294438]/70"
+                              >
+                                <Check className="h-3 w-3 text-[#78E6C3]" />
+                                <span>{feature}</span>
+                              </span>
+                            ))}
                           </div>
                         </div>
-                      )
-                    })}
-                  </div>
+                      </div>
+                    )
+                  })}
                 </div>
 
-                {/* 3. Marketing Quick Action Callout */}
-                <div className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-r from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-10 shadow-[0_20px_60px_rgba(6,26,21,0.5)]">
-                  <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#78E6C3]/15 blur-3xl" />
-                  <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <div>
-                      <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#78E6C3]">
-                        ACTION READY
+                {/* Right (5 cols): Kaise Karte Hain Vo (Clean connected timeline + Quick Action) */}
+                <div className="lg:col-span-5 space-y-4">
+                  <div className="relative rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/85 via-[#0B241C]/85 to-[#061A15] p-5 sm:p-7 shadow-[0_20px_50px_rgba(6,26,21,0.5)]">
+                    <div id="process" className="-top-24 absolute pointer-events-none" />
+                    <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
+
+                    <div className="flex items-center justify-between pb-3 border-b border-[#294438]/70 mb-5">
+                      <div>
+                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#78E6C3]">
+                          KAISE KARTE HAIN VO
+                        </span>
+                        <h4 className="text-base sm:text-lg font-bold text-[#F3F5F0] mt-0.5">
+                          The 4-Step Outbound Route
+                        </h4>
+                      </div>
+                      <span className="font-mono text-[10px] uppercase text-[#DFFF9A] px-2 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
+                        Day 1 → Scale
                       </span>
-                      <h4 className="mt-1.5 text-xl sm:text-2xl font-bold text-[#F3F5F0]">
-                        Ready to fill your pipeline with high-intent decision-makers?
-                      </h4>
-                      <p className="mt-2 text-xs sm:text-sm text-[#B5C2B9] max-w-xl">
-                        Schedule a 30-minute discovery session. We will audit your current outreach, identify key bottlenecks, and outline a tailored outbound route.
-                      </p>
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+
+                    {/* Streamlined Connected Timeline */}
+                    <div className="relative space-y-4 before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-[1px] before:bg-gradient-to-b before:from-[#78E6C3] via-[#1A604D] to-[#294438]">
+                      {marketingProcess.map((step) => {
+                        const StepIcon = step.icon
+                        return (
+                          <div key={step.step} className="relative flex items-start gap-3 pl-8">
+                            <span className="absolute left-3.5 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full border border-[#78E6C3] bg-[#061A15] shadow-[0_0_8px_rgba(120,230,195,0.7)]" />
+                            <div>
+                              <div className="flex items-center gap-2 flex-wrap">
+                                <span className="font-mono text-xs font-bold text-[#78E6C3]">
+                                  {step.step}. {step.title}
+                                </span>
+                                <span className="font-mono text-[10px] text-[#DFFF9A] bg-[#061A15] px-1.5 py-0.2 rounded border border-[#294438]">
+                                  {step.timeline}
+                                </span>
+                              </div>
+                              <p className="text-xs text-[#B5C2B9] mt-0.5 leading-relaxed">
+                                {step.description}
+                              </p>
+                            </div>
+                          </div>
+                        )
+                      })}
+                    </div>
+
+                    {/* Integrated CTA Inside Card */}
+                    <div className="mt-6 pt-5 border-t border-[#294438]/80 flex flex-col gap-2.5">
                       <a
-                        href={`mailto:${EMAIL}?subject=Growth%20Strategy%20Call%20Booking`}
-                        className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs sm:text-sm font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.4)] transition hover:scale-105"
+                        href={`mailto:${EMAIL}?subject=Marketing%20%26%20Growth%20Strategy%20Call`}
+                        className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-[1.02]"
                       >
                         <span>Book Growth Strategy Call</span>
-                        <ArrowRight className="h-4 w-4" />
+                        <ArrowRight className="h-3.5 w-3.5" />
                       </a>
                       <a
                         href={WHATSAPP_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/80 px-5 text-xs sm:text-sm font-semibold text-[#F3F5F0] transition hover:border-[#25D366] hover:text-[#25D366]"
+                        className="inline-flex h-9 w-full items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#061A15]/70 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
                       >
-                        <MessageCircle className="h-4 w-4 text-[#25D366]" />
-                        <span>Chat on WhatsApp</span>
+                        <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
+                        <span>Chat on WhatsApp (+91 80852 58803)</span>
                       </a>
                     </div>
                   </div>
@@ -1071,280 +998,165 @@ function DualEngineHub() {
             ) : (
               <motion.div
                 key="tech-view"
-                initial={{ opacity: 0, y: 16 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -16 }}
-                transition={{ duration: 0.38, ease: EASE }}
-                className="space-y-16 sm:space-y-20"
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.32, ease: EASE }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start"
               >
-                {/* 1. Tech & AI Offerings Grid */}
-                <div>
-                  <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-8">
-                    <div>
-                      <p className="font-mono text-xs uppercase tracking-[0.22em] text-[#DFFF9A]">
-                        ENGINE 02 / WHAT WE BUILD
-                      </p>
-                      <h3 className="mt-1.5 text-2xl sm:text-3xl font-semibold tracking-tight text-[#F3F5F0]">
-                        Full-Stack SaaS, MVP & AI Systems
-                      </h3>
-                    </div>
-                    <p className="text-xs sm:text-sm text-[#B5C2B9] max-w-md">
-                      Production software engineered with modern architectures, bulletproof reliability, and integrated artificial intelligence.
-                    </p>
+                {/* Left (7 cols): What We Build (Clean, lightweight capability rows) */}
+                <div className="lg:col-span-7 space-y-3.5">
+                  <div className="flex items-center justify-between pb-2 border-b border-[#294438]/60">
+                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
+                      ENGINE 02 / WHAT WE BUILD
+                    </span>
+                    <span className="text-[11px] font-mono text-[#B5C2B9]/60">
+                      4 Engineering Solutions
+                    </span>
                   </div>
 
-                  <div className="grid gap-5 md:grid-cols-2">
-                    {techOfferings.map((offering, idx) => {
-                      const Icon = offering.icon
-                      return (
-                        <div
-                          key={offering.name}
-                          className="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/90 via-[#0B241C]/90 to-[#061A15] p-6 sm:p-8 transition-all duration-300 hover:border-[#DFFF9A]/50 hover:shadow-[0_20px_50px_rgba(6,26,21,0.6)]"
-                        >
-                          {/* Specular top rim light */}
-                          <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/40 to-transparent" />
-                          <div className={`pointer-events-none absolute -bottom-10 inset-x-0 h-40 bg-gradient-to-t ${offering.ambientGlow} blur-2xl opacity-50 group-hover:opacity-80 transition-opacity`} />
-
-                          <div>
-                            {/* Header: Crosshair + Badge */}
-                            <div className="flex items-center justify-between">
-                              <span className="font-mono text-xs text-[#DFFF9A]/60">+</span>
-                              <span className="rounded-full border border-[#294438] bg-[#061A15]/80 px-3 py-1 font-mono text-[11px] uppercase tracking-[0.18em] text-[#78E6C3]">
-                                {offering.badge}
-                              </span>
-                            </div>
-
-                            {/* Icon & Title */}
-                            <div className="mt-6 flex items-start gap-4">
-                              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#DFFF9A]/30 bg-gradient-to-br from-[#123E2F]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(223,255,154,0.25)]">
-                                <Icon className="h-6 w-6" strokeWidth={1.75} />
-                              </div>
-                              <div>
-                                <h4 className="text-xl font-bold tracking-tight text-[#F3F5F0]">
-                                  {offering.name}
-                                </h4>
-                                <p className="mt-1 text-xs font-medium text-[#DFFF9A]">
-                                  {offering.tagline}
-                                </p>
-                              </div>
-                            </div>
-
-                            {/* Description */}
-                            <p className="mt-4 text-sm leading-relaxed text-[#B5C2B9]">
-                              {offering.description}
-                            </p>
-
-                            {/* Features Bullet List */}
-                            <ul className="mt-5 space-y-2 border-t border-[#294438]/70 pt-4">
-                              {offering.features.map((feature) => (
-                                <li
-                                  key={feature}
-                                  className="flex items-center gap-2.5 text-xs text-[#B5C2B9]"
-                                >
-                                  <Check className="h-3.5 w-3.5 shrink-0 text-[#DFFF9A]" />
-                                  <span>{feature}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-
-                          {/* Action Button */}
-                          <div className="mt-6 pt-4 border-t border-[#294438]/50 flex items-center justify-between">
-                            <span className="font-mono text-[11px] text-[#B5C2B9]/60">
-                              0{idx + 1} / ENGINEERING
-                            </span>
-                            <a
-                              href={`mailto:${EMAIL}?subject=Tech%20Architecture%20Inquiry:%20${encodeURIComponent(offering.name)}`}
-                              className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#DFFF9A] transition-colors hover:text-white"
-                            >
-                              <span>Discuss architecture</span>
-                              <ArrowRight className="h-3.5 w-3.5" />
-                            </a>
-                          </div>
+                  {techOfferings.map((offering) => {
+                    const Icon = offering.icon
+                    return (
+                      <div
+                        key={offering.name}
+                        className="group relative flex items-start gap-4 rounded-2xl border border-[#294438] bg-[#0B241C]/65 p-4 sm:p-5 transition-all duration-200 hover:border-[#DFFF9A]/50 hover:bg-[#102D22]/80 hover:shadow-[0_10px_30px_rgba(6,26,21,0.5)]"
+                      >
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#DFFF9A]/30 bg-gradient-to-br from-[#123E2F]/60 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_15px_rgba(223,255,154,0.2)]">
+                          <Icon className="h-5 w-5" strokeWidth={1.8} />
                         </div>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* 2. Mera Tech Stack (Production Arsenal Grid) */}
-                <div className="relative pt-4">
-                  <div className="text-center max-w-2xl mx-auto mb-10">
-                    <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#DFFF9A]">
-                      MERA TECH STACK • PRODUCTION ARSENAL
-                    </p>
-                    <h3 className="mt-2 text-2xl sm:text-4xl font-semibold tracking-tight text-[#F3F5F0]">
-                      Modern, scalable tools. Zero legacy bloat.
-                    </h3>
-                    <p className="mt-3 text-sm text-[#B5C2B9]">
-                      We build production platforms with industry-standard frameworks, scalable databases, and state-of-the-art AI infrastructure.
-                    </p>
-                  </div>
-
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {techStackCategories.map((cat) => {
-                      const CatIcon = cat.icon
-                      return (
-                        <div
-                          key={cat.title}
-                          className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#294438] bg-gradient-to-b from-[#102D22]/85 via-[#0B241C]/85 to-[#061A15] p-6 shadow-[0_12px_36px_rgba(0,0,0,0.4)] transition-all hover:border-[#78E6C3]/40"
-                        >
-                          <div className="pointer-events-none absolute inset-x-6 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/30 to-transparent" />
-
-                          <div>
-                            <div className="flex items-center justify-between">
-                              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#78E6C3]/30 bg-[#0B241C] text-[#78E6C3]">
-                                <CatIcon className="h-5 w-5" />
-                              </div>
-                              <span className="rounded-full border border-[#294438] bg-[#061A15]/80 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#DFFF9A]">
-                                {cat.badge}
-                              </span>
-                            </div>
-
-                            <h4 className="mt-4 text-base font-bold text-[#F3F5F0]">
-                              {cat.title}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between gap-2">
+                            <h4 className="text-base font-semibold text-[#F3F5F0] group-hover:text-[#DFFF9A] transition-colors">
+                              {offering.name}
                             </h4>
-
-                            <div className="mt-4 flex flex-wrap gap-2">
-                              {cat.skills.map((skill) => (
-                                <span
-                                  key={skill}
-                                  className="rounded-lg border border-[#294438] bg-[#061A15]/90 px-2.5 py-1 text-xs font-medium text-[#B5C2B9] hover:border-[#78E6C3]/40 hover:text-white transition-colors"
-                                >
-                                  {skill}
-                                </span>
-                              ))}
-                            </div>
+                            <span className="font-mono text-[10px] text-[#78E6C3] px-2 py-0.5 rounded-full bg-[#061A15]/80 border border-[#294438]">
+                              {offering.badge}
+                            </span>
                           </div>
-                        </div>
-                      )
-                    })}
-
-                    {/* Bonus Card: Code Quality & Architecture Guarantees */}
-                    <div className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#78E6C3]/30 bg-gradient-to-b from-[#1A604D]/30 via-[#0B241C]/90 to-[#061A15] p-6 shadow-[0_12px_36px_rgba(0,0,0,0.4)]">
-                      <div>
-                        <div className="flex items-center justify-between">
-                          <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#DFFF9A]/40 bg-[#0B241C] text-[#DFFF9A]">
-                            <Zap className="h-5 w-5" />
-                          </div>
-                          <span className="rounded-full border border-[#78E6C3]/40 bg-[#061A15]/80 px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider text-[#78E6C3]">
-                            STANDARDS
-                          </span>
-                        </div>
-                        <h4 className="mt-4 text-base font-bold text-[#F3F5F0]">
-                          Production Engineering Standards
-                        </h4>
-                        <div className="mt-4 space-y-2">
-                          <div className="flex items-center gap-2 text-xs text-[#B5C2B9]">
-                            <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
-                            <span>100% Type-Safe TypeScript Codebase</span>
-                          </div>
-                          <div className="flex items-center gap-2 text-xs text-[#B5C2B9]">
-                            <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
-                            <span>Full CI/CD Pipeline & Automated Tests</span>
-                          </div>
-                          <div className="flex items-center gap-2 text-xs text-[#B5C2B9]">
-                            <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
-                            <span>Full Source Code IP Handover</span>
+                          <p className="mt-1 text-xs text-[#B5C2B9] leading-relaxed">
+                            {offering.description}
+                          </p>
+                          <div className="mt-2.5 flex flex-wrap gap-1.5">
+                            {offering.features.map((feature) => (
+                              <span
+                                key={feature}
+                                className="inline-flex items-center gap-1 text-[11px] text-[#DFFF9A] bg-[#061A15]/70 px-2 py-0.5 rounded-md border border-[#294438]/70"
+                              >
+                                <Check className="h-3 w-3 text-[#DFFF9A]" />
+                                <span>{feature}</span>
+                              </span>
+                            ))}
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
+                    )
+                  })}
                 </div>
 
-                {/* 3. Kaise Karte Hain Vo (The 4-Stage Engineering Sprint) */}
-                <div className="relative pt-4">
-                  <div className="text-center max-w-2xl mx-auto mb-10">
-                    <p className="font-mono text-xs uppercase tracking-[0.25em] text-[#DFFF9A]">
-                      EXECUTION BLUEPRINT • KAISE KARTE HAIN VO
-                    </p>
-                    <h3 className="mt-2 text-2xl sm:text-4xl font-semibold tracking-tight text-[#F3F5F0]">
-                      The 2–4 Week Engineering Sprint
-                    </h3>
-                    <p className="mt-3 text-sm text-[#B5C2B9]">
-                      How we transform your product concept into a live, scalable, production-grade cloud software in 14–30 days.
-                    </p>
+                {/* Right (5 cols): Mera Tech Stack + Kaise Karte Hain Vo (Clean compact dock + Sprint) */}
+                <div className="lg:col-span-5 space-y-4">
+                  {/* Box 1: Mera Tech Stack (Compact, zero-bloat dock) */}
+                  <div className="rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/85 via-[#0B241C]/85 to-[#061A15] p-5 sm:p-6 shadow-[0_20px_50px_rgba(6,26,21,0.5)]">
+                    <div className="flex items-center justify-between pb-3 border-b border-[#294438]/70 mb-4">
+                      <div>
+                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
+                          MERA TECH STACK
+                        </span>
+                        <h4 className="text-base font-bold text-[#F3F5F0] mt-0.5">
+                          Production Arsenal
+                        </h4>
+                      </div>
+                      <span className="font-mono text-[10px] uppercase text-[#78E6C3] px-2 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
+                        Zero Bloat
+                      </span>
+                    </div>
+
+                    <div className="space-y-2.5">
+                      {techStackCategories.map((cat) => (
+                        <div
+                          key={cat.title}
+                          className="rounded-xl border border-[#294438]/60 bg-[#061A15]/60 p-2.5"
+                        >
+                          <div className="flex items-center justify-between text-xs font-semibold">
+                            <span className="text-[#DFFF9A] text-[11px] font-mono uppercase tracking-wider">
+                              {cat.title}
+                            </span>
+                            <span className="font-mono text-[10px] text-[#B5C2B9]/60">
+                              {cat.badge}
+                            </span>
+                          </div>
+                          <div className="mt-1.5 flex flex-wrap gap-1">
+                            {cat.skills.map((skill) => (
+                              <span
+                                key={skill}
+                                className="rounded bg-[#0B241C] border border-[#294438]/70 px-2 py-0.5 text-[10px] text-[#B5C2B9]"
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
 
-                  <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-                    {techProcess.map((step) => {
-                      const StepIcon = step.icon
-                      return (
-                        <div
-                          key={step.step}
-                          className="relative flex flex-col justify-between overflow-hidden rounded-2xl border border-[#294438] bg-gradient-to-b from-[#102D22]/80 via-[#0B241C]/80 to-[#061A15] p-6 transition-all duration-300 hover:border-[#DFFF9A]/40 shadow-[0_12px_36px_rgba(0,0,0,0.4)]"
-                        >
-                          <div className="pointer-events-none absolute inset-x-6 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/30 to-transparent" />
+                  {/* Box 2: Kaise Karte Hain Vo (4-Stage Engineering Sprint + Action CTA) */}
+                  <div className="rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/85 via-[#0B241C]/85 to-[#061A15] p-5 sm:p-6 shadow-[0_20px_50px_rgba(6,26,21,0.5)]">
+                    <div id="process" className="-top-24 absolute pointer-events-none" />
+                    <div className="flex items-center justify-between pb-3 border-b border-[#294438]/70 mb-4">
+                      <div>
+                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
+                          KAISE KARTE HAIN VO
+                        </span>
+                        <h4 className="text-base font-bold text-[#F3F5F0] mt-0.5">
+                          The 2–4 Week Sprint
+                        </h4>
+                      </div>
+                      <span className="font-mono text-[10px] uppercase text-[#78E6C3] px-2 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
+                        Days 1 → 30
+                      </span>
+                    </div>
 
+                    {/* Timeline */}
+                    <div className="relative space-y-3.5 before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-[1px] before:bg-gradient-to-b before:from-[#DFFF9A] via-[#1A604D] to-[#294438]">
+                      {techProcess.map((step) => (
+                        <div key={step.step} className="relative flex items-start gap-3 pl-8">
+                          <span className="absolute left-3.5 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full border border-[#DFFF9A] bg-[#061A15] shadow-[0_0_8px_rgba(223,255,154,0.7)]" />
                           <div>
-                            {/* Step & Timeline Tag */}
-                            <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 flex-wrap">
                               <span className="font-mono text-xs font-bold text-[#DFFF9A]">
-                                STAGE {step.step}
+                                {step.step}. {step.title}
                               </span>
-                              <span className="rounded-full border border-[#294438] bg-[#061A15]/90 px-2.5 py-0.5 font-mono text-[10px] uppercase text-[#78E6C3]">
+                              <span className="font-mono text-[10px] text-[#78E6C3] bg-[#061A15] px-1.5 py-0.2 rounded border border-[#294438]">
                                 {step.timeline}
                               </span>
                             </div>
-
-                            {/* Icon & Title */}
-                            <div className="mt-5 flex h-11 w-11 items-center justify-center rounded-xl border border-[#DFFF9A]/30 bg-[#0B241C] text-[#DFFF9A]">
-                              <StepIcon className="h-5 w-5" />
-                            </div>
-
-                            <h4 className="mt-4 text-lg font-bold text-[#F3F5F0]">
-                              {step.title}
-                            </h4>
-                            <p className="mt-1 text-xs font-medium text-[#DFFF9A]">
-                              {step.highlight}
-                            </p>
-
-                            <p className="mt-3 text-xs leading-relaxed text-[#B5C2B9]">
+                            <p className="text-xs text-[#B5C2B9] mt-0.5 leading-relaxed">
                               {step.description}
                             </p>
                           </div>
-
-                          <div className="mt-6 pt-3 border-t border-[#294438]/50 text-[11px] font-mono text-[#B5C2B9]/50">
-                            Sprint {step.step} • {step.stage}
-                          </div>
                         </div>
-                      )
-                    })}
-                  </div>
-                </div>
-
-                {/* 4. Tech Quick Action Callout */}
-                <div className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-r from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-10 shadow-[0_20px_60px_rgba(6,26,21,0.5)]">
-                  <div className="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#DFFF9A]/15 blur-3xl" />
-                  <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <div>
-                      <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
-                        BUILD WITH US
-                      </span>
-                      <h4 className="mt-1.5 text-xl sm:text-2xl font-bold text-[#F3F5F0]">
-                        Have a SaaS idea, MVP, or AI workflow to build?
-                      </h4>
-                      <p className="mt-2 text-xs sm:text-sm text-[#B5C2B9] max-w-xl">
-                        Let's review your product specifications. We'll provide technical scope estimates, architecture blueprints, and a rapid delivery roadmap.
-                      </p>
+                      ))}
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-3 shrink-0">
+
+                    {/* Integrated CTA Inside Card */}
+                    <div className="mt-5 pt-4 border-t border-[#294438]/80 flex flex-col gap-2.5">
                       <a
                         href={`mailto:${EMAIL}?subject=Tech%20Project%20Scope%20Discussion`}
-                        className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs sm:text-sm font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.4)] transition hover:scale-105"
+                        className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-[1.02]"
                       >
-                        <span>Discuss Architecture</span>
-                        <ArrowRight className="h-4 w-4" />
+                        <span>Discuss Tech Architecture</span>
+                        <ArrowRight className="h-3.5 w-3.5" />
                       </a>
                       <a
                         href={WHATSAPP_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex h-11 items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/80 px-5 text-xs sm:text-sm font-semibold text-[#F3F5F0] transition hover:border-[#25D366] hover:text-[#25D366]"
+                        className="inline-flex h-9 w-full items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#061A15]/70 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
                       >
-                        <MessageCircle className="h-4 w-4 text-[#25D366]" />
-                        <span>WhatsApp Developer</span>
+                        <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
+                        <span>WhatsApp Developer (+91 80852 58803)</span>
                       </a>
                     </div>
                   </div>
