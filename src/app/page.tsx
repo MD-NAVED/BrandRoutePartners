@@ -789,6 +789,30 @@ type Pillar = 'marketing' | 'tech'
 
 function DualEngineHub() {
   const [activePillar, setActivePillar] = useState<Pillar>('marketing')
+  const [activeMarketingTab, setActiveMarketingTab] = useState<string>('Personal Branding')
+  const [activeTechTab, setActiveTechTab] = useState<string>('Full-Stack SaaS Development')
+
+  // Available buttons for Marketing
+  const marketingTabs = [
+    { id: 'Personal Branding', label: 'Personal Branding', icon: Fingerprint, badge: 'Authority' },
+    { id: 'High-Intent Lead Generation', label: 'Lead Generation', icon: Target, badge: 'Pipeline' },
+    { id: 'Cold Email Infrastructure', label: 'Cold Email Setup', icon: Send, badge: 'Outbound' },
+    { id: 'Sales Support & Deal Closing', label: 'Sales Support', icon: Headset, badge: 'Closing' },
+    { id: 'marketing-process', label: 'Kaise Karte Hain Vo', icon: Route, badge: '4 Steps' },
+  ]
+
+  // Available buttons for Tech
+  const techTabs = [
+    { id: 'Full-Stack SaaS Development', label: 'SaaS Development', icon: Layers, badge: 'Cloud' },
+    { id: 'Rapid MVP in 2–4 Weeks', label: 'Rapid MVP (2-4 Wks)', icon: Rocket, badge: 'Speed' },
+    { id: 'Custom AI Chatbots & RAG', label: 'AI Chatbots', icon: Bot, badge: 'Agents' },
+    { id: 'AI Automation & Agentic Workflows', label: 'AI Automation', icon: Cpu, badge: 'Autonomy' },
+    { id: 'tech-stack', label: 'Mera Tech Stack', icon: Code2, badge: 'Arsenal' },
+    { id: 'tech-process', label: 'Kaise Karte Hain Vo', icon: Terminal, badge: 'Sprint' },
+  ]
+
+  const currentMarketingOffering = marketingOfferings.find((s) => s.name === activeMarketingTab)
+  const currentTechOffering = techOfferings.find((s) => s.name === activeTechTab)
 
   return (
     <section
@@ -796,29 +820,28 @@ function DualEngineHub() {
       aria-labelledby="capabilities-title"
       className="relative scroll-mt-20 py-16 sm:py-24 overflow-hidden"
     >
-      {/* Anchor targets so navbar links (#services & #process) navigate smoothly */}
+      {/* Anchor targets so navbar links (#services & #process) navigate seamlessly */}
       <div id="services" className="-top-24 absolute pointer-events-none" />
 
-      {/* Ambient background glows */}
-      <div className="pointer-events-none absolute left-1/2 top-1/4 -translate-x-1/2 -translate-y-1/2 h-[450px] w-[800px] rounded-full bg-[#78E6C3]/10 blur-[150px]" />
-      <div className="pointer-events-none absolute right-[10%] top-1/2 h-[400px] w-[400px] rounded-full bg-[#DFFF9A]/08 blur-[140px]" />
+      {/* Atmospheric backlights */}
+      <div className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[420px] w-[750px] rounded-full bg-[#78E6C3]/10 blur-[150px]" />
+      <div className="pointer-events-none absolute right-[12%] top-1/2 h-[380px] w-[380px] rounded-full bg-[#DFFF9A]/08 blur-[140px]" />
 
-      <div className="relative mx-auto max-w-6xl px-5 sm:px-8">
+      <div className="relative mx-auto max-w-5xl px-4 sm:px-8">
         {/* Section Heading */}
         <SectionHeading
           id="capabilities-title"
-          eyebrow="02 / Dual-Engine Capabilities"
-          title="Two specialized engines. One unified partner."
-          subtitle="Toggle between our Growth Marketing and Tech Engineering capabilities to see what we deliver, the stack we build with, and how we execute."
+          eyebrow="02 / Interactive Capabilities Hub"
+          title="Pick a service. See how we deliver."
+          subtitle="Click on any capability below to explore its exact deliverables, production architecture, and execution blueprint."
           center
         />
 
-        {/* 2-Pillar Tactile Segmented Toggle Switch */}
-        <div className="mt-8 sm:mt-10 flex justify-center">
+        {/* 1. Main 2-Pillar Engine Toggle */}
+        <div className="mt-8 flex justify-center">
           <div className="relative inline-flex items-center rounded-full border border-[#294438] bg-[#0B241C]/90 p-1.5 backdrop-blur-2xl shadow-[0_12px_36px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(120,230,195,0.2)]">
             <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
 
-            {/* Pillar 1: Marketing & Growth */}
             <button
               type="button"
               onClick={() => setActivePillar('marketing')}
@@ -830,18 +853,8 @@ function DualEngineHub() {
             >
               <Sparkles className="h-4 w-4 shrink-0" />
               <span>Marketing & Growth</span>
-              <span
-                className={`hidden md:inline-flex rounded-full px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider ${
-                  activePillar === 'marketing'
-                    ? 'bg-[#061A15]/20 text-[#061A15]'
-                    : 'bg-[#102D22] text-[#78E6C3]'
-                }`}
-              >
-                Authority & Leads
-              </span>
             </button>
 
-            {/* Pillar 2: Tech Stack & Engineering */}
             <button
               type="button"
               onClick={() => setActivePillar('tech')}
@@ -853,315 +866,557 @@ function DualEngineHub() {
             >
               <Code2 className="h-4 w-4 shrink-0" />
               <span>Tech Stack & Engineering</span>
-              <span
-                className={`hidden md:inline-flex rounded-full px-2 py-0.5 text-[10px] font-mono uppercase tracking-wider ${
-                  activePillar === 'tech'
-                    ? 'bg-[#061A15]/20 text-[#061A15]'
-                    : 'bg-[#102D22] text-[#DFFF9A]'
-                }`}
-              >
-                SaaS, MVP & AI
-              </span>
             </button>
           </div>
         </div>
 
-        {/* Dynamic Compact Showcase (Split Layout: What We Do on Left, Kaise Karte Hain on Right) */}
-        <div className="mt-10 sm:mt-12">
+        {/* 2. Chote-Chote Interactive Service Buttons (Compact Pill Row) */}
+        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+          {activePillar === 'marketing' ? (
+            marketingTabs.map((tab) => {
+              const TabIcon = tab.icon
+              const isSelected = activeMarketingTab === tab.id
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveMarketingTab(tab.id)}
+                  className={`group relative flex items-center gap-2 rounded-full px-3.5 py-2 text-xs font-semibold transition-all duration-200 ${
+                    isSelected
+                      ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] scale-[1.03]'
+                      : 'border border-[#294438] bg-[#0B241C]/80 text-[#B5C2B9] hover:border-[#78E6C3]/50 hover:bg-[#102D22] hover:text-[#F3F5F0]'
+                  }`}
+                >
+                  <TabIcon
+                    className={`h-3.5 w-3.5 ${
+                      isSelected ? 'text-[#061A15]' : 'text-[#78E6C3] group-hover:scale-110 transition-transform'
+                    }`}
+                  />
+                  <span>{tab.label}</span>
+                  <span
+                    className={`rounded-full px-1.5 py-0.2 font-mono text-[9px] uppercase tracking-wider ${
+                      isSelected
+                        ? 'bg-[#061A15]/20 text-[#061A15]'
+                        : 'bg-[#061A15]/70 text-[#DFFF9A] border border-[#294438]'
+                    }`}
+                  >
+                    {tab.badge}
+                  </span>
+                </button>
+              )
+            })
+          ) : (
+            techTabs.map((tab) => {
+              const TabIcon = tab.icon
+              const isSelected = activeTechTab === tab.id
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTechTab(tab.id)}
+                  className={`group relative flex items-center gap-2 rounded-full px-3.5 py-2 text-xs font-semibold transition-all duration-200 ${
+                    isSelected
+                      ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] scale-[1.03]'
+                      : 'border border-[#294438] bg-[#0B241C]/80 text-[#B5C2B9] hover:border-[#DFFF9A]/50 hover:bg-[#102D22] hover:text-[#F3F5F0]'
+                  }`}
+                >
+                  <TabIcon
+                    className={`h-3.5 w-3.5 ${
+                      isSelected ? 'text-[#061A15]' : 'text-[#DFFF9A] group-hover:scale-110 transition-transform'
+                    }`}
+                  />
+                  <span>{tab.label}</span>
+                  <span
+                    className={`rounded-full px-1.5 py-0.2 font-mono text-[9px] uppercase tracking-wider ${
+                      isSelected
+                        ? 'bg-[#061A15]/20 text-[#061A15]'
+                        : 'bg-[#061A15]/70 text-[#78E6C3] border border-[#294438]'
+                    }`}
+                  >
+                    {tab.badge}
+                  </span>
+                </button>
+              )
+            })
+          )}
+        </div>
+
+        {/* 3. Single Focused Showcase Stage (NO WALL OF CARDS - ONLY ONE ACTIVE VIEW!) */}
+        <div className="mt-8">
           <AnimatePresence mode="wait">
             {activePillar === 'marketing' ? (
-              <motion.div
-                key="marketing-view"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.32, ease: EASE }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start"
-              >
-                {/* Left (7 cols): What We Deliver (Clean, lightweight capability rows) */}
-                <div className="lg:col-span-7 space-y-3.5">
-                  <div className="flex items-center justify-between pb-2 border-b border-[#294438]/60">
-                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#78E6C3]">
-                      ENGINE 01 / WHAT WE DELIVER
-                    </span>
-                    <span className="text-[11px] font-mono text-[#B5C2B9]/60">
-                      4 Growth Capabilities
+              activeMarketingTab === 'marketing-process' ? (
+                /* Marketing: Kaise Karte Hain Vo (The 4-Step Process) */
+                <motion.div
+                  key="marketing-process-view"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.28, ease: EASE }}
+                  className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-9 shadow-[0_25px_60px_rgba(6,26,21,0.6)]"
+                >
+                  <div id="process" className="-top-24 absolute pointer-events-none" />
+                  <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/50 to-transparent" />
+
+                  {/* Header */}
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-6 border-b border-[#294438]/70">
+                    <div className="flex items-center gap-3.5">
+                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#78E6C3]/30 bg-[#0B241C] text-[#78E6C3] shadow-[0_0_20px_rgba(120,230,195,0.25)]">
+                        <Route className="h-6 w-6" />
+                      </div>
+                      <div>
+                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#78E6C3]">
+                          EXECUTION BLUEPRINT
+                        </span>
+                        <h3 className="text-xl sm:text-2xl font-bold text-[#F3F5F0]">
+                          The 4-Step Outbound Route
+                        </h3>
+                      </div>
+                    </div>
+                    <span className="self-start sm:self-auto rounded-full border border-[#294438] bg-[#061A15] px-3 py-1 font-mono text-xs text-[#DFFF9A]">
+                      Day 1 → Full Calendar
                     </span>
                   </div>
 
-                  {marketingOfferings.map((offering) => {
-                    const Icon = offering.icon
-                    return (
-                      <div
-                        key={offering.name}
-                        className="group relative flex items-start gap-4 rounded-2xl border border-[#294438] bg-[#0B241C]/65 p-4 sm:p-5 transition-all duration-200 hover:border-[#78E6C3]/50 hover:bg-[#102D22]/80 hover:shadow-[0_10px_30px_rgba(6,26,21,0.5)]"
-                      >
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/60 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_15px_rgba(120,230,195,0.2)]">
-                          <Icon className="h-5 w-5" strokeWidth={1.8} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between gap-2">
-                            <h4 className="text-base font-semibold text-[#F3F5F0] group-hover:text-[#78E6C3] transition-colors">
-                              {offering.name}
-                            </h4>
-                            <span className="font-mono text-[10px] text-[#DFFF9A] px-2 py-0.5 rounded-full bg-[#061A15]/80 border border-[#294438]">
-                              {offering.badge}
+                  {/* 4 Process Steps in a clean horizontal grid */}
+                  <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                    {marketingProcess.map((step) => {
+                      const StepIcon = step.icon
+                      return (
+                        <div
+                          key={step.step}
+                          className="relative rounded-2xl border border-[#294438]/70 bg-[#061A15]/70 p-4 transition hover:border-[#78E6C3]/40"
+                        >
+                          <div className="flex items-center justify-between">
+                            <span className="font-mono text-xs font-bold text-[#78E6C3]">
+                              STAGE {step.step}
+                            </span>
+                            <span className="font-mono text-[10px] text-[#DFFF9A] px-2 py-0.5 rounded bg-[#0B241C] border border-[#294438]">
+                              {step.timeline}
                             </span>
                           </div>
-                          <p className="mt-1 text-xs text-[#B5C2B9] leading-relaxed">
-                            {offering.description}
+                          <div className="mt-3 flex items-center gap-2">
+                            <StepIcon className="h-4 w-4 text-[#78E6C3]" />
+                            <h4 className="text-sm font-bold text-[#F3F5F0]">{step.title}</h4>
+                          </div>
+                          <p className="mt-2 text-xs leading-relaxed text-[#B5C2B9]">
+                            {step.description}
                           </p>
-                          <div className="mt-2.5 flex flex-wrap gap-1.5">
-                            {offering.features.map((feature) => (
-                              <span
-                                key={feature}
-                                className="inline-flex items-center gap-1 text-[11px] text-[#78E6C3] bg-[#061A15]/70 px-2 py-0.5 rounded-md border border-[#294438]/70"
-                              >
-                                <Check className="h-3 w-3 text-[#78E6C3]" />
-                                <span>{feature}</span>
-                              </span>
-                            ))}
-                          </div>
                         </div>
-                      </div>
-                    )
-                  })}
-                </div>
+                      )
+                    })}
+                  </div>
 
-                {/* Right (5 cols): Kaise Karte Hain Vo (Clean connected timeline + Quick Action) */}
-                <div className="lg:col-span-5 space-y-4">
-                  <div className="relative rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/85 via-[#0B241C]/85 to-[#061A15] p-5 sm:p-7 shadow-[0_20px_50px_rgba(6,26,21,0.5)]">
-                    <div id="process" className="-top-24 absolute pointer-events-none" />
-                    <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
-
-                    <div className="flex items-center justify-between pb-3 border-b border-[#294438]/70 mb-5">
-                      <div>
-                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#78E6C3]">
-                          KAISE KARTE HAIN VO
-                        </span>
-                        <h4 className="text-base sm:text-lg font-bold text-[#F3F5F0] mt-0.5">
-                          The 4-Step Outbound Route
-                        </h4>
-                      </div>
-                      <span className="font-mono text-[10px] uppercase text-[#DFFF9A] px-2 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
-                        Day 1 → Scale
-                      </span>
-                    </div>
-
-                    {/* Streamlined Connected Timeline */}
-                    <div className="relative space-y-4 before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-[1px] before:bg-gradient-to-b before:from-[#78E6C3] via-[#1A604D] to-[#294438]">
-                      {marketingProcess.map((step) => {
-                        const StepIcon = step.icon
-                        return (
-                          <div key={step.step} className="relative flex items-start gap-3 pl-8">
-                            <span className="absolute left-3.5 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full border border-[#78E6C3] bg-[#061A15] shadow-[0_0_8px_rgba(120,230,195,0.7)]" />
-                            <div>
-                              <div className="flex items-center gap-2 flex-wrap">
-                                <span className="font-mono text-xs font-bold text-[#78E6C3]">
-                                  {step.step}. {step.title}
-                                </span>
-                                <span className="font-mono text-[10px] text-[#DFFF9A] bg-[#061A15] px-1.5 py-0.2 rounded border border-[#294438]">
-                                  {step.timeline}
-                                </span>
-                              </div>
-                              <p className="text-xs text-[#B5C2B9] mt-0.5 leading-relaxed">
-                                {step.description}
-                              </p>
-                            </div>
-                          </div>
-                        )
-                      })}
-                    </div>
-
-                    {/* Integrated CTA Inside Card */}
-                    <div className="mt-6 pt-5 border-t border-[#294438]/80 flex flex-col gap-2.5">
+                  {/* CTA Footer */}
+                  <div className="mt-8 pt-6 border-t border-[#294438]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <p className="text-xs text-[#B5C2B9]">
+                      Zero black box. We handle research, infrastructure, and replies while you close deals.
+                    </p>
+                    <div className="flex items-center gap-3 w-full sm:w-auto">
                       <a
-                        href={`mailto:${EMAIL}?subject=Marketing%20%26%20Growth%20Strategy%20Call`}
-                        className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-[1.02]"
+                        href={`mailto:${EMAIL}?subject=Growth%20Strategy%20Call`}
+                        className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-105"
                       >
-                        <span>Book Growth Strategy Call</span>
+                        <span>Book Strategy Call</span>
                         <ArrowRight className="h-3.5 w-3.5" />
                       </a>
                       <a
                         href={WHATSAPP_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex h-9 w-full items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#061A15]/70 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
+                        className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C] px-4 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
                       >
                         <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
-                        <span>Chat on WhatsApp (+91 80852 58803)</span>
+                        <span>WhatsApp</span>
                       </a>
                     </div>
+                  </div>
+                </motion.div>
+              ) : (
+                /* Marketing: Selected Individual Service Detail */
+                currentMarketingOffering && (() => {
+                  const CurrentIcon = currentMarketingOffering.icon
+                  return (
+                    <motion.div
+                      key={currentMarketingOffering.name}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ duration: 0.28, ease: EASE }}
+                      className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-9 shadow-[0_25px_60px_rgba(6,26,21,0.6)]"
+                    >
+                      <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/50 to-transparent" />
+                      <div className={`pointer-events-none absolute -bottom-10 right-0 h-44 w-72 bg-gradient-to-t ${currentMarketingOffering.ambientGlow} blur-3xl opacity-40`} />
+
+                      {/* Top Row: Icon + Title + Badge */}
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-[#294438]/70">
+                        <div className="flex items-center gap-4">
+                          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(120,230,195,0.3)]">
+                            <CurrentIcon className="h-7 w-7" strokeWidth={1.8} />
+                          </div>
+                          <div>
+                            <div className="flex items-center gap-2">
+                              <h3 className="text-2xl sm:text-3xl font-bold text-[#F3F5F0]">
+                                {currentMarketingOffering.name}
+                              </h3>
+                            </div>
+                            <p className="mt-1 text-xs sm:text-sm font-medium text-[#78E6C3]">
+                              {currentMarketingOffering.tagline}
+                            </p>
+                          </div>
+                        </div>
+                        <span className="self-start sm:self-auto rounded-full border border-[#294438] bg-[#061A15]/80 px-3.5 py-1 font-mono text-xs uppercase tracking-[0.16em] text-[#DFFF9A]">
+                          {currentMarketingOffering.badge}
+                        </span>
+                      </div>
+
+                      {/* Description & Deliverables */}
+                      <div className="mt-6 grid gap-6 md:grid-cols-12 items-start">
+                        <div className="md:col-span-6 space-y-4">
+                          <span className="font-mono text-xs uppercase tracking-wider text-[#78E6C3]">
+                            OVERVIEW & IMPACT
+                          </span>
+                          <p className="text-sm leading-relaxed text-[#B5C2B9]">
+                            {currentMarketingOffering.description}
+                          </p>
+                        </div>
+
+                        <div className="md:col-span-6 space-y-3">
+                          <span className="font-mono text-xs uppercase tracking-wider text-[#DFFF9A]">
+                            KEY DELIVERABLES INCLUDED
+                          </span>
+                          <ul className="space-y-2.5">
+                            {currentMarketingOffering.features.map((feature) => (
+                              <li
+                                key={feature}
+                                className="flex items-center gap-3 rounded-xl border border-[#294438]/60 bg-[#061A15]/60 p-2.5 text-xs text-[#F3F5F0]"
+                              >
+                                <Check className="h-4 w-4 shrink-0 text-[#78E6C3]" />
+                                <span>{feature}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Integrated CTA Footer */}
+                      <div className="mt-8 pt-6 border-t border-[#294438]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div className="flex items-center gap-2 text-xs text-[#B5C2B9]">
+                          <span className="h-2 w-2 rounded-full bg-[#78E6C3] shadow-[0_0_8px_#78E6C3]" />
+                          <span>Ready to implement this system for your brand</span>
+                        </div>
+
+                        <div className="flex items-center gap-3 w-full sm:w-auto">
+                          <a
+                            href={`mailto:${EMAIL}?subject=Inquiry:%20${encodeURIComponent(currentMarketingOffering.name)}`}
+                            className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-105"
+                          >
+                            <span>Get Started</span>
+                            <ArrowRight className="h-3.5 w-3.5" />
+                          </a>
+                          <a
+                            href={WHATSAPP_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C] px-4 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
+                          >
+                            <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
+                            <span>WhatsApp</span>
+                          </a>
+                        </div>
+                      </div>
+                    </motion.div>
+                  )
+                })()
+              )
+            ) : activeTechTab === 'tech-stack' ? (
+              /* Tech: Mera Tech Stack (Clean Categorized View) */
+              <motion.div
+                key="tech-stack-view"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.28, ease: EASE }}
+                className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-9 shadow-[0_25px_60px_rgba(6,26,21,0.6)]"
+              >
+                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/50 to-transparent" />
+
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-6 border-b border-[#294438]/70">
+                  <div className="flex items-center gap-3.5">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#DFFF9A]/30 bg-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(223,255,154,0.25)]">
+                      <Code2 className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
+                        PRODUCTION ARSENAL
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#F3F5F0]">
+                        Mera Tech Stack
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="self-start sm:self-auto rounded-full border border-[#294438] bg-[#061A15] px-3 py-1 font-mono text-xs text-[#78E6C3]">
+                    100% Modern • Zero Legacy
+                  </span>
+                </div>
+
+                {/* Categories Grid */}
+                <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {techStackCategories.map((cat) => {
+                    const CatIcon = cat.icon
+                    return (
+                      <div
+                        key={cat.title}
+                        className="rounded-2xl border border-[#294438]/70 bg-[#061A15]/70 p-4 transition hover:border-[#DFFF9A]/40"
+                      >
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2 text-xs font-bold text-[#F3F5F0]">
+                            <CatIcon className="h-4 w-4 text-[#DFFF9A]" />
+                            <span>{cat.title}</span>
+                          </div>
+                          <span className="font-mono text-[9px] text-[#78E6C3] bg-[#0B241C] px-1.5 py-0.5 rounded border border-[#294438]">
+                            {cat.badge}
+                          </span>
+                        </div>
+                        <div className="mt-3 flex flex-wrap gap-1.5">
+                          {cat.skills.map((skill) => (
+                            <span
+                              key={skill}
+                              className="rounded-md border border-[#294438]/80 bg-[#0B241C]/80 px-2 py-0.5 text-[11px] text-[#B5C2B9]"
+                            >
+                              {skill}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )
+                  })}
+
+                  {/* Standards Card */}
+                  <div className="rounded-2xl border border-[#78E6C3]/40 bg-gradient-to-br from-[#1A604D]/25 to-[#061A15] p-4">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-[#DFFF9A]">Engineering Standards</span>
+                      <span className="font-mono text-[9px] text-[#78E6C3] bg-[#0B241C] px-1.5 py-0.5 rounded border border-[#294438]">
+                        Guaranteed
+                      </span>
+                    </div>
+                    <div className="mt-3 space-y-1.5 text-xs text-[#B5C2B9]">
+                      <div className="flex items-center gap-2">
+                        <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
+                        <span>Type-safe TypeScript & Next.js 15</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
+                        <span>CI/CD automated testing suite</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
+                        <span>100% full source code IP handover</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Footer */}
+                <div className="mt-8 pt-6 border-t border-[#294438]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <p className="text-xs text-[#B5C2B9]">
+                    Have a specific tech stack requirement? We adapt to your preferred cloud and backend.
+                  </p>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-105"
+                  >
+                    <MessageCircle className="h-4 w-4 text-[#061A15]" />
+                    <span>Discuss Tech on WhatsApp</span>
+                  </a>
+                </div>
+              </motion.div>
+            ) : activeTechTab === 'tech-process' ? (
+              /* Tech: Kaise Karte Hain Vo (The 4-Stage Sprint) */
+              <motion.div
+                key="tech-process-view"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.28, ease: EASE }}
+                className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-9 shadow-[0_25px_60px_rgba(6,26,21,0.6)]"
+              >
+                <div id="process" className="-top-24 absolute pointer-events-none" />
+                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/50 to-transparent" />
+
+                {/* Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-6 border-b border-[#294438]/70">
+                  <div className="flex items-center gap-3.5">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#DFFF9A]/30 bg-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(223,255,154,0.25)]">
+                      <Terminal className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
+                        AGILE ENGINEERING SPRINT
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#F3F5F0]">
+                        The 2–4 Week Engineering Sprint
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="self-start sm:self-auto rounded-full border border-[#294438] bg-[#061A15] px-3 py-1 font-mono text-xs text-[#78E6C3]">
+                    Days 1 → 30 Handover
+                  </span>
+                </div>
+
+                {/* 4 Process Steps */}
+                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {techProcess.map((step) => {
+                    const StepIcon = step.icon
+                    return (
+                      <div
+                        key={step.step}
+                        className="relative rounded-2xl border border-[#294438]/70 bg-[#061A15]/70 p-4 transition hover:border-[#DFFF9A]/40"
+                      >
+                        <div className="flex items-center justify-between">
+                          <span className="font-mono text-xs font-bold text-[#DFFF9A]">
+                            STAGE {step.step}
+                          </span>
+                          <span className="font-mono text-[10px] text-[#78E6C3] px-2 py-0.5 rounded bg-[#0B241C] border border-[#294438]">
+                            {step.timeline}
+                          </span>
+                        </div>
+                        <div className="mt-3 flex items-center gap-2">
+                          <StepIcon className="h-4 w-4 text-[#DFFF9A]" />
+                          <h4 className="text-sm font-bold text-[#F3F5F0]">{step.title}</h4>
+                        </div>
+                        <p className="mt-2 text-xs leading-relaxed text-[#B5C2B9]">
+                          {step.description}
+                        </p>
+                      </div>
+                    )
+                  })}
+                </div>
+
+                {/* CTA Footer */}
+                <div className="mt-8 pt-6 border-t border-[#294438]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+                  <p className="text-xs text-[#B5C2B9]">
+                    Fast turnaround without cutting corners. Full code ownership, documentation, and cloud deployment included.
+                  </p>
+                  <div className="flex items-center gap-3 w-full sm:w-auto">
+                    <a
+                      href={`mailto:${EMAIL}?subject=Tech%20Project%20Sprint%20Discussion`}
+                      className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-105"
+                    >
+                      <span>Discuss Your Project</span>
+                      <ArrowRight className="h-3.5 w-3.5" />
+                    </a>
+                    <a
+                      href={WHATSAPP_URL}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C] px-4 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
+                    >
+                      <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
+                      <span>WhatsApp</span>
+                    </a>
                   </div>
                 </div>
               </motion.div>
             ) : (
-              <motion.div
-                key="tech-view"
-                initial={{ opacity: 0, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -12 }}
-                transition={{ duration: 0.32, ease: EASE }}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start"
-              >
-                {/* Left (7 cols): What We Build (Clean, lightweight capability rows) */}
-                <div className="lg:col-span-7 space-y-3.5">
-                  <div className="flex items-center justify-between pb-2 border-b border-[#294438]/60">
-                    <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
-                      ENGINE 02 / WHAT WE BUILD
-                    </span>
-                    <span className="text-[11px] font-mono text-[#B5C2B9]/60">
-                      4 Engineering Solutions
-                    </span>
-                  </div>
+              /* Tech: Selected Individual Service Detail */
+              currentTechOffering && (() => {
+                const CurrentIcon = currentTechOffering.icon
+                return (
+                  <motion.div
+                    key={currentTechOffering.name}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.28, ease: EASE }}
+                    className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-9 shadow-[0_25px_60px_rgba(6,26,21,0.6)]"
+                  >
+                    <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/50 to-transparent" />
+                    <div className={`pointer-events-none absolute -bottom-10 right-0 h-44 w-72 bg-gradient-to-t ${currentTechOffering.ambientGlow} blur-3xl opacity-40`} />
 
-                  {techOfferings.map((offering) => {
-                    const Icon = offering.icon
-                    return (
-                      <div
-                        key={offering.name}
-                        className="group relative flex items-start gap-4 rounded-2xl border border-[#294438] bg-[#0B241C]/65 p-4 sm:p-5 transition-all duration-200 hover:border-[#DFFF9A]/50 hover:bg-[#102D22]/80 hover:shadow-[0_10px_30px_rgba(6,26,21,0.5)]"
-                      >
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#DFFF9A]/30 bg-gradient-to-br from-[#123E2F]/60 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_15px_rgba(223,255,154,0.2)]">
-                          <Icon className="h-5 w-5" strokeWidth={1.8} />
+                    {/* Top Row: Icon + Title + Badge */}
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-[#294438]/70">
+                      <div className="flex items-center gap-4">
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[#DFFF9A]/30 bg-gradient-to-br from-[#123E2F]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(223,255,154,0.3)]">
+                          <CurrentIcon className="h-7 w-7" strokeWidth={1.8} />
                         </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center justify-between gap-2">
-                            <h4 className="text-base font-semibold text-[#F3F5F0] group-hover:text-[#DFFF9A] transition-colors">
-                              {offering.name}
-                            </h4>
-                            <span className="font-mono text-[10px] text-[#78E6C3] px-2 py-0.5 rounded-full bg-[#061A15]/80 border border-[#294438]">
-                              {offering.badge}
-                            </span>
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <h3 className="text-2xl sm:text-3xl font-bold text-[#F3F5F0]">
+                              {currentTechOffering.name}
+                            </h3>
                           </div>
-                          <p className="mt-1 text-xs text-[#B5C2B9] leading-relaxed">
-                            {offering.description}
+                          <p className="mt-1 text-xs sm:text-sm font-medium text-[#DFFF9A]">
+                            {currentTechOffering.tagline}
                           </p>
-                          <div className="mt-2.5 flex flex-wrap gap-1.5">
-                            {offering.features.map((feature) => (
-                              <span
-                                key={feature}
-                                className="inline-flex items-center gap-1 text-[11px] text-[#DFFF9A] bg-[#061A15]/70 px-2 py-0.5 rounded-md border border-[#294438]/70"
-                              >
-                                <Check className="h-3 w-3 text-[#DFFF9A]" />
-                                <span>{feature}</span>
-                              </span>
-                            ))}
-                          </div>
                         </div>
                       </div>
-                    )
-                  })}
-                </div>
-
-                {/* Right (5 cols): Mera Tech Stack + Kaise Karte Hain Vo (Clean compact dock + Sprint) */}
-                <div className="lg:col-span-5 space-y-4">
-                  {/* Box 1: Mera Tech Stack (Compact, zero-bloat dock) */}
-                  <div className="rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/85 via-[#0B241C]/85 to-[#061A15] p-5 sm:p-6 shadow-[0_20px_50px_rgba(6,26,21,0.5)]">
-                    <div className="flex items-center justify-between pb-3 border-b border-[#294438]/70 mb-4">
-                      <div>
-                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
-                          MERA TECH STACK
-                        </span>
-                        <h4 className="text-base font-bold text-[#F3F5F0] mt-0.5">
-                          Production Arsenal
-                        </h4>
-                      </div>
-                      <span className="font-mono text-[10px] uppercase text-[#78E6C3] px-2 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
-                        Zero Bloat
+                      <span className="self-start sm:self-auto rounded-full border border-[#294438] bg-[#061A15]/80 px-3.5 py-1 font-mono text-xs uppercase tracking-[0.16em] text-[#78E6C3]">
+                        {currentTechOffering.badge}
                       </span>
                     </div>
 
-                    <div className="space-y-2.5">
-                      {techStackCategories.map((cat) => (
-                        <div
-                          key={cat.title}
-                          className="rounded-xl border border-[#294438]/60 bg-[#061A15]/60 p-2.5"
+                    {/* Description & Deliverables */}
+                    <div className="mt-6 grid gap-6 md:grid-cols-12 items-start">
+                      <div className="md:col-span-6 space-y-4">
+                        <span className="font-mono text-xs uppercase tracking-wider text-[#DFFF9A]">
+                          OVERVIEW & IMPACT
+                        </span>
+                        <p className="text-sm leading-relaxed text-[#B5C2B9]">
+                          {currentTechOffering.description}
+                        </p>
+                      </div>
+
+                      <div className="md:col-span-6 space-y-3">
+                        <span className="font-mono text-xs uppercase tracking-wider text-[#78E6C3]">
+                          CORE DELIVERABLES & SPECS
+                        </span>
+                        <ul className="space-y-2.5">
+                          {currentTechOffering.features.map((feature) => (
+                            <li
+                              key={feature}
+                              className="flex items-center gap-3 rounded-xl border border-[#294438]/60 bg-[#061A15]/60 p-2.5 text-xs text-[#F3F5F0]"
+                            >
+                              <Check className="h-4 w-4 shrink-0 text-[#DFFF9A]" />
+                              <span>{feature}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Integrated CTA Footer */}
+                    <div className="mt-8 pt-6 border-t border-[#294438]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
+                      <div className="flex items-center gap-2 text-xs text-[#B5C2B9]">
+                        <span className="h-2 w-2 rounded-full bg-[#DFFF9A] shadow-[0_0_8px_#DFFF9A]" />
+                        <span>Clean code handover, fully tested, and cloud deployed</span>
+                      </div>
+
+                      <div className="flex items-center gap-3 w-full sm:w-auto">
+                        <a
+                          href={`mailto:${EMAIL}?subject=Tech%20Project%20Inquiry:%20${encodeURIComponent(currentTechOffering.name)}`}
+                          className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-105"
                         >
-                          <div className="flex items-center justify-between text-xs font-semibold">
-                            <span className="text-[#DFFF9A] text-[11px] font-mono uppercase tracking-wider">
-                              {cat.title}
-                            </span>
-                            <span className="font-mono text-[10px] text-[#B5C2B9]/60">
-                              {cat.badge}
-                            </span>
-                          </div>
-                          <div className="mt-1.5 flex flex-wrap gap-1">
-                            {cat.skills.map((skill) => (
-                              <span
-                                key={skill}
-                                className="rounded bg-[#0B241C] border border-[#294438]/70 px-2 py-0.5 text-[10px] text-[#B5C2B9]"
-                              >
-                                {skill}
-                              </span>
-                            ))}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  {/* Box 2: Kaise Karte Hain Vo (4-Stage Engineering Sprint + Action CTA) */}
-                  <div className="rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/85 via-[#0B241C]/85 to-[#061A15] p-5 sm:p-6 shadow-[0_20px_50px_rgba(6,26,21,0.5)]">
-                    <div id="process" className="-top-24 absolute pointer-events-none" />
-                    <div className="flex items-center justify-between pb-3 border-b border-[#294438]/70 mb-4">
-                      <div>
-                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
-                          KAISE KARTE HAIN VO
-                        </span>
-                        <h4 className="text-base font-bold text-[#F3F5F0] mt-0.5">
-                          The 2–4 Week Sprint
-                        </h4>
+                          <span>Discuss Architecture</span>
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </a>
+                        <a
+                          href={WHATSAPP_URL}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C] px-4 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
+                        >
+                          <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
+                          <span>WhatsApp Developer</span>
+                        </a>
                       </div>
-                      <span className="font-mono text-[10px] uppercase text-[#78E6C3] px-2 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
-                        Days 1 → 30
-                      </span>
                     </div>
-
-                    {/* Timeline */}
-                    <div className="relative space-y-3.5 before:absolute before:left-3.5 before:top-2 before:bottom-2 before:w-[1px] before:bg-gradient-to-b before:from-[#DFFF9A] via-[#1A604D] to-[#294438]">
-                      {techProcess.map((step) => (
-                        <div key={step.step} className="relative flex items-start gap-3 pl-8">
-                          <span className="absolute left-3.5 top-1.5 h-3 w-3 -translate-x-1/2 rounded-full border border-[#DFFF9A] bg-[#061A15] shadow-[0_0_8px_rgba(223,255,154,0.7)]" />
-                          <div>
-                            <div className="flex items-center gap-2 flex-wrap">
-                              <span className="font-mono text-xs font-bold text-[#DFFF9A]">
-                                {step.step}. {step.title}
-                              </span>
-                              <span className="font-mono text-[10px] text-[#78E6C3] bg-[#061A15] px-1.5 py-0.2 rounded border border-[#294438]">
-                                {step.timeline}
-                              </span>
-                            </div>
-                            <p className="text-xs text-[#B5C2B9] mt-0.5 leading-relaxed">
-                              {step.description}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Integrated CTA Inside Card */}
-                    <div className="mt-5 pt-4 border-t border-[#294438]/80 flex flex-col gap-2.5">
-                      <a
-                        href={`mailto:${EMAIL}?subject=Tech%20Project%20Scope%20Discussion`}
-                        className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-[1.02]"
-                      >
-                        <span>Discuss Tech Architecture</span>
-                        <ArrowRight className="h-3.5 w-3.5" />
-                      </a>
-                      <a
-                        href={WHATSAPP_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex h-9 w-full items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#061A15]/70 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
-                      >
-                        <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
-                        <span>WhatsApp Developer (+91 80852 58803)</span>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
+                  </motion.div>
+                )
+              })()
             )}
           </AnimatePresence>
         </div>
