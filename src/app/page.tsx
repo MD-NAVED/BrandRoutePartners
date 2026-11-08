@@ -70,45 +70,45 @@ const marketingOfferings: Offering[] = [
   {
     name: 'Personal Branding',
     badge: '01 / Authority',
-    tagline: 'Build authority, trust and long-term recognition',
+    tagline: 'Authority & Executive Inbound',
     category: 'Growth & Outreach',
     description:
-      'Your profile becomes a 24/7 revenue engine. High-impact thought-leadership content and executive positioning that pre-sells your expertise before a prospect ever joins a call.',
+      'We optimize your LinkedIn profile and ghostwrite weekly authority content so B2B decision-makers reach out to you via inbound.',
     icon: Fingerprint,
-    features: ['Ghostwritten High-Authority Content', 'Executive Profile Optimization', 'Thought-Leadership Positioning', 'Inbound DM Funnel Architecture'],
+    features: ['Profile Optimization', 'Ghostwritten Authority Content', 'Inbound DM Funnel'],
     ambientGlow: 'from-[#78E6C3]/35 via-[#1A604D]/25 to-transparent',
   },
   {
     name: 'High-Intent Lead Generation',
     badge: '02 / Pipeline',
-    tagline: 'Find, qualify and convert high-intent B2B leads',
+    tagline: 'Verified B2B Decision Makers',
     category: 'Growth & Outreach',
     description:
-      'Handpicked decision-makers, not bloated scrape lists. Every prospect account is researched, ICP-matched, and verified so your pipeline is filled with buyers ready for high-ticket deals.',
+      'We research, verify, and deliver handpicked B2B decision-makers matching your exact ICP — 100% verified, zero scrape waste.',
     icon: Target,
-    features: ['Verified B2B Decision Makers', 'Zero Scrape Waste / Manual QA', 'Deep ICP & Persona Targeting', 'Custom Account Data Enrichment'],
+    features: ['Verified Decision Makers', 'Zero Scrape Waste', 'Custom ICP Targeting'],
     ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
   },
   {
     name: 'Cold Email Infrastructure',
     badge: '03 / Outbound',
-    tagline: 'Reach the right people with high-converting outreach',
+    tagline: 'Spam-Proof Outbound Setup',
     category: 'Growth & Outreach',
     description:
-      'Spam-proof outbound setup. Custom isolated secondary domains, SPF/DKIM/DMARC authentication, calibrated ramp-up routines, and human-sounding executive copy.',
+      'We set up isolated secondary domains with SPF/DKIM/DMARC and warm-up routines to send executive outreach straight to primary inboxes.',
     icon: Send,
-    features: ['Isolated Secondary Domains', '100% Primary Domain Protection', 'Automated Ramp & Warmup Routines', 'High-Converting Executive Copywriting'],
+    features: ['Secondary Domain Setup', 'SPF / DKIM / DMARC Security', 'Automated Warmup & Copy'],
     ambientGlow: 'from-[#78E6C3]/35 via-[#0D382B]/25 to-transparent',
   },
   {
     name: 'Sales Support & Deal Closing',
     badge: '04 / Velocity',
-    tagline: 'Turn conversations into revenue with dedicated support',
+    tagline: 'Replies to Booked Calls',
     category: 'Growth & Outreach',
     description:
-      'We handle inbox friction, qualify incoming replies in real-time, counter objections, and route qualified prospects directly into your calendar without deal drop-off.',
+      'We manage incoming replies, handle prospect objections in real-time, and route qualified decision-makers straight to your calendar.',
     icon: Headset,
-    features: ['Real-Time Inbox Management', 'Rapid Reply Qualification', 'Objection Handling Playbooks', 'Direct Calendar Slot Booking'],
+    features: ['Real-Time Reply Handling', 'Objection Handling', 'Direct Calendar Bookings'],
     ambientGlow: 'from-[#DFFF9A]/30 via-[#1A604D]/20 to-transparent',
   },
 ]
@@ -117,45 +117,45 @@ const techOfferings: Offering[] = [
   {
     name: 'Full-Stack SaaS Development',
     badge: '01 / Architecture',
-    tagline: 'High-performance cloud platforms engineered to scale',
+    tagline: 'Multi-Tenant Cloud Platforms',
     category: 'AI & Engineering',
     description:
-      'Full-stack cloud architectures built with Next.js, TypeScript, PostgreSQL, and scalable microservices. Seamless Stripe billing, secure RBAC auth, and blazingly fast APIs.',
+      'We build production-ready SaaS platforms with Next.js 15, PostgreSQL, Stripe subscription billing, and bulletproof auth.',
     icon: Layers,
-    features: ['Multi-Tenant Cloud SaaS', 'Stripe Billing & Subscriptions', 'Bulletproof Auth & Role-Based RBAC', 'Optimized REST / GraphQL APIs'],
+    features: ['Multi-Tenant Cloud SaaS', 'Stripe Billing & Subscriptions', 'Next.js 15 & PostgreSQL'],
     ambientGlow: 'from-[#78E6C3]/35 via-[#1A604D]/25 to-transparent',
   },
   {
     name: 'Rapid MVP in 2–4 Weeks',
     badge: '02 / Speed',
-    tagline: 'From napkin concept to live production software in 14–30 days',
+    tagline: 'From Idea to Live Software in 14–30 Days',
     category: 'AI & Engineering',
     description:
-      'Stop burning months in development limbo. We architect, design, and ship functional, investor-ready MVPs so you can validate your concept and acquire paying users immediately.',
+      'We design, build, and launch functional, investor-ready MVPs in 2 to 4 weeks so you can start acquiring paying users immediately.',
     icon: Rocket,
-    features: ['14–30 Days Fast Turnaround', 'Clean Production-Ready Codebase', 'Investor & Demo Ready UI/UX', 'Zero Tech Debt / Extensible Design'],
+    features: ['14–30 Days Turnaround', 'Production-Ready Codebase', '100% Code Handover'],
     ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
   },
   {
     name: 'Custom AI Chatbots & RAG',
     badge: '03 / Intelligence',
-    tagline: 'Intelligent conversational engines trained on your private data',
+    tagline: '24/7 Context-Aware AI Agents',
     category: 'AI & Engineering',
     description:
-      'Deep-context AI agents trained on your business documents, knowledge base, and CRM. They qualify inbound leads, answer deep inquiries, and book calls 24/7 without hallucinations.',
+      'We build AI chatbots trained on your company data and CRM that qualify inbound leads and answer customer inquiries 24/7 without hallucinations.',
     icon: Bot,
-    features: ['Vector RAG Knowledge Base', 'Context-Aware Lead Qualification', '24/7 Multi-Channel Support', 'Zero-Hallucination Guardrails'],
+    features: ['Vector RAG Knowledge Base', '24/7 Lead Qualification', 'Zero Hallucinations'],
     ambientGlow: 'from-[#78E6C3]/35 via-[#0D382B]/25 to-transparent',
   },
   {
     name: 'AI Automation & Agentic Workflows',
     badge: '04 / Autonomy',
-    tagline: 'Autonomous AI pipelines that eliminate repetitive manual work',
+    tagline: 'Autonomous AI Workflows',
     category: 'AI & Engineering',
     description:
-      'Custom LLM pipelines, autonomous agents, automated document extraction, and cross-platform integrations that run silently in the background 24/7 without manual intervention.',
+      'We automate repetitive manual tasks using custom LLM agents, document parsing, and seamless cross-platform API connectors.',
     icon: Cpu,
-    features: ['Autonomous Agent Pipelines', 'Document & PDF Data Extraction', 'Cross-SaaS API Integrations', 'Scheduled Background Workers'],
+    features: ['Autonomous Agent Pipelines', 'Document & PDF Parsing', 'Cross-App Integrations'],
     ambientGlow: 'from-[#DFFF9A]/30 via-[#1A604D]/20 to-transparent',
   },
 ]
@@ -818,60 +818,60 @@ function DualEngineHub() {
     <section
       id="capabilities"
       aria-labelledby="capabilities-title"
-      className="relative scroll-mt-20 py-16 sm:py-24 overflow-hidden"
+      className="relative scroll-mt-20 py-16 sm:py-20 overflow-hidden"
     >
       {/* Anchor targets so navbar links (#services & #process) navigate seamlessly */}
       <div id="services" className="-top-24 absolute pointer-events-none" />
 
-      {/* Atmospheric backlights */}
-      <div className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[420px] w-[750px] rounded-full bg-[#78E6C3]/10 blur-[150px]" />
-      <div className="pointer-events-none absolute right-[12%] top-1/2 h-[380px] w-[380px] rounded-full bg-[#DFFF9A]/08 blur-[140px]" />
+      {/* Atmospheric soft glows */}
+      <div className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 -translate-y-1/2 h-[350px] w-[650px] rounded-full bg-[#78E6C3]/08 blur-[140px]" />
+      <div className="pointer-events-none absolute right-[10%] top-1/2 h-[320px] w-[320px] rounded-full bg-[#DFFF9A]/06 blur-[130px]" />
 
-      <div className="relative mx-auto max-w-5xl px-4 sm:px-8">
-        {/* Section Heading */}
+      <div className="relative mx-auto max-w-4xl px-4 sm:px-6">
+        {/* Section Heading - Short, Punchy & Clean */}
         <SectionHeading
           id="capabilities-title"
-          eyebrow="02 / Interactive Capabilities Hub"
-          title="Pick a service. See how we deliver."
-          subtitle="Click on any capability below to explore its exact deliverables, production architecture, and execution blueprint."
+          eyebrow="02 / What we do"
+          title="Pick a service. See what we do."
+          subtitle="Tap any button below to see the exact work we deliver."
           center
         />
 
         {/* 1. Main 2-Pillar Engine Toggle */}
-        <div className="mt-8 flex justify-center">
+        <div className="mt-7 flex justify-center">
           <div className="relative inline-flex items-center rounded-full border border-[#294438] bg-[#0B241C]/90 p-1.5 backdrop-blur-2xl shadow-[0_12px_36px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(120,230,195,0.2)]">
             <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
 
             <button
               type="button"
               onClick={() => setActivePillar('marketing')}
-              className={`relative z-10 flex items-center gap-2 rounded-full px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-bold transition-all duration-300 ${
+              className={`relative z-10 flex items-center gap-2 rounded-full px-4 py-2 sm:px-5 sm:py-2 text-xs sm:text-sm font-bold transition-all duration-200 ${
                 activePillar === 'marketing'
-                  ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_18px_rgba(120,230,195,0.45)] scale-[1.02]'
-                  : 'text-[#B5C2B9] hover:text-[#F3F5F0] hover:bg-white/[0.04]'
+                  ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.4)] scale-[1.02]'
+                  : 'text-[#B5C2B9] hover:text-[#F3F5F0]'
               }`}
             >
-              <Sparkles className="h-4 w-4 shrink-0" />
+              <Sparkles className="h-3.5 w-3.5 shrink-0" />
               <span>Marketing & Growth</span>
             </button>
 
             <button
               type="button"
               onClick={() => setActivePillar('tech')}
-              className={`relative z-10 flex items-center gap-2 rounded-full px-5 py-2 sm:px-6 sm:py-2.5 text-xs sm:text-sm font-bold transition-all duration-300 ${
+              className={`relative z-10 flex items-center gap-2 rounded-full px-4 py-2 sm:px-5 sm:py-2 text-xs sm:text-sm font-bold transition-all duration-200 ${
                 activePillar === 'tech'
-                  ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_18px_rgba(120,230,195,0.45)] scale-[1.02]'
-                  : 'text-[#B5C2B9] hover:text-[#F3F5F0] hover:bg-white/[0.04]'
+                  ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.4)] scale-[1.02]'
+                  : 'text-[#B5C2B9] hover:text-[#F3F5F0]'
               }`}
             >
-              <Code2 className="h-4 w-4 shrink-0" />
+              <Code2 className="h-3.5 w-3.5 shrink-0" />
               <span>Tech Stack & Engineering</span>
             </button>
           </div>
         </div>
 
-        {/* 2. Chote-Chote Interactive Service Buttons (Compact Pill Row) */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
+        {/* 2. Chote-Chote Service Buttons */}
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
           {activePillar === 'marketing' ? (
             marketingTabs.map((tab) => {
               const TabIcon = tab.icon
@@ -881,27 +881,18 @@ function DualEngineHub() {
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveMarketingTab(tab.id)}
-                  className={`group relative flex items-center gap-2 rounded-full px-3.5 py-2 text-xs font-semibold transition-all duration-200 ${
+                  className={`group relative flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-150 ${
                     isSelected
-                      ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] scale-[1.03]'
-                      : 'border border-[#294438] bg-[#0B241C]/80 text-[#B5C2B9] hover:border-[#78E6C3]/50 hover:bg-[#102D22] hover:text-[#F3F5F0]'
+                      ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_3px_12px_rgba(120,230,195,0.35)] scale-[1.03]'
+                      : 'border border-[#294438] bg-[#0B241C]/80 text-[#B5C2B9] hover:border-[#78E6C3]/40 hover:text-white'
                   }`}
                 >
                   <TabIcon
                     className={`h-3.5 w-3.5 ${
-                      isSelected ? 'text-[#061A15]' : 'text-[#78E6C3] group-hover:scale-110 transition-transform'
+                      isSelected ? 'text-[#061A15]' : 'text-[#78E6C3]'
                     }`}
                   />
                   <span>{tab.label}</span>
-                  <span
-                    className={`rounded-full px-1.5 py-0.2 font-mono text-[9px] uppercase tracking-wider ${
-                      isSelected
-                        ? 'bg-[#061A15]/20 text-[#061A15]'
-                        : 'bg-[#061A15]/70 text-[#DFFF9A] border border-[#294438]'
-                    }`}
-                  >
-                    {tab.badge}
-                  </span>
                 </button>
               )
             })
@@ -914,117 +905,100 @@ function DualEngineHub() {
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTechTab(tab.id)}
-                  className={`group relative flex items-center gap-2 rounded-full px-3.5 py-2 text-xs font-semibold transition-all duration-200 ${
+                  className={`group relative flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold transition-all duration-150 ${
                     isSelected
-                      ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] scale-[1.03]'
-                      : 'border border-[#294438] bg-[#0B241C]/80 text-[#B5C2B9] hover:border-[#DFFF9A]/50 hover:bg-[#102D22] hover:text-[#F3F5F0]'
+                      ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_3px_12px_rgba(120,230,195,0.35)] scale-[1.03]'
+                      : 'border border-[#294438] bg-[#0B241C]/80 text-[#B5C2B9] hover:border-[#DFFF9A]/40 hover:text-white'
                   }`}
                 >
                   <TabIcon
                     className={`h-3.5 w-3.5 ${
-                      isSelected ? 'text-[#061A15]' : 'text-[#DFFF9A] group-hover:scale-110 transition-transform'
+                      isSelected ? 'text-[#061A15]' : 'text-[#DFFF9A]'
                     }`}
                   />
                   <span>{tab.label}</span>
-                  <span
-                    className={`rounded-full px-1.5 py-0.2 font-mono text-[9px] uppercase tracking-wider ${
-                      isSelected
-                        ? 'bg-[#061A15]/20 text-[#061A15]'
-                        : 'bg-[#061A15]/70 text-[#78E6C3] border border-[#294438]'
-                    }`}
-                  >
-                    {tab.badge}
-                  </span>
                 </button>
               )
             })
           )}
         </div>
 
-        {/* 3. Single Focused Showcase Stage (NO WALL OF CARDS - ONLY ONE ACTIVE VIEW!) */}
-        <div className="mt-8">
+        {/* 3. Single Minimal Showcase Card (Pure Kaam, Minimal Text, Ultra Clean) */}
+        <div className="mt-6">
           <AnimatePresence mode="wait">
             {activePillar === 'marketing' ? (
               activeMarketingTab === 'marketing-process' ? (
-                /* Marketing: Kaise Karte Hain Vo (The 4-Step Process) */
+                /* Marketing Process: 4 Clean Steps */
                 <motion.div
                   key="marketing-process-view"
-                  initial={{ opacity: 0, y: 10 }}
+                  initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.28, ease: EASE }}
-                  className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-9 shadow-[0_25px_60px_rgba(6,26,21,0.6)]"
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.22, ease: EASE }}
+                  className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/90 via-[#0B241C]/90 to-[#061A15] p-5 sm:p-7 shadow-[0_20px_50px_rgba(6,26,21,0.5)]"
                 >
                   <div id="process" className="-top-24 absolute pointer-events-none" />
-                  <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/50 to-transparent" />
+                  <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
 
                   {/* Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-6 border-b border-[#294438]/70">
-                    <div className="flex items-center gap-3.5">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#78E6C3]/30 bg-[#0B241C] text-[#78E6C3] shadow-[0_0_20px_rgba(120,230,195,0.25)]">
-                        <Route className="h-6 w-6" />
-                      </div>
-                      <div>
-                        <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#78E6C3]">
-                          EXECUTION BLUEPRINT
-                        </span>
-                        <h3 className="text-xl sm:text-2xl font-bold text-[#F3F5F0]">
-                          The 4-Step Outbound Route
-                        </h3>
-                      </div>
+                  <div className="flex items-center justify-between pb-4 border-b border-[#294438]/60">
+                    <div className="flex items-center gap-2.5">
+                      <Route className="h-5 w-5 text-[#78E6C3]" />
+                      <h3 className="text-base sm:text-lg font-bold text-[#F3F5F0]">
+                        Kaise Karte Hain Vo • 4-Step Outbound Route
+                      </h3>
                     </div>
-                    <span className="self-start sm:self-auto rounded-full border border-[#294438] bg-[#061A15] px-3 py-1 font-mono text-xs text-[#DFFF9A]">
-                      Day 1 → Full Calendar
+                    <span className="font-mono text-[10px] text-[#DFFF9A] px-2 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
+                      Day 1 → Booked Calls
                     </span>
                   </div>
 
-                  {/* 4 Process Steps in a clean horizontal grid */}
-                  <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {/* 4 Compact Steps */}
+                  <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                     {marketingProcess.map((step) => {
                       const StepIcon = step.icon
                       return (
                         <div
                           key={step.step}
-                          className="relative rounded-2xl border border-[#294438]/70 bg-[#061A15]/70 p-4 transition hover:border-[#78E6C3]/40"
+                          className="rounded-xl border border-[#294438]/70 bg-[#061A15]/70 p-3.5"
                         >
-                          <div className="flex items-center justify-between">
-                            <span className="font-mono text-xs font-bold text-[#78E6C3]">
-                              STAGE {step.step}
+                          <div className="flex items-center justify-between text-xs">
+                            <span className="font-mono font-bold text-[#78E6C3]">
+                              {step.step}. {step.stage}
                             </span>
-                            <span className="font-mono text-[10px] text-[#DFFF9A] px-2 py-0.5 rounded bg-[#0B241C] border border-[#294438]">
+                            <span className="font-mono text-[9px] text-[#DFFF9A] px-1.5 py-0.2 rounded bg-[#0B241C]">
                               {step.timeline}
                             </span>
                           </div>
-                          <div className="mt-3 flex items-center gap-2">
-                            <StepIcon className="h-4 w-4 text-[#78E6C3]" />
-                            <h4 className="text-sm font-bold text-[#F3F5F0]">{step.title}</h4>
-                          </div>
-                          <p className="mt-2 text-xs leading-relaxed text-[#B5C2B9]">
-                            {step.description}
+                          <h4 className="mt-2 text-xs font-semibold text-[#F3F5F0]">
+                            {step.title}
+                          </h4>
+                          <p className="mt-1 text-[11px] leading-relaxed text-[#B5C2B9]">
+                            {step.highlight}
                           </p>
                         </div>
                       )
                     })}
                   </div>
 
-                  {/* CTA Footer */}
-                  <div className="mt-8 pt-6 border-t border-[#294438]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <p className="text-xs text-[#B5C2B9]">
-                      Zero black box. We handle research, infrastructure, and replies while you close deals.
-                    </p>
-                    <div className="flex items-center gap-3 w-full sm:w-auto">
+                  {/* CTA Row */}
+                  <div className="mt-6 pt-4 border-t border-[#294438]/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+                    <span className="text-xs text-[#B5C2B9]">
+                      Zero black box. We handle setup, outbound and replies while you close.
+                    </span>
+                    <div className="flex items-center gap-2 w-full sm:w-auto">
                       <a
                         href={`mailto:${EMAIL}?subject=Growth%20Strategy%20Call`}
-                        className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-105"
+                        className="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_14px_rgba(120,230,195,0.3)] transition hover:scale-105"
                       >
                         <span>Book Strategy Call</span>
-                        <ArrowRight className="h-3.5 w-3.5" />
+                        <ArrowRight className="h-3 w-3" />
                       </a>
                       <a
                         href={WHATSAPP_URL}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C] px-4 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
+                        className="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-1.5 rounded-full border border-[#294438] bg-[#0B241C] px-3.5 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] transition"
                       >
                         <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
                         <span>WhatsApp</span>
@@ -1033,92 +1007,77 @@ function DualEngineHub() {
                   </div>
                 </motion.div>
               ) : (
-                /* Marketing: Selected Individual Service Detail */
+                /* Marketing Service Detail: Pure Kaam, Minimal Text */
                 currentMarketingOffering && (() => {
                   const CurrentIcon = currentMarketingOffering.icon
                   return (
                     <motion.div
                       key={currentMarketingOffering.name}
-                      initial={{ opacity: 0, y: 10 }}
+                      initial={{ opacity: 0, y: 8 }}
                       animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                      transition={{ duration: 0.28, ease: EASE }}
-                      className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-9 shadow-[0_25px_60px_rgba(6,26,21,0.6)]"
+                      exit={{ opacity: 0, y: -8 }}
+                      transition={{ duration: 0.22, ease: EASE }}
+                      className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/90 via-[#0B241C]/90 to-[#061A15] p-5 sm:p-7 shadow-[0_20px_50px_rgba(6,26,21,0.5)]"
                     >
-                      <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/50 to-transparent" />
-                      <div className={`pointer-events-none absolute -bottom-10 right-0 h-44 w-72 bg-gradient-to-t ${currentMarketingOffering.ambientGlow} blur-3xl opacity-40`} />
+                      <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#78E6C3]/40 to-transparent" />
 
-                      {/* Top Row: Icon + Title + Badge */}
-                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-[#294438]/70">
-                        <div className="flex items-center gap-4">
-                          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(120,230,195,0.3)]">
-                            <CurrentIcon className="h-7 w-7" strokeWidth={1.8} />
+                      {/* Header Row */}
+                      <div className="flex items-center justify-between pb-4 border-b border-[#294438]/60">
+                        <div className="flex items-center gap-3">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#78E6C3]/30 bg-[#0B241C] text-[#78E6C3]">
+                            <CurrentIcon className="h-5 w-5" strokeWidth={1.8} />
                           </div>
                           <div>
-                            <div className="flex items-center gap-2">
-                              <h3 className="text-2xl sm:text-3xl font-bold text-[#F3F5F0]">
-                                {currentMarketingOffering.name}
-                              </h3>
-                            </div>
-                            <p className="mt-1 text-xs sm:text-sm font-medium text-[#78E6C3]">
+                            <h3 className="text-lg sm:text-xl font-bold text-[#F3F5F0]">
+                              {currentMarketingOffering.name}
+                            </h3>
+                            <p className="text-xs text-[#78E6C3]">
                               {currentMarketingOffering.tagline}
                             </p>
                           </div>
                         </div>
-                        <span className="self-start sm:self-auto rounded-full border border-[#294438] bg-[#061A15]/80 px-3.5 py-1 font-mono text-xs uppercase tracking-[0.16em] text-[#DFFF9A]">
+                        <span className="font-mono text-[10px] text-[#DFFF9A] px-2.5 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
                           {currentMarketingOffering.badge}
                         </span>
                       </div>
 
-                      {/* Description & Deliverables */}
-                      <div className="mt-6 grid gap-6 md:grid-cols-12 items-start">
-                        <div className="md:col-span-6 space-y-4">
-                          <span className="font-mono text-xs uppercase tracking-wider text-[#78E6C3]">
-                            OVERVIEW & IMPACT
-                          </span>
-                          <p className="text-sm leading-relaxed text-[#B5C2B9]">
-                            {currentMarketingOffering.description}
-                          </p>
-                        </div>
+                      {/* Core Content: Kaam Kya Karte Hain (1 sharp sentence + 3 main deliverables) */}
+                      <div className="mt-4 space-y-3.5">
+                        <p className="text-xs sm:text-sm leading-relaxed text-[#F3F5F0]">
+                          {currentMarketingOffering.description}
+                        </p>
 
-                        <div className="md:col-span-6 space-y-3">
-                          <span className="font-mono text-xs uppercase tracking-wider text-[#DFFF9A]">
-                            KEY DELIVERABLES INCLUDED
-                          </span>
-                          <ul className="space-y-2.5">
-                            {currentMarketingOffering.features.map((feature) => (
-                              <li
-                                key={feature}
-                                className="flex items-center gap-3 rounded-xl border border-[#294438]/60 bg-[#061A15]/60 p-2.5 text-xs text-[#F3F5F0]"
-                              >
-                                <Check className="h-4 w-4 shrink-0 text-[#78E6C3]" />
-                                <span>{feature}</span>
-                              </li>
-                            ))}
-                          </ul>
+                        <div className="flex flex-wrap gap-2 pt-1">
+                          {currentMarketingOffering.features.map((feature) => (
+                            <span
+                              key={feature}
+                              className="inline-flex items-center gap-1.5 rounded-lg border border-[#294438] bg-[#061A15]/80 px-2.5 py-1 text-xs text-[#78E6C3]"
+                            >
+                              <Check className="h-3 w-3 text-[#78E6C3]" />
+                              <span>{feature}</span>
+                            </span>
+                          ))}
                         </div>
                       </div>
 
-                      {/* Integrated CTA Footer */}
-                      <div className="mt-8 pt-6 border-t border-[#294438]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <div className="flex items-center gap-2 text-xs text-[#B5C2B9]">
-                          <span className="h-2 w-2 rounded-full bg-[#78E6C3] shadow-[0_0_8px_#78E6C3]" />
-                          <span>Ready to implement this system for your brand</span>
-                        </div>
-
-                        <div className="flex items-center gap-3 w-full sm:w-auto">
+                      {/* CTA Row */}
+                      <div className="mt-6 pt-4 border-t border-[#294438]/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+                        <span className="text-xs text-[#B5C2B9]">
+                          Done-for-you execution. Zero manual work on your end.
+                        </span>
+                        <div className="flex items-center gap-2 w-full sm:w-auto">
                           <a
                             href={`mailto:${EMAIL}?subject=Inquiry:%20${encodeURIComponent(currentMarketingOffering.name)}`}
-                            className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-105"
+                            className="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_14px_rgba(120,230,195,0.3)] transition hover:scale-105"
                           >
                             <span>Get Started</span>
-                            <ArrowRight className="h-3.5 w-3.5" />
+                            <ArrowRight className="h-3 w-3" />
                           </a>
                           <a
                             href={WHATSAPP_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C] px-4 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
+                            className="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-1.5 rounded-full border border-[#294438] bg-[#0B241C] px-3.5 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] transition"
                           >
                             <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
                             <span>WhatsApp</span>
@@ -1130,190 +1089,173 @@ function DualEngineHub() {
                 })()
               )
             ) : activeTechTab === 'tech-stack' ? (
-              /* Tech: Mera Tech Stack (Clean Categorized View) */
+              /* Tech Stack: Clean Minimal Grid */
               <motion.div
                 key="tech-stack-view"
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.28, ease: EASE }}
-                className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-9 shadow-[0_25px_60px_rgba(6,26,21,0.6)]"
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.22, ease: EASE }}
+                className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/90 via-[#0B241C]/90 to-[#061A15] p-5 sm:p-7 shadow-[0_20px_50px_rgba(6,26,21,0.5)]"
               >
-                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/50 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/40 to-transparent" />
 
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-6 border-b border-[#294438]/70">
-                  <div className="flex items-center gap-3.5">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#DFFF9A]/30 bg-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(223,255,154,0.25)]">
-                      <Code2 className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
-                        PRODUCTION ARSENAL
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[#F3F5F0]">
-                        Mera Tech Stack
-                      </h3>
-                    </div>
+                <div className="flex items-center justify-between pb-4 border-b border-[#294438]/60">
+                  <div className="flex items-center gap-2.5">
+                    <Code2 className="h-5 w-5 text-[#DFFF9A]" />
+                    <h3 className="text-base sm:text-lg font-bold text-[#F3F5F0]">
+                      Mera Tech Stack • Modern & Scalable
+                    </h3>
                   </div>
-                  <span className="self-start sm:self-auto rounded-full border border-[#294438] bg-[#061A15] px-3 py-1 font-mono text-xs text-[#78E6C3]">
-                    100% Modern • Zero Legacy
+                  <span className="font-mono text-[10px] text-[#78E6C3] px-2.5 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
+                    Zero Legacy Bloat
                   </span>
                 </div>
 
-                {/* Categories Grid */}
-                <div className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {techStackCategories.map((cat) => {
-                    const CatIcon = cat.icon
-                    return (
-                      <div
-                        key={cat.title}
-                        className="rounded-2xl border border-[#294438]/70 bg-[#061A15]/70 p-4 transition hover:border-[#DFFF9A]/40"
-                      >
-                        <div className="flex items-center justify-between">
-                          <div className="flex items-center gap-2 text-xs font-bold text-[#F3F5F0]">
-                            <CatIcon className="h-4 w-4 text-[#DFFF9A]" />
-                            <span>{cat.title}</span>
-                          </div>
-                          <span className="font-mono text-[9px] text-[#78E6C3] bg-[#0B241C] px-1.5 py-0.5 rounded border border-[#294438]">
-                            {cat.badge}
-                          </span>
-                        </div>
-                        <div className="mt-3 flex flex-wrap gap-1.5">
-                          {cat.skills.map((skill) => (
-                            <span
-                              key={skill}
-                              className="rounded-md border border-[#294438]/80 bg-[#0B241C]/80 px-2 py-0.5 text-[11px] text-[#B5C2B9]"
-                            >
-                              {skill}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    )
-                  })}
-
-                  {/* Standards Card */}
-                  <div className="rounded-2xl border border-[#78E6C3]/40 bg-gradient-to-br from-[#1A604D]/25 to-[#061A15] p-4">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-[#DFFF9A]">Engineering Standards</span>
-                      <span className="font-mono text-[9px] text-[#78E6C3] bg-[#0B241C] px-1.5 py-0.5 rounded border border-[#294438]">
-                        Guaranteed
-                      </span>
+                {/* Categories */}
+                <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                  <div className="rounded-xl border border-[#294438]/70 bg-[#061A15]/70 p-3">
+                    <span className="text-[11px] font-mono uppercase text-[#DFFF9A] font-bold">
+                      Frontend & Interfaces
+                    </span>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {['Next.js 15 (App Router)', 'React 19', 'TypeScript', 'Tailwind CSS', 'Framer Motion'].map((s) => (
+                        <span key={s} className="rounded bg-[#0B241C] border border-[#294438]/70 px-2 py-0.5 text-[11px] text-[#B5C2B9]">
+                          {s}
+                        </span>
+                      ))}
                     </div>
-                    <div className="mt-3 space-y-1.5 text-xs text-[#B5C2B9]">
-                      <div className="flex items-center gap-2">
-                        <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
-                        <span>Type-safe TypeScript & Next.js 15</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
-                        <span>CI/CD automated testing suite</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Check className="h-3.5 w-3.5 text-[#DFFF9A] shrink-0" />
-                        <span>100% full source code IP handover</span>
-                      </div>
+                  </div>
+
+                  <div className="rounded-xl border border-[#294438]/70 bg-[#061A15]/70 p-3">
+                    <span className="text-[11px] font-mono uppercase text-[#DFFF9A] font-bold">
+                      Backend & Databases
+                    </span>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {['Node.js', 'Python', 'FastAPI', 'PostgreSQL', 'Supabase', 'Prisma ORM'].map((s) => (
+                        <span key={s} className="rounded bg-[#0B241C] border border-[#294438]/70 px-2 py-0.5 text-[11px] text-[#B5C2B9]">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-[#294438]/70 bg-[#061A15]/70 p-3">
+                    <span className="text-[11px] font-mono uppercase text-[#DFFF9A] font-bold">
+                      AI & LLMs
+                    </span>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {['OpenAI GPT-4o', 'Claude 3.5 Sonnet', 'LangChain', 'Vector RAG (pgvector)'].map((s) => (
+                        <span key={s} className="rounded bg-[#0B241C] border border-[#294438]/70 px-2 py-0.5 text-[11px] text-[#B5C2B9]">
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="rounded-xl border border-[#294438]/70 bg-[#061A15]/70 p-3">
+                    <span className="text-[11px] font-mono uppercase text-[#DFFF9A] font-bold">
+                      DevOps & Cloud
+                    </span>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {['Vercel', 'Docker', 'AWS (Lambda/S3)', 'GitHub Actions CI/CD'].map((s) => (
+                        <span key={s} className="rounded bg-[#0B241C] border border-[#294438]/70 px-2 py-0.5 text-[11px] text-[#B5C2B9]">
+                          {s}
+                        </span>
+                      ))}
                     </div>
                   </div>
                 </div>
 
                 {/* Footer */}
-                <div className="mt-8 pt-6 border-t border-[#294438]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <p className="text-xs text-[#B5C2B9]">
-                    Have a specific tech stack requirement? We adapt to your preferred cloud and backend.
-                  </p>
+                <div className="mt-6 pt-4 border-t border-[#294438]/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <span className="text-xs text-[#B5C2B9]">
+                    100% type-safe, tested code with complete source ownership handover.
+                  </span>
                   <a
                     href={WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-105"
+                    className="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_14px_rgba(120,230,195,0.3)] transition hover:scale-105"
                   >
-                    <MessageCircle className="h-4 w-4 text-[#061A15]" />
-                    <span>Discuss Tech on WhatsApp</span>
+                    <MessageCircle className="h-3.5 w-3.5 text-[#061A15]" />
+                    <span>WhatsApp Developer</span>
                   </a>
                 </div>
               </motion.div>
             ) : activeTechTab === 'tech-process' ? (
-              /* Tech: Kaise Karte Hain Vo (The 4-Stage Sprint) */
+              /* Tech Process: 4-Stage Sprint */
               <motion.div
                 key="tech-process-view"
-                initial={{ opacity: 0, y: 10 }}
+                initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.28, ease: EASE }}
-                className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-9 shadow-[0_25px_60px_rgba(6,26,21,0.6)]"
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.22, ease: EASE }}
+                className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/90 via-[#0B241C]/90 to-[#061A15] p-5 sm:p-7 shadow-[0_20px_50px_rgba(6,26,21,0.5)]"
               >
                 <div id="process" className="-top-24 absolute pointer-events-none" />
-                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/50 to-transparent" />
+                <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/40 to-transparent" />
 
                 {/* Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 pb-6 border-b border-[#294438]/70">
-                  <div className="flex items-center gap-3.5">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#DFFF9A]/30 bg-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(223,255,154,0.25)]">
-                      <Terminal className="h-6 w-6" />
-                    </div>
-                    <div>
-                      <span className="font-mono text-xs uppercase tracking-[0.2em] text-[#DFFF9A]">
-                        AGILE ENGINEERING SPRINT
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-bold text-[#F3F5F0]">
-                        The 2–4 Week Engineering Sprint
-                      </h3>
-                    </div>
+                <div className="flex items-center justify-between pb-4 border-b border-[#294438]/60">
+                  <div className="flex items-center gap-2.5">
+                    <Terminal className="h-5 w-5 text-[#DFFF9A]" />
+                    <h3 className="text-base sm:text-lg font-bold text-[#F3F5F0]">
+                      Kaise Karte Hain Vo • The 2–4 Week Engineering Sprint
+                    </h3>
                   </div>
-                  <span className="self-start sm:self-auto rounded-full border border-[#294438] bg-[#061A15] px-3 py-1 font-mono text-xs text-[#78E6C3]">
-                    Days 1 → 30 Handover
+                  <span className="font-mono text-[10px] text-[#78E6C3] px-2 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
+                    14–30 Days Launch
                   </span>
                 </div>
 
-                {/* 4 Process Steps */}
-                <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                {/* 4 Steps */}
+                <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                   {techProcess.map((step) => {
                     const StepIcon = step.icon
                     return (
                       <div
                         key={step.step}
-                        className="relative rounded-2xl border border-[#294438]/70 bg-[#061A15]/70 p-4 transition hover:border-[#DFFF9A]/40"
+                        className="rounded-xl border border-[#294438]/70 bg-[#061A15]/70 p-3.5"
                       >
-                        <div className="flex items-center justify-between">
-                          <span className="font-mono text-xs font-bold text-[#DFFF9A]">
+                        <div className="flex items-center justify-between text-xs">
+                          <span className="font-mono font-bold text-[#DFFF9A]">
                             STAGE {step.step}
                           </span>
-                          <span className="font-mono text-[10px] text-[#78E6C3] px-2 py-0.5 rounded bg-[#0B241C] border border-[#294438]">
+                          <span className="font-mono text-[9px] text-[#78E6C3] px-1.5 py-0.2 rounded bg-[#0B241C]">
                             {step.timeline}
                           </span>
                         </div>
-                        <div className="mt-3 flex items-center gap-2">
-                          <StepIcon className="h-4 w-4 text-[#DFFF9A]" />
-                          <h4 className="text-sm font-bold text-[#F3F5F0]">{step.title}</h4>
-                        </div>
-                        <p className="mt-2 text-xs leading-relaxed text-[#B5C2B9]">
-                          {step.description}
+                        <h4 className="mt-2 text-xs font-semibold text-[#F3F5F0]">
+                          {step.title}
+                        </h4>
+                        <p className="mt-1 text-[11px] leading-relaxed text-[#B5C2B9]">
+                          {step.highlight}
                         </p>
                       </div>
                     )
                   })}
                 </div>
 
-                {/* CTA Footer */}
-                <div className="mt-8 pt-6 border-t border-[#294438]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
-                  <p className="text-xs text-[#B5C2B9]">
-                    Fast turnaround without cutting corners. Full code ownership, documentation, and cloud deployment included.
-                  </p>
-                  <div className="flex items-center gap-3 w-full sm:w-auto">
+                {/* CTA Row */}
+                <div className="mt-6 pt-4 border-t border-[#294438]/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+                  <span className="text-xs text-[#B5C2B9]">
+                    Fast turnaround. Clean architecture and 100% full source code handover.
+                  </span>
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
                     <a
-                      href={`mailto:${EMAIL}?subject=Tech%20Project%20Sprint%20Discussion`}
-                      className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-105"
+                      href={`mailto:${EMAIL}?subject=Tech%20Project%20Discussion`}
+                      className="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_14px_rgba(120,230,195,0.3)] transition hover:scale-105"
                     >
                       <span>Discuss Your Project</span>
-                      <ArrowRight className="h-3.5 w-3.5" />
+                      <ArrowRight className="h-3 w-3" />
                     </a>
                     <a
                       href={WHATSAPP_URL}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C] px-4 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
+                      className="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-1.5 rounded-full border border-[#294438] bg-[#0B241C] px-3.5 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] transition"
                     >
                       <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
                       <span>WhatsApp</span>
@@ -1322,95 +1264,80 @@ function DualEngineHub() {
                 </div>
               </motion.div>
             ) : (
-              /* Tech: Selected Individual Service Detail */
+              /* Tech Service Detail: Pure Kaam, Minimal Text */
               currentTechOffering && (() => {
                 const CurrentIcon = currentTechOffering.icon
                 return (
                   <motion.div
                     key={currentTechOffering.name}
-                    initial={{ opacity: 0, y: 10 }}
+                    initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.28, ease: EASE }}
-                    className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/95 via-[#0B241C]/95 to-[#061A15] p-6 sm:p-9 shadow-[0_25px_60px_rgba(6,26,21,0.6)]"
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.22, ease: EASE }}
+                    className="relative overflow-hidden rounded-3xl border border-[#294438] bg-gradient-to-b from-[#102D22]/90 via-[#0B241C]/90 to-[#061A15] p-5 sm:p-7 shadow-[0_20px_50px_rgba(6,26,21,0.5)]"
                   >
-                    <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/50 to-transparent" />
-                    <div className={`pointer-events-none absolute -bottom-10 right-0 h-44 w-72 bg-gradient-to-t ${currentTechOffering.ambientGlow} blur-3xl opacity-40`} />
+                    <div className="pointer-events-none absolute inset-x-8 top-0 h-[1px] bg-gradient-to-r from-transparent via-[#DFFF9A]/40 to-transparent" />
 
-                    {/* Top Row: Icon + Title + Badge */}
-                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pb-6 border-b border-[#294438]/70">
-                      <div className="flex items-center gap-4">
-                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-[#DFFF9A]/30 bg-gradient-to-br from-[#123E2F]/70 via-[#103D2E]/80 to-[#0B241C] text-[#DFFF9A] shadow-[0_0_20px_rgba(223,255,154,0.3)]">
-                          <CurrentIcon className="h-7 w-7" strokeWidth={1.8} />
+                    {/* Header Row */}
+                    <div className="flex items-center justify-between pb-4 border-b border-[#294438]/60">
+                      <div className="flex items-center gap-3">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#DFFF9A]/30 bg-[#0B241C] text-[#DFFF9A]">
+                          <CurrentIcon className="h-5 w-5" strokeWidth={1.8} />
                         </div>
                         <div>
-                          <div className="flex items-center gap-2">
-                            <h3 className="text-2xl sm:text-3xl font-bold text-[#F3F5F0]">
-                              {currentTechOffering.name}
-                            </h3>
-                          </div>
-                          <p className="mt-1 text-xs sm:text-sm font-medium text-[#DFFF9A]">
+                          <h3 className="text-lg sm:text-xl font-bold text-[#F3F5F0]">
+                            {currentTechOffering.name}
+                          </h3>
+                          <p className="text-xs text-[#DFFF9A]">
                             {currentTechOffering.tagline}
                           </p>
                         </div>
                       </div>
-                      <span className="self-start sm:self-auto rounded-full border border-[#294438] bg-[#061A15]/80 px-3.5 py-1 font-mono text-xs uppercase tracking-[0.16em] text-[#78E6C3]">
+                      <span className="font-mono text-[10px] text-[#78E6C3] px-2.5 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
                         {currentTechOffering.badge}
                       </span>
                     </div>
 
-                    {/* Description & Deliverables */}
-                    <div className="mt-6 grid gap-6 md:grid-cols-12 items-start">
-                      <div className="md:col-span-6 space-y-4">
-                        <span className="font-mono text-xs uppercase tracking-wider text-[#DFFF9A]">
-                          OVERVIEW & IMPACT
-                        </span>
-                        <p className="text-sm leading-relaxed text-[#B5C2B9]">
-                          {currentTechOffering.description}
-                        </p>
-                      </div>
+                    {/* Core Content: Kaam Kya Karte Hain */}
+                    <div className="mt-4 space-y-3.5">
+                      <p className="text-xs sm:text-sm leading-relaxed text-[#F3F5F0]">
+                        {currentTechOffering.description}
+                      </p>
 
-                      <div className="md:col-span-6 space-y-3">
-                        <span className="font-mono text-xs uppercase tracking-wider text-[#78E6C3]">
-                          CORE DELIVERABLES & SPECS
-                        </span>
-                        <ul className="space-y-2.5">
-                          {currentTechOffering.features.map((feature) => (
-                            <li
-                              key={feature}
-                              className="flex items-center gap-3 rounded-xl border border-[#294438]/60 bg-[#061A15]/60 p-2.5 text-xs text-[#F3F5F0]"
-                            >
-                              <Check className="h-4 w-4 shrink-0 text-[#DFFF9A]" />
-                              <span>{feature}</span>
-                            </li>
-                          ))}
-                        </ul>
+                      <div className="flex flex-wrap gap-2 pt-1">
+                        {currentTechOffering.features.map((feature) => (
+                          <span
+                            key={feature}
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-[#294438] bg-[#061A15]/80 px-2.5 py-1 text-xs text-[#DFFF9A]"
+                          >
+                            <Check className="h-3 w-3 text-[#DFFF9A]" />
+                            <span>{feature}</span>
+                          </span>
+                        ))}
                       </div>
                     </div>
 
-                    {/* Integrated CTA Footer */}
-                    <div className="mt-8 pt-6 border-t border-[#294438]/70 flex flex-col sm:flex-row items-center justify-between gap-4">
-                      <div className="flex items-center gap-2 text-xs text-[#B5C2B9]">
-                        <span className="h-2 w-2 rounded-full bg-[#DFFF9A] shadow-[0_0_8px_#DFFF9A]" />
-                        <span>Clean code handover, fully tested, and cloud deployed</span>
-                      </div>
-
-                      <div className="flex items-center gap-3 w-full sm:w-auto">
+                    {/* CTA Row */}
+                    <div className="mt-6 pt-4 border-t border-[#294438]/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+                      <span className="text-xs text-[#B5C2B9]">
+                        Full source code ownership, clean architecture, and deployment included.
+                      </span>
+                      <div className="flex items-center gap-2 w-full sm:w-auto">
                         <a
-                          href={`mailto:${EMAIL}?subject=Tech%20Project%20Inquiry:%20${encodeURIComponent(currentTechOffering.name)}`}
-                          className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-6 text-xs font-bold text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.35)] transition hover:scale-105"
+                          href={`mailto:${EMAIL}?subject=Tech%20Inquiry:%20${encodeURIComponent(currentTechOffering.name)}`}
+                          className="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-1.5 rounded-full bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] px-5 text-xs font-bold text-[#061A15] shadow-[0_4px_14px_rgba(120,230,195,0.3)] transition hover:scale-105"
                         >
                           <span>Discuss Architecture</span>
-                          <ArrowRight className="h-3.5 w-3.5" />
+                          <ArrowRight className="h-3 w-3" />
                         </a>
                         <a
                           href={WHATSAPP_URL}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex h-10 w-full sm:w-auto items-center justify-center gap-2 rounded-full border border-[#294438] bg-[#0B241C] px-4 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] hover:border-[#25D366]/50 transition"
+                          className="inline-flex h-9 w-full sm:w-auto items-center justify-center gap-1.5 rounded-full border border-[#294438] bg-[#0B241C] px-3.5 text-xs font-semibold text-[#B5C2B9] hover:text-[#25D366] transition"
                         >
                           <MessageCircle className="h-3.5 w-3.5 text-[#25D366]" />
-                          <span>WhatsApp Developer</span>
+                          <span>WhatsApp</span>
                         </a>
                       </div>
                     </div>
