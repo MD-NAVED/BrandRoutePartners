@@ -583,62 +583,8 @@ function Hero() {
       id="top"
       className="relative mx-auto max-w-6xl px-5 pb-16 pt-8 sm:px-8 sm:pb-20 sm:pt-14 lg:pt-16"
     >
-      {/* Dedicated Headline Showcase Stage with Floating Pills around it */}
-      <div className="relative mx-auto max-w-4xl py-6 sm:py-10 text-center">
-        {/* Floating Pills - Perfectly mapped with ZERO overlap (Desktop & Tablet) */}
-        <div className="pointer-events-none hidden lg:block">
-          {/* Top Left Pill */}
-          <div className="pointer-events-auto absolute -top-4 left-6 xl:left-12">
-            <FloatingPill
-              text="Personal Branding"
-              delay={0.2}
-              yOffset={7}
-              duration={4.4}
-            />
-          </div>
-
-          {/* Top Right Pill */}
-          <div className="pointer-events-auto absolute -top-4 right-16 xl:right-28">
-            <FloatingPill
-              text="SaaS & MVP Build"
-              delay={0.5}
-              yOffset={8}
-              duration={4.8}
-            />
-          </div>
-
-          {/* Mid Left Pill (to the side of Generate More Leads) */}
-          <div className="pointer-events-auto absolute top-1/2 -translate-y-1/2 -left-6 xl:-left-16">
-            <FloatingPill
-              text="Cold Email Marketing"
-              delay={0.8}
-              yOffset={7}
-              duration={4.0}
-            />
-          </div>
-
-          {/* Mid Right Pill */}
-          <div className="pointer-events-auto absolute top-[65%] -right-4 xl:-right-12">
-            <FloatingPill
-              text="AI Chatbots & Automation"
-              delay={1.1}
-              yOffset={8}
-              duration={4.6}
-            />
-          </div>
-
-          {/* Bottom Center Pill (isolated inside the heading stage, well above subtitle) */}
-          <div className="pointer-events-auto absolute -bottom-5 left-1/2 -translate-x-1/2">
-            <FloatingPill
-              text="Lead Generation Engine"
-              delay={1.4}
-              yOffset={6}
-              duration={4.2}
-            />
-          </div>
-        </div>
-
-
+      {/* Dedicated Headline Showcase Stage */}
+      <div className="relative mx-auto max-w-4xl py-6 sm:py-8 text-center">
         {/* Tagline Badge */}
         <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}>
           <span className="inline-flex items-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/80 px-4 py-1.5 text-xs text-[#F3F5F0] shadow-[0_0_20px_rgba(11,36,28,0.4)]">
@@ -663,15 +609,30 @@ function Hero() {
             Generate More Leads.
           </span>
         </motion.h1>
-      </div>
 
-      {/* 3. Subtitle & CTAs */}
-      <div className="mx-auto mt-6 max-w-2xl text-center">
-        <motion.p
+        {/* Service Pills - Balanced showcase with ZERO text overlap */}
+        <motion.div
           variants={fadeUp}
           initial="hidden"
           animate="show"
           custom={2}
+          className="mt-8 sm:mt-10 mx-auto max-w-3xl flex flex-wrap items-center justify-center gap-2.5 sm:gap-3"
+        >
+          <FloatingPill text="Personal Branding" delay={0.1} yOffset={4} duration={4.2} />
+          <FloatingPill text="SaaS & MVP Build" delay={0.2} yOffset={5} duration={4.6} />
+          <FloatingPill text="Cold Email Marketing" delay={0.3} yOffset={4} duration={4.0} />
+          <FloatingPill text="AI Chatbots & Automation" delay={0.4} yOffset={5} duration={4.5} />
+          <FloatingPill text="Lead Generation" delay={0.5} yOffset={4} duration={4.3} />
+        </motion.div>
+      </div>
+
+      {/* 3. Subtitle & CTAs */}
+      <div className="mx-auto mt-2 sm:mt-4 max-w-2xl text-center">
+        <motion.p
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          custom={3}
           className="text-pretty text-base leading-relaxed text-[#B5C2B9] sm:text-lg"
         >
           Strategy, lead gen, and marketing systems for ambitious businesses.
@@ -684,7 +645,7 @@ function Hero() {
           variants={fadeUp}
           initial="hidden"
           animate="show"
-          custom={3}
+          custom={4}
           className="mt-8 flex flex-col items-center justify-center gap-3.5 sm:flex-row"
         >
           <a
@@ -702,18 +663,6 @@ function Hero() {
             <ArrowDown className="h-4 w-4 text-[#78E6C3] transition-transform group-hover:translate-y-0.5" />
           </a>
         </motion.div>
-
-        {/* Mobile & Tablet Pill cluster */}
-        <div className="mt-8 flex flex-wrap items-center justify-center gap-2.5 lg:hidden">
-          {services.map((s, idx) => (
-            <FloatingPill
-              key={s.name}
-              text={s.name}
-              delay={idx * 0.15}
-              dotPosition={idx % 2 === 0 ? 'top-left' : 'top-right'}
-            />
-          ))}
-        </div>
       </div>
     </section>
   )
