@@ -6,36 +6,14 @@ import {
   ArrowDown,
   ArrowRight,
   ArrowUpRight,
-  Bot,
   Check,
-  ChevronLeft,
-  ChevronRight,
-  Code2,
   Copy,
-  Cpu,
-  Database,
-  Fingerprint,
-  Headset,
-  Layers,
   Mail,
   MapPin,
   Menu,
   MessageCircle,
-  PenTool,
   Phone,
-  PhoneCall,
-  Rocket,
-  Route,
-  Send,
-  Server,
-  Sparkles,
-  Target,
-  Terminal,
-  TrendingUp,
-  Workflow,
   X,
-  Zap,
-  type LucideIcon,
 } from 'lucide-react'
 import { useIsMobile } from '@/hooks/use-mobile'
 
@@ -59,7 +37,6 @@ type Offering = {
   name: string
   tagline: string
   description: string
-  icon: LucideIcon
   badge: string
   category: 'Growth & Outreach' | 'AI & Engineering'
   features: string[]
@@ -74,7 +51,6 @@ const marketingOfferings: Offering[] = [
     category: 'Growth & Outreach',
     description:
       'We optimize your LinkedIn profile and ghostwrite weekly authority content so B2B decision-makers reach out to you via inbound.',
-    icon: Fingerprint,
     features: ['Profile Optimization', 'Ghostwritten Authority Content', 'Inbound DM Funnel'],
     ambientGlow: 'from-[#78E6C3]/35 via-[#1A604D]/25 to-transparent',
   },
@@ -85,7 +61,6 @@ const marketingOfferings: Offering[] = [
     category: 'Growth & Outreach',
     description:
       'We research, verify, and deliver handpicked B2B decision-makers matching your exact ICP — 100% verified, zero scrape waste.',
-    icon: Target,
     features: ['Verified Decision Makers', 'Zero Scrape Waste', 'Custom ICP Targeting'],
     ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
   },
@@ -96,7 +71,6 @@ const marketingOfferings: Offering[] = [
     category: 'Growth & Outreach',
     description:
       'We set up isolated secondary domains with SPF/DKIM/DMARC and warm-up routines to send executive outreach straight to primary inboxes.',
-    icon: Send,
     features: ['Secondary Domain Setup', 'SPF / DKIM / DMARC Security', 'Automated Warmup & Copy'],
     ambientGlow: 'from-[#78E6C3]/35 via-[#0D382B]/25 to-transparent',
   },
@@ -107,7 +81,6 @@ const marketingOfferings: Offering[] = [
     category: 'Growth & Outreach',
     description:
       'We manage incoming replies, handle prospect objections in real-time, and route qualified decision-makers straight to your calendar.',
-    icon: Headset,
     features: ['Real-Time Reply Handling', 'Objection Handling', 'Direct Calendar Bookings'],
     ambientGlow: 'from-[#DFFF9A]/30 via-[#1A604D]/20 to-transparent',
   },
@@ -121,7 +94,6 @@ const techOfferings: Offering[] = [
     category: 'AI & Engineering',
     description:
       'We build production-ready SaaS platforms with Next.js 15, PostgreSQL, Stripe subscription billing, and bulletproof auth.',
-    icon: Layers,
     features: ['Multi-Tenant Cloud SaaS', 'Stripe Billing & Subscriptions', 'Next.js 15 & PostgreSQL'],
     ambientGlow: 'from-[#78E6C3]/35 via-[#1A604D]/25 to-transparent',
   },
@@ -132,7 +104,6 @@ const techOfferings: Offering[] = [
     category: 'AI & Engineering',
     description:
       'We design, build, and launch functional, investor-ready MVPs in 2 to 4 weeks so you can start acquiring paying users immediately.',
-    icon: Rocket,
     features: ['14–30 Days Turnaround', 'Production-Ready Codebase', '100% Code Handover'],
     ambientGlow: 'from-[#DFFF9A]/35 via-[#103D2E]/25 to-transparent',
   },
@@ -143,7 +114,6 @@ const techOfferings: Offering[] = [
     category: 'AI & Engineering',
     description:
       'We build AI chatbots trained on your company data and CRM that qualify inbound leads and answer customer inquiries 24/7 without hallucinations.',
-    icon: Bot,
     features: ['Vector RAG Knowledge Base', '24/7 Lead Qualification', 'Zero Hallucinations'],
     ambientGlow: 'from-[#78E6C3]/35 via-[#0D382B]/25 to-transparent',
   },
@@ -154,7 +124,6 @@ const techOfferings: Offering[] = [
     category: 'AI & Engineering',
     description:
       'We automate repetitive manual tasks using custom LLM agents, document parsing, and seamless cross-platform API connectors.',
-    icon: Cpu,
     features: ['Autonomous Agent Pipelines', 'Document & PDF Parsing', 'Cross-App Integrations'],
     ambientGlow: 'from-[#DFFF9A]/30 via-[#1A604D]/20 to-transparent',
   },
@@ -163,138 +132,8 @@ const techOfferings: Offering[] = [
 // Backward-compatible array for footer & navigation
 const services: Offering[] = [...marketingOfferings, ...techOfferings]
 
-type BlueprintStep = {
-  step: string
-  stage: string
-  timeline: string
-  title: string
-  highlight: string
-  description: string
-  icon: LucideIcon
-}
-
-const marketingProcess: BlueprintStep[] = [
-  {
-    step: '01',
-    stage: 'Discovery',
-    timeline: 'Day 1',
-    title: 'Strategy & ICP Alignment',
-    highlight: 'Zero-pressure positioning audit',
-    description:
-      'We unpack your highest-margin offers, define your exact ideal customer profile (ICP), and architect winning outreach angles.',
-    icon: PhoneCall,
-  },
-  {
-    step: '02',
-    stage: 'Architecture',
-    timeline: 'Week 1',
-    title: 'Domain & Warmup Setup',
-    highlight: '100% deliverability infrastructure',
-    description:
-      'We spin up dedicated secondary domains with SPF, DKIM, DMARC records and initiate automated warm-up sequences.',
-    icon: Terminal,
-  },
-  {
-    step: '03',
-    stage: 'Deployment',
-    timeline: 'Week 2',
-    title: 'Precision Outbound Go-Live',
-    highlight: 'High-authority campaign launch',
-    description:
-      'Personalized, multi-variant campaigns launch to verified decision-makers. Copy is calibrated around your unique voice.',
-    icon: Rocket,
-  },
-  {
-    step: '04',
-    stage: 'Velocity',
-    timeline: 'Continuous',
-    title: 'Booked Calls & Scaling',
-    highlight: 'Compound pipeline growth',
-    description:
-      'We qualify positive responses, route meetings onto your calendar, and continuously optimize messaging based on reply metrics.',
-    icon: TrendingUp,
-  },
-]
-
-const techProcess: BlueprintStep[] = [
-  {
-    step: '01',
-    stage: 'Blueprint',
-    timeline: 'Days 1–3',
-    title: 'Scope, PRD & Architecture',
-    highlight: 'System design & database schema',
-    description:
-      'We draft the technical specs, map out user stories, design the database schema, and finalize the modern tech stack.',
-    icon: Terminal,
-  },
-  {
-    step: '02',
-    stage: 'Sprint',
-    timeline: 'Weeks 1–2',
-    title: 'Rapid Full-Stack Build',
-    highlight: 'Clean, production-grade code',
-    description:
-      'Intense engineering sprint: responsive UI components, database models, auth flows, API routes, and core functionality.',
-    icon: Code2,
-  },
-  {
-    step: '03',
-    stage: 'Intelligence',
-    timeline: 'Week 3',
-    title: 'AI & Workflow Integration',
-    highlight: 'RAG, LLMs & API automations',
-    description:
-      'We wire up LLM models, vector search, custom bots, payment gateways, and autonomous background automations.',
-    icon: Cpu,
-  },
-  {
-    step: '04',
-    stage: 'Launch',
-    timeline: 'Week 4',
-    title: 'Cloud Deploy & Code Handover',
-    highlight: 'Zero-downtime launch & handover',
-    description:
-      'End-to-end testing, security audit, production deployment on Vercel/AWS with custom domains, and full source code handover.',
-    icon: Server,
-  },
-]
-
-const techStackCategories = [
-  {
-    title: 'Frontend & Interfaces',
-    badge: 'UI & UX',
-    icon: Code2,
-    skills: ['Next.js 15 (App Router)', 'React 19', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Radix / shadcn/ui'],
-  },
-  {
-    title: 'Backend & APIs',
-    badge: 'Core Engine',
-    icon: Server,
-    skills: ['Node.js', 'Python', 'FastAPI', 'Express.js', 'REST & GraphQL', 'Serverless & Edge Workers'],
-  },
-  {
-    title: 'Databases & Storage',
-    badge: 'Data Layer',
-    icon: Database,
-    skills: ['PostgreSQL', 'Supabase', 'Prisma ORM', 'Redis Cache', 'Cloud Storage / S3'],
-  },
-  {
-    title: 'AI, LLMs & Agents',
-    badge: 'Intelligence',
-    icon: Bot,
-    skills: ['OpenAI GPT-4o', 'Anthropic Claude 3.5', 'LangChain', 'LlamaIndex', 'pgvector & Pinecone', 'Autonomous Agentic Loops'],
-  },
-  {
-    title: 'DevOps & Deployment',
-    badge: 'Infrastructure',
-    icon: Terminal,
-    skills: ['Vercel', 'Docker', 'AWS (ECS / S3 / Lambda)', 'GitHub Actions CI/CD', 'Cloudflare DNS & CDN'],
-  },
-]
-
 const engines = [
   {
-    icon: Sparkles,
     name: 'Media & Growth',
     role: 'The Attention Engine',
     theme: 'mint',
@@ -303,7 +142,6 @@ const engines = [
     chips: ['Personal Branding', 'Content & Outreach', 'Lead Generation Engine'],
   },
   {
-    icon: Cpu,
     name: 'Engineering',
     role: 'The Build Engine',
     theme: 'lime',
@@ -666,8 +504,7 @@ function Hero() {
       <div className="relative mx-auto max-w-4xl py-6 sm:py-8 text-center">
         {/* Tagline Badge */}
         <motion.div variants={fadeUp} initial="hidden" animate="show" custom={0}>
-          <span className="inline-flex items-center gap-2 rounded-full border border-[#294438] bg-[#0B241C]/80 px-4 py-1.5 text-xs text-[#F3F5F0] shadow-[0_0_20px_rgba(11,36,28,0.4)]">
-            <Sparkles className="h-3.5 w-3.5 text-[#78E6C3]" />
+          <span className="inline-flex items-center rounded-full border border-[#294438] bg-[#0B241C]/80 px-4 py-1.5 text-xs text-[#F3F5F0] shadow-[0_0_20px_rgba(11,36,28,0.4)]">
             <span className="font-semibold tracking-[0.15em] uppercase text-[#DFFF9A]">
               BRANDING × LEADS × TECHNOLOGY
             </span>
@@ -950,9 +787,8 @@ function DualEngineHub() {
                         {currentMarketingOffering.features.map((feature) => (
                           <span
                             key={feature}
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-[#294438] bg-[#061A15]/80 px-2.5 py-1 text-xs text-[#78E6C3]"
+                            className="inline-flex items-center rounded-lg border border-[#294438] bg-[#061A15]/80 px-2.5 py-1 text-xs text-[#78E6C3]"
                           >
-                            <Check className="h-3 w-3 text-[#78E6C3]" />
                             <span>{feature}</span>
                           </span>
                         ))}
@@ -1120,9 +956,8 @@ function DualEngineHub() {
                         {currentTechOffering.features.map((feature) => (
                           <span
                             key={feature}
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-[#294438] bg-[#061A15]/80 px-2.5 py-1 text-xs text-[#DFFF9A]"
+                            className="inline-flex items-center rounded-lg border border-[#294438] bg-[#061A15]/80 px-2.5 py-1 text-xs text-[#DFFF9A]"
                           >
-                            <Check className="h-3 w-3 text-[#DFFF9A]" />
                             <span>{feature}</span>
                           </span>
                         ))}
@@ -1182,7 +1017,6 @@ function AboutSection() {
         {/* Dual Companion Slabs: Media & Growth (Mint) vs Engineering (Lime) */}
         <div className="mt-12 grid gap-5 md:grid-cols-2">
           {engines.map((engine, i) => {
-            const Icon = engine.icon
             const isMint = engine.theme === 'mint'
             return (
               <motion.article
@@ -1206,24 +1040,18 @@ function AboutSection() {
                   <div className="pointer-events-none absolute -bottom-10 inset-x-0 h-32 bg-gradient-to-t from-[#78E6C3]/15 to-transparent blur-xl" />
                   <div className="pointer-events-none absolute -left-16 -top-16 h-40 w-40 rounded-full bg-[#78E6C3]/0 blur-3xl transition-colors duration-500 group-hover:bg-[#78E6C3]/15" />
                   
-                  <div className="flex items-center gap-4">
-                    <span
-                      className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border shadow-[0_0_24px_rgba(11,36,28,0.5),inset_0_1px_1px_rgba(120,230,195,0.3)] ${
-                        isMint
-                          ? 'border-[#78E6C3]/30 bg-gradient-to-br from-[#1A604D]/60 to-[#0B241C]/80 text-[#78E6C3]'
-                          : 'border-[#DFFF9A]/30 bg-gradient-to-br from-[#123E2F]/60 to-[#0B241C]/80 text-[#DFFF9A]'
-                      }`}
-                    >
-                      <Icon className="h-6 w-6" strokeWidth={1.75} />
-                    </span>
+                  <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-xl font-semibold tracking-tight text-[#F3F5F0]">
-                        {engine.name}
-                      </h3>
-                      <p className="mt-0.5 font-mono text-xs uppercase tracking-[0.16em] text-[#78E6C3]/90">
+                      <p className="font-mono text-xs uppercase tracking-[0.16em] text-[#78E6C3]/90">
                         {engine.role}
                       </p>
+                      <h3 className="mt-1 text-2xl font-bold tracking-tight text-[#F3F5F0]">
+                        {engine.name}
+                      </h3>
                     </div>
+                    <span className="font-mono text-xs font-semibold px-2.5 py-1 rounded-full bg-[#061A15] border border-[#294438] text-[#DFFF9A]">
+                      {`0${i + 1}`}
+                    </span>
                   </div>
                   <p className="mt-5 text-sm leading-relaxed text-[#B5C2B9]">
                     {engine.description}
