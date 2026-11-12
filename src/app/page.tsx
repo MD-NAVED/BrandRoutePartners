@@ -794,19 +794,19 @@ function DualEngineHub() {
 
   // Available buttons for Marketing (Kaise Karte Hain Vo removed)
   const marketingTabs = [
-    { id: 'Personal Branding', label: 'Personal Branding', icon: Fingerprint },
-    { id: 'High-Intent Lead Generation', label: 'Lead Generation', icon: Target },
-    { id: 'Cold Email Infrastructure', label: 'Cold Email Setup', icon: Send },
-    { id: 'Sales Support & Deal Closing', label: 'Sales Support', icon: Headset },
+    { id: 'Personal Branding', label: 'Personal Branding' },
+    { id: 'High-Intent Lead Generation', label: 'Lead Generation' },
+    { id: 'Cold Email Infrastructure', label: 'Cold Email Setup' },
+    { id: 'Sales Support & Deal Closing', label: 'Sales Support' },
   ]
 
   // Available buttons for Tech (Kaise Karte Hain Vo removed)
   const techTabs = [
-    { id: 'Full-Stack SaaS Development', label: 'SaaS Development', icon: Layers },
-    { id: 'Rapid MVP in 2–4 Weeks', label: 'Rapid MVP (2-4 Wks)', icon: Rocket },
-    { id: 'Custom AI Chatbots & RAG', label: 'AI Chatbots', icon: Bot },
-    { id: 'AI Automation & Agentic Workflows', label: 'AI Automation', icon: Cpu },
-    { id: 'tech-stack', label: 'Tech Stack', icon: Code2 },
+    { id: 'Full-Stack SaaS Development', label: 'SaaS Development' },
+    { id: 'Rapid MVP in 2–4 Weeks', label: 'Rapid MVP (2-4 Wks)' },
+    { id: 'Custom AI Chatbots & RAG', label: 'AI Chatbots' },
+    { id: 'AI Automation & Agentic Workflows', label: 'AI Automation' },
+    { id: 'tech-stack', label: 'Tech Stack' },
   ]
 
   const currentMarketingOffering = marketingOfferings.find((s) => s.name === activeMarketingTab)
@@ -844,26 +844,24 @@ function DualEngineHub() {
             <button
               type="button"
               onClick={() => setActivePillar('marketing')}
-              className={`relative z-10 flex items-center gap-2 rounded-full px-4 py-2 sm:px-5 sm:py-2 text-xs sm:text-sm font-bold transition-all duration-200 ${
+              className={`relative z-10 flex items-center justify-center rounded-full px-5 py-2 sm:px-6 sm:py-2 text-xs sm:text-sm font-bold tracking-tight transition-all duration-200 ${
                 activePillar === 'marketing'
                   ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.4)] scale-[1.02]'
                   : 'text-[#B5C2B9] hover:text-[#F3F5F0]'
               }`}
             >
-              <Sparkles className="h-3.5 w-3.5 shrink-0" />
               <span>Marketing & Growth</span>
             </button>
 
             <button
               type="button"
               onClick={() => setActivePillar('tech')}
-              className={`relative z-10 flex items-center gap-2 rounded-full px-4 py-2 sm:px-5 sm:py-2 text-xs sm:text-sm font-bold transition-all duration-200 ${
+              className={`relative z-10 flex items-center justify-center rounded-full px-5 py-2 sm:px-6 sm:py-2 text-xs sm:text-sm font-bold tracking-tight transition-all duration-200 ${
                 activePillar === 'tech'
                   ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_4px_16px_rgba(120,230,195,0.4)] scale-[1.02]'
                   : 'text-[#B5C2B9] hover:text-[#F3F5F0]'
               }`}
             >
-              <Code2 className="h-3.5 w-3.5 shrink-0" />
               <span>Tech Stack & Engineering</span>
             </button>
           </div>
@@ -873,48 +871,36 @@ function DualEngineHub() {
         <div className="mt-6 flex flex-wrap items-center justify-center gap-2">
           {activePillar === 'marketing' ? (
             marketingTabs.map((tab) => {
-              const TabIcon = tab.icon
               const isSelected = activeMarketingTab === tab.id
               return (
                 <button
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveMarketingTab(tab.id)}
-                  className={`group relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-150 ${
+                  className={`group relative flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold transition-all duration-150 ${
                     isSelected
                       ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_3px_12px_rgba(120,230,195,0.35)] scale-[1.03]'
                       : 'border border-[#294438] bg-[#0B241C]/80 text-[#B5C2B9] hover:border-[#78E6C3]/40 hover:text-white'
                   }`}
                 >
-                  <TabIcon
-                    className={`h-3.5 w-3.5 ${
-                      isSelected ? 'text-[#061A15]' : 'text-[#78E6C3]'
-                    }`}
-                  />
                   <span>{tab.label}</span>
                 </button>
               )
             })
           ) : (
             techTabs.map((tab) => {
-              const TabIcon = tab.icon
               const isSelected = activeTechTab === tab.id
               return (
                 <button
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTechTab(tab.id)}
-                  className={`group relative flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold transition-all duration-150 ${
+                  className={`group relative flex items-center justify-center rounded-full px-4 py-2 text-xs font-semibold transition-all duration-150 ${
                     isSelected
                       ? 'bg-gradient-to-r from-[#DFFF9A] to-[#78E6C3] text-[#061A15] shadow-[0_3px_12px_rgba(120,230,195,0.35)] scale-[1.03]'
                       : 'border border-[#294438] bg-[#0B241C]/80 text-[#B5C2B9] hover:border-[#DFFF9A]/40 hover:text-white'
                   }`}
                 >
-                  <TabIcon
-                    className={`h-3.5 w-3.5 ${
-                      isSelected ? 'text-[#061A15]' : 'text-[#DFFF9A]'
-                    }`}
-                  />
                   <span>{tab.label}</span>
                 </button>
               )
@@ -928,7 +914,6 @@ function DualEngineHub() {
             {activePillar === 'marketing' ? (
               /* Marketing Service Detail: Pure Kaam, Minimal Text */
               currentMarketingOffering && (() => {
-                const CurrentIcon = currentMarketingOffering.icon
                 return (
                   <motion.div
                     key={currentMarketingOffering.name}
@@ -942,18 +927,13 @@ function DualEngineHub() {
 
                     {/* Header Row */}
                     <div className="flex items-center justify-between pb-4 border-b border-[#294438]/60">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#78E6C3]/30 bg-[#0B241C] text-[#78E6C3]">
-                          <CurrentIcon className="h-5 w-5" strokeWidth={1.8} />
-                        </div>
-                        <div>
-                          <h3 className="text-lg sm:text-xl font-bold text-[#F3F5F0]">
-                            {currentMarketingOffering.name}
-                          </h3>
-                          <p className="text-xs text-[#78E6C3]">
-                            {currentMarketingOffering.tagline}
-                          </p>
-                        </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold text-[#F3F5F0]">
+                          {currentMarketingOffering.name}
+                        </h3>
+                        <p className="text-xs text-[#78E6C3]">
+                          {currentMarketingOffering.tagline}
+                        </p>
                       </div>
                       <span className="font-mono text-[10px] text-[#DFFF9A] px-2.5 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
                         {currentMarketingOffering.badge}
@@ -1020,8 +1000,7 @@ function DualEngineHub() {
 
                 {/* Header */}
                 <div className="flex items-center justify-between pb-4 border-b border-[#294438]/60">
-                  <div className="flex items-center gap-2.5">
-                    <Code2 className="h-5 w-5 text-[#DFFF9A]" />
+                  <div>
                     <h3 className="text-base sm:text-lg font-bold text-[#F3F5F0]">
                       Tech Stack • Modern & Scalable
                     </h3>
@@ -1105,7 +1084,6 @@ function DualEngineHub() {
             ) : (
               /* Tech Service Detail: Pure Kaam, Minimal Text */
               currentTechOffering && (() => {
-                const CurrentIcon = currentTechOffering.icon
                 return (
                   <motion.div
                     key={currentTechOffering.name}
@@ -1119,18 +1097,13 @@ function DualEngineHub() {
 
                     {/* Header Row */}
                     <div className="flex items-center justify-between pb-4 border-b border-[#294438]/60">
-                      <div className="flex items-center gap-3">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#DFFF9A]/30 bg-[#0B241C] text-[#DFFF9A]">
-                          <CurrentIcon className="h-5 w-5" strokeWidth={1.8} />
-                        </div>
-                        <div>
-                          <h3 className="text-lg sm:text-xl font-bold text-[#F3F5F0]">
-                            {currentTechOffering.name}
-                          </h3>
-                          <p className="text-xs text-[#DFFF9A]">
-                            {currentTechOffering.tagline}
-                          </p>
-                        </div>
+                      <div>
+                        <h3 className="text-lg sm:text-xl font-bold text-[#F3F5F0]">
+                          {currentTechOffering.name}
+                        </h3>
+                        <p className="text-xs text-[#DFFF9A]">
+                          {currentTechOffering.tagline}
+                        </p>
                       </div>
                       <span className="font-mono text-[10px] text-[#78E6C3] px-2.5 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
                         {currentTechOffering.badge}
