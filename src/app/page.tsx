@@ -806,7 +806,7 @@ function DualEngineHub() {
     { id: 'Rapid MVP in 2–4 Weeks', label: 'Rapid MVP (2-4 Wks)', icon: Rocket },
     { id: 'Custom AI Chatbots & RAG', label: 'AI Chatbots', icon: Bot },
     { id: 'AI Automation & Agentic Workflows', label: 'AI Automation', icon: Cpu },
-    { id: 'tech-stack', label: 'Mera Tech Stack', icon: Code2 },
+    { id: 'tech-stack', label: 'Tech Stack', icon: Code2 },
   ]
 
   const currentMarketingOffering = marketingOfferings.find((s) => s.name === activeMarketingTab)
@@ -1023,7 +1023,7 @@ function DualEngineHub() {
                   <div className="flex items-center gap-2.5">
                     <Code2 className="h-5 w-5 text-[#DFFF9A]" />
                     <h3 className="text-base sm:text-lg font-bold text-[#F3F5F0]">
-                      Mera Tech Stack • Modern & Scalable
+                      Tech Stack • Modern & Scalable
                     </h3>
                   </div>
                   <span className="font-mono text-[10px] text-[#78E6C3] px-2.5 py-0.5 rounded-full bg-[#061A15] border border-[#294438]">
