@@ -1199,7 +1199,7 @@ function ContactSection() {
 
             <span className="inline-flex items-center gap-1.5 text-[#B5C2B9]/70">
               <MapPin className="h-4 w-4 text-[#78E6C3]" />
-              <span>Indore, India — working worldwide</span>
+              <span>India — working worldwide</span>
             </span>
           </div>
         </motion.div>
